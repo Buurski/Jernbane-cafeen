@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jernbane Cafeen — Hyggeligt stationscafé i Ikast</title>
+  <meta name="description" content="Jernbane Cafeen i Ikast. Sæsonmad, tapas, frokost og catering til op til 40 gæster. Lille Torv 3, 7430 Ikast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="nav-left">
+      <a href="#menu" class="nav-link">Menukort</a>
+      <a href="#catering" class="nav-link">Catering</a>
+    </div>
+    <a href="#top" class="nav-logo-link">
+      <img src="billeder/jernbane-logo-lys.png" alt="Jernbane Cafeen" class="nav-logo" id="navLogo">
+    </a>
+    <div class="nav-right">
+      <a href="#om" class="nav-link">Om cafeen</a>
+      <a href="#kontakt" class="nav-link">Kontakt</a>
+      <a href="#kontakt" class="btn-solid">Book bord</a>
+    </div>
+    <button class="burger" aria-label="Åbn menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. HERO -->
+    <section class="hero" data-tone="dark" aria-label="Velkomst">
+      <div class="hero-right reveal">
+        <img src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen logo" class="hero-logo">
+        <p class="eyebrow">Café & Catering · Ikast</p>
+        <p class="body-lg">Velkommen indenfor. Vi serverer sæsonens bedste — til hverdag og fest.</p>
+        <a href="#menu" class="btn-outline">Se vores menukort</a>
+      </div>
+      <div class="hero-left">
+        <img src="billeder/hero-facade.png" alt="Jernbane Cafeens facade i Ikast" data-parallax="0.12" style="background:#2E2A26">
+        <div class="hero-overlay"></div>
+        <p class="hero-tagline">Hyggeligt stationscafé.<br><em>Dejlig mad. Godt selskab.</em></p>
+        <div class="scroll-cue" aria-hidden="true">
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INFO-STRIP -->
+    <section class="info-strip" aria-label="Kontaktinfo">
+      <div class="reveal" data-delay="1">
+        <p class="eyebrow">Find os</p>
+        <p class="body">Lille Torv 3, 7430 Ikast<br><em>Lige ved stationen</em></p>
+      </div>
+      <div class="reveal" data-delay="2">
+        <p class="eyebrow">Åbningstider</p>
+        <p class="body">
+          Ons: 16–20 · Tor–fre: 12–20<br>
+          Lør: 12–20 · Søn: 12–19<br>
+          <em>Man–tirs: Lukket</em>
+        </p>
+      </div>
+      <div class="reveal" data-delay="3">
+        <p class="eyebrow">Ring eller skriv</p>
+        <p class="body"><a href="tel:30807241">30 80 72 41</a><br><a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a></p>
+      </div>
+    </section>
+
+    <!-- 3. OM CAFEEN -->
+    <section class="section-pad" id="om" aria-label="Om cafeen">
+      <div class="col-wide om-grid">
+        <div class="om-text reveal">
+          <p class="eyebrow">Om os</p>
+          <h2>Mere end bare et cafeteria</h2>
+          <div class="separator"></div>
+          <p class="body-lg">Vi er naboernes café ved stationen i Ikast. Her er plads til den gode frokost, en kop kaffe og hyggeligt samvær — uanset om du kommer alene eller med hele firmaet.</p>
+          <p class="body">Vores køkken tager udgangspunkt i sæsonens råvarer og serverer alt fra klassiske frokoster til tapas og Thai. Og kan vi ikke rumme jer, bringer vi maden ud til jer.</p>
+          <a href="#menu" class="btn-ghost">Se menukort <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+        <div class="pair offset-right reveal" data-delay="2">
+          <div class="pair-frame">
+            <img src="billeder/om-interior.png" alt="Interiør i Jernbane Cafeen" loading="lazy" style="background:#3A3028">
+          </div>
+          <div class="pair-frame">
+            <img src="billeder/mad-restaurant2.jpg" alt="Mad fra Jernbane Cafeen" loading="lazy" style="background:#2E2A26">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MENUKORT -->
+    <section class="section-pad-sm" id="menu" aria-label="Menukort">
+      <div class="col-wide">
+        <div class="section-header reveal">
+          <p class="eyebrow">Hvad serverer vi</p>
+          <h2>Mad med sjæl</h2>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card reveal" data-delay="1">
+            <span class="menu-num" aria-hidden="true">01</span>
+            <h3>Frokostmenu</h3>
+            <div class="separator"></div>
+            <p class="body">Klassikere med sæsonens touch. Dagens ret skifter — kom ind og se, hvad der er på.</p>
+            <a href="#kontakt" class="btn-ghost">Spørg om dagens ret <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+          <div class="menu-card reveal" data-delay="2">
+            <span class="menu-num" aria-hidden="true">02</span>
+            <h3>Tapas</h3>
+            <div class="separator"></div>
+            <p class="body">Perfekt til deling. Små retter med masser af smag — Thai, klassisk og sæsonmad.</p>
+            <a href="#kontakt" class="btn-ghost">Book tapas-aften <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+          <div class="menu-card reveal" data-delay="3">
+            <span class="menu-num" aria-hidden="true">03</span>
+            <h3>Catering</h3>
+            <div class="separator"></div>
+            <p class="body">Vi bringer hyggen hjem til jer. Op til ca. 40 gæster i cafeen eller transportabel til dit sted.</p>
+            <a href="#catering" class="btn-ghost">Læs mere <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BREDT STEMNINGSFOTO -->
+    <section class="wide-photo" aria-label="Stemningsbillede fra cafeen">
+      <img src="billeder/mad-restaurant.jpg" alt="" data-parallax="0.08" style="background:#3A3028">
+      <p class="wide-caption caption">Et hyggeligt hjørne ved stationen</p>
+    </section>
+
+    <!-- 6. CATERING -->
+    <section class="catering-section section-pad" id="catering" data-tone="dark" aria-label="Catering og selskaber">
+      <div class="col-wide catering-grid">
+        <div class="catering-text reveal-left">
+          <p class="eyebrow">Catering & Selskaber</p>
+          <h2>Vi bringer hyggen hjem til jer</h2>
+          <div class="separator"></div>
+          <p class="body-lg">Autentisk mad til jeres fest — transportabel eller med os som vært. Plads til ca. 40 gæster i cafeen.</p>
+          <p class="body">Thai, tapas og sæsonmad. Vi tilpasser menuen til anledningen — hvad enten det er firmafrokost, familiefest eller firmaårsfest.</p>
+          <p class="body">96% af vores gæster anbefaler os på Facebook.</p>
+          <a href="#kontakt" class="btn-solid">Få et tilbud</a>
+        </div>
+        <div class="catering-image reveal-right">
+          <div class="pair-frame">
+            <img src="billeder/mad-catering.png" alt="Cateringmad fra Jernbane Cafeen" loading="lazy" style="background:#3A2010">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ANMELDELSER -->
+    <section class="reviews-section section-pad" aria-label="Gæsteanmeldelser">
+      <div class="col-wide">
+        <div class="reviews-header reveal">
+          <p class="eyebrow">Hvad siger vores gæster</p>
+          <h2><span class="counter-num" data-target="96">96</span>% anbefaler os</h2>
+        </div>
+      </div>
+      <div class="reviews-marquee-outer">
+        <div class="reviews-marquee" id="reviewsMarquee"></div>
+      </div>
+    </section>
+
+    <!-- 8. CITAT -->
+    <section class="quote-section section-pad">
+      <div class="col-narrow reveal">
+        <div class="separator separator-center"></div>
+        <blockquote class="quote-text">
+          <em>"Hyggeligt stationscafé, med dejlig mad og drikke."</em>
+        </blockquote>
+        <div class="separator separator-center"></div>
+        <p class="caption">— Jernbane Cafeen · Ikast</p>
+      </div>
+    </section>
+
+    <!-- 9. KONTAKT & FIND OS -->
+    <section class="section-pad" id="kontakt" aria-label="Kontakt og find os">
+      <div class="col-wide kontakt-grid">
+        <div class="kontakt-info reveal">
+          <p class="eyebrow">Find os</p>
+          <h2>Kom forbi</h2>
+          <div class="separator"></div>
+          <address class="body">
+            Lille Torv 3<br>7430 Ikast<br><br>
+            <a href="tel:30807241">30 80 72 41</a><br>
+            <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a><br>
+            <a href="https://facebook.com/p/Jernbane-cafeen-100094077635043" target="_blank" rel="noopener">Facebook</a>
+          </address>
+          <div class="maps-link">
+            <a href="https://maps.google.com/?q=Lille+Torv+3,+7430+Ikast" target="_blank" rel="noopener" class="btn-ghost">Find vej <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="kontakt-form reveal" data-delay="2">
+          <p class="eyebrow">Book bord eller catering</p>
+          <form class="form" action="mailto:info@jbcafeen.dk" method="POST" enctype="text/plain">
+            <div class="form-group">
+              <label for="navn" class="form-label">Navn</label>
+              <input type="text" id="navn" name="navn" class="form-input" required autocomplete="name" minlength="2" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="telefon" class="form-label">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" class="form-input" autocomplete="tel" maxlength="20">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required autocomplete="email" maxlength="150">
+            </div>
+            <div class="form-group">
+              <label for="besked" class="form-label">Besked</label>
+              <textarea id="besked" name="besked" class="form-input form-textarea" rows="4" required minlength="10" maxlength="2000"></textarea>
+            </div>
+            <button type="submit" class="btn-solid">Send besked</button>
+          </form>
+        </div>
+        <div class="kontakt-kort reveal" data-delay="3">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2224.0!2d9.15542!3d56.13916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c0c2f5ab6abe7%3A0xb3f24d3d0e12c35a!2sLille+Torv+3%2C+7430+Ikast!5e0!3m2!1sda!2sdk!4v1"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Jernbane Cafeen på kortet">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" data-tone="dark" aria-label="Sidefod">
+    <div class="footer-grid">
+      <div>
+        <img src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen" class="footer-logo">
+        <p>Hyggeligt stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <address>
+          Lille Torv 3, 7430 Ikast<br>
+          <a href="tel:30807241">30 80 72 41</a><br>
+          <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a>
+        </address>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <nav aria-label="Footer navigation">
+          <a href="#menu">Menukort</a>
+          <a href="#catering">Catering</a>
+          <a href="#om">Om cafeen</a>
+          <a href="#kontakt">Find os</a>
+          <a href="https://facebook.com/p/Jernbane-cafeen-100094077635043" target="_blank" rel="noopener">Facebook</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Jernbane Cafeen · Lille Torv 3, 7430 Ikast</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
