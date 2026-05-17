@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menukort — Jernbane Cafeen i Ikast</title>
+  <meta name="description" content="Frokostmenu kl. 12-16 og aftenmenu kl. 16-20 på Jernbane Cafeen i Ikast. Dansk klassisk og thailandsk hverdagsmad. Lille Torv 3, 7430 Ikast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="nav-left">
+      <a href="menu.html" class="nav-link" aria-current="page">Menukort</a>
+      <a href="catering.html" class="nav-link">Catering</a>
+    </div>
+    <a href="index.html#top" class="nav-logo-link">
+      <img src="billeder/jernbane-logo-lys.png" alt="Jernbane Cafeen" class="nav-logo" id="navLogo">
+    </a>
+    <div class="nav-right">
+      <a href="om-os.html" class="nav-link">Om os</a>
+      <a href="index.html#kontakt" class="nav-link">Kontakt</a>
+      <a href="index.html#kontakt" class="btn-solid">Book bord</a>
+    </div>
+    <button class="burger" aria-label="Åbn menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. SUBPAGE HERO -->
+    <section class="subpage-hero" data-tone="dark" aria-label="Menukort">
+      <img src="billeder/mad-restaurant2.jpg" alt="" data-parallax="0.10" style="background:#2E2A26">
+      <div class="subpage-hero-overlay"></div>
+      <div class="subpage-hero-content reveal">
+        <p class="eyebrow">Menukort</p>
+        <h1>Hvad er på menuen</h1>
+        <p class="body-lg">Frokost fra kl. 12, aften fra kl. 16. Dansk klassisk og thailandsk hverdagsmad. Menuen skifter løbende — kig forbi for at se hvad vi har i dag.</p>
+      </div>
+    </section>
+
+    <!-- 2. DAGENS RET (placeholder — kommer fra Notion senere) -->
+    <section class="section-pad-sm" id="dagens-ret" aria-label="Dagens ret">
+      <div class="col-wide">
+        <div class="dagens-ret-card reveal">
+          <div class="dagens-ret-card-text">
+            <p class="eyebrow">Dagens ret</p>
+            <h2>Opdateres dagligt af køkkenet</h2>
+            <div class="separator"></div>
+            <p class="body-lg">Niels og Rapheephon lægger dagens ret op her hver morgen. Lige nu er den ikke koblet på — det kommer snart. Indtil da, ring til os på <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad vi har på i dag.</p>
+            <p class="body" style="margin-top:8px"><em>Vi serverer dagens ret som en del af både frokost- og aftenmenuen.</em></p>
+          </div>
+          <div class="dagens-ret-card-image">
+            <div class="dagens-ret-card-image-placeholder" aria-hidden="true">
+              <span>Billede af dagens ret<br><em>(opdateres af køkkenet)</em></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FROKOST + AFTEN (kolonner på desktop, tabs på mobil) -->
+    <section class="section-pad" id="frokost" aria-label="Frokost- og aftenmenu">
+      <div class="col-wide">
+
+        <!-- Tabs (kun synlige på mobil) -->
+        <div class="menu-tabs" role="tablist" aria-label="Vælg menu">
+          <button class="menu-tab is-active" role="tab" aria-selected="true" aria-controls="frokost" data-tab="frokost">Frokostmenu</button>
+          <button class="menu-tab" role="tab" aria-selected="false" aria-controls="aften" data-tab="aften">Aftenmenu</button>
+        </div>
+
+        <div class="menu-cols">
+
+          <!-- FROKOST -->
+          <div class="menu-col is-active" role="tabpanel" id="frokost" data-pane="frokost" style="scroll-margin-top:120px">
+            <p class="eyebrow">Frokostmenu</p>
+            <p class="menu-time caption">Kl. 12 – 16</p>
+            <div class="separator"></div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Stjerneskud med det hele</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">140 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Pariserbøf</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">149 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Dagens smørrebrød</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">35 kr/stk</span>
+              </li>
+              <li>
+                <span class="item-name">Fiskefilet m. rejer og rugbrød</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">65 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Dagens sandwich</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">65 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Dagens salat</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">75 kr</span>
+              </li>
+              <li class="item-note">
+                <em>Tilvalg til salat: kylling 40 kr · røget laks 40 kr</em>
+              </li>
+              <li>
+                <span class="item-name">10 små forårsruller m. grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">55 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Panang m. kylling, rød curry og grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">85 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Stegte ris m. æg og grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">110 kr</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- AFTEN -->
+          <div class="menu-col" role="tabpanel" id="aften" data-pane="aften" style="scroll-margin-top:120px" hidden>
+            <p class="eyebrow">Aftenmenu</p>
+            <p class="menu-time caption">Kl. 16 – 20</p>
+            <div class="separator"></div>
+            <ul class="menu-items">
+              <li>
+                <span class="item-name">Oksesteak m. fritter og bearnaise</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">170 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Stjerneskud med det hele</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">140 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Café Burger m. fritter</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">140 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Bøf m. bløde løg, brun sovs og kartofler</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">140 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Panang m. kylling, rød curry og grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">85 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Stegte ris m. æg og grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">110 kr</span>
+              </li>
+              <li>
+                <span class="item-name">10 små forårsruller m. grønt</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">55 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Stegte nudler m. kylling og grøntsager</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">125 kr</span>
+              </li>
+              <li>
+                <span class="item-name">Oksekødstrimler i østerssauce m. ris</span>
+                <span class="item-leader" aria-hidden="true"></span>
+                <span class="item-price">140 kr</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. NOTER -->
+    <section class="section-pad-sm" aria-label="Noter til menuen">
+      <div class="col-narrow" style="text-align:center">
+        <div class="separator separator-center"></div>
+        <p class="body" style="font-family:var(--f-display); font-style:italic; color:var(--c-ink); font-size:18px; margin:24px 0 16px"><em>Torsdags-tapas — spørg om aktuelle retter, det skifter ugentligt.</em></p>
+        <p class="caption" style="margin-bottom:12px">Retterne kan tilpasses efter ønske i forhold til allergener.</p>
+        <div class="separator separator-center"></div>
+      </div>
+    </section>
+
+    <!-- 5. CTA -->
+    <section class="section-pad-sm" aria-label="Book bord">
+      <div class="col-narrow" style="text-align:center">
+        <p class="eyebrow">Klar til at komme forbi?</p>
+        <h2>Vi sidder klar på stationen</h2>
+        <div class="separator separator-center"></div>
+        <p class="body" style="margin-top:8px">Ring på <a href="tel:30807241">30 80 72 41</a> eller skriv til <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a>.</p>
+        <p style="margin-top:32px">
+          <a href="index.html#kontakt" class="btn-solid" style="margin-right:12px">Book bord</a>
+          <a href="catering.html" class="btn-outline" style="border-color:var(--c-ink); color:var(--c-ink)">Catering & lejekok</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" data-tone="dark" aria-label="Sidefod">
+    <div class="footer-grid">
+      <div>
+        <img src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen" class="footer-logo">
+        <p>Hyggeligt stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <address>
+          Lille Torv 3, 7430 Ikast<br>
+          <a href="tel:30807241">30 80 72 41</a><br>
+          <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a><br>
+          CVR: 35890564
+        </address>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <nav aria-label="Footer navigation">
+          <a href="menu.html">Menukort</a>
+          <a href="om-os.html">Om cafeen</a>
+          <a href="catering.html">Catering</a>
+          <a href="index.html#kontakt">Find os</a>
+          <a href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/jernbanecafeen_7430_ikast/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.findsmiley.dk/1355830" target="_blank" rel="noopener">Fødevarekontrol</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jernbane Cafeen · Lille Torv 3, 7430 Ikast · CVR 35890564</p>
+    </div>
+  </footer>
+
+  <!-- Menu tab switcher + hash-to-tab routing -->
+  <script>
+    (function(){
+      var tabs = document.querySelectorAll('.menu-tab');
+      var panes = document.querySelectorAll('.menu-col');
+      if (!tabs.length || !panes.length) return;
+
+      function activate(target, scrollTo) {
+        tabs.forEach(function(t){
+          var active = t.getAttribute('data-tab') === target;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panes.forEach(function(p){
+          var active = p.getAttribute('data-pane') === target;
+          p.classList.toggle('is-active', active);
+          if (active) p.removeAttribute('hidden');
+          else if (!window.matchMedia('(min-width: 881px)').matches) p.setAttribute('hidden', '');
+        });
+        if (scrollTo) {
+          var el = document.getElementById(target);
+          if (el && !window.matchMedia('(min-width: 881px)').matches) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+
+      tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+          activate(tab.getAttribute('data-tab'), false);
+        });
+      });
+
+      function syncDesktop() {
+        if (window.matchMedia('(min-width: 881px)').matches) {
+          panes.forEach(function(p){ p.removeAttribute('hidden'); });
+        } else {
+          panes.forEach(function(p){
+            if (!p.classList.contains('is-active')) p.setAttribute('hidden', '');
+          });
+        }
+      }
+
+      function handleHash() {
+        var h = window.location.hash.replace('#', '');
+        if (h === 'frokost' || h === 'aften') {
+          activate(h, true);
+        }
+      }
+
+      syncDesktop();
+      handleHash();
+      window.addEventListener('resize', syncDesktop, { passive: true });
+      window.addEventListener('hashchange', handleHash);
+    })();
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>

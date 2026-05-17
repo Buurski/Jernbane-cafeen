@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ornament Preview — Jernbane Cafeen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --c-cream: #F2EDE4;
+      --c-cream-warm: #E8E0D4;
+      --c-ink: #1E1C1A;
+      --c-dark: #1E1C1A;
+      --c-mid: #2E2A26;
+      --c-accent: #C4862A;
+      --c-light: #F5F1EB;
+      --f-display: "Lora", Georgia, serif;
+      --f-body: "Outfit", sans-serif;
+    }
+    body { font-family: var(--f-body); background: #111; color: #fff; }
+
+    .page-title {
+      text-align: center;
+      padding: 60px 24px 40px;
+      font-family: var(--f-display);
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── SHARED PANEL STYLE ─── */
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .panel {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 48px;
+    }
+    .panel-label {
+      position: absolute;
+      top: 20px; left: 24px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.45;
+      font-family: var(--f-body);
+    }
+    .panel h2 {
+      font-family: var(--f-display);
+      font-size: 32px;
+      font-weight: 400;
+      position: relative;
+      z-index: 2;
+    }
+    .panel p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 340px;
+      text-align: center;
+      opacity: 0.75;
+      position: relative;
+      z-index: 2;
+    }
+    .sep {
+      width: 40px; height: 1.5px;
+      background: var(--c-accent);
+      position: relative; z-index: 2;
+    }
+    .panel.light { background: var(--c-cream); color: var(--c-ink); }
+    .panel.dark  { background: var(--c-dark);  color: var(--c-light); }
+
+    /* ════════════════════════════════════════
+       A · RAILWAY TRACKS
+    ════════════════════════════════════════ */
+    .tracks-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════
+       B · GRAIN NOISE
+    ════════════════════════════════════════ */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      opacity: 0.038;
+      pointer-events: none;
+    }
+    .grain-dark::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      opacity: 0.055;
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════
+       C · FLOATING ORNAMENTS
+    ════════════════════════════════════════ */
+    .orb {
+      position: absolute;
+      font-family: var(--f-display);
+      pointer-events: none;
+      color: var(--c-accent);
+      line-height: 1;
+      animation: drift linear infinite;
+      will-change: transform;
+    }
+    @keyframes drift {
+      0%   { transform: translateY(0) rotate(0deg); }
+      50%  { transform: translateY(-18px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    .orb-light { color: rgba(196,134,42,0.18); }
+    .orb-dark  { color: rgba(245,241,235,0.10); }
+
+    /* ════════════════════════════════════════
+       D · BOTANICAL
+    ════════════════════════════════════════ */
+
+  </style>
+</head>
+<body>
+
+<p class="page-title">Ornament Preview — Jernbane Cafeen</p>
+
+<!-- ══════════════════════════════════════════
+     A · RAILWAY TRACKS
+══════════════════════════════════════════ -->
+<div class="row">
+
+  <div class="panel light">
+    <span class="panel-label">A · Railway Tracks · Lys baggrund</span>
+    <svg class="tracks-bg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left rail -->
+      <line x1="400" y1="260" x2="-40" y2="600" stroke="#C4862A" stroke-width="1.2" opacity="0.18"/>
+      <!-- Right rail -->
+      <line x1="400" y1="260" x2="840" y2="600" stroke="#C4862A" stroke-width="1.2" opacity="0.18"/>
+      <!-- Sleepers (cross ties) -->
+      <line x1="312" y1="340" x2="488" y2="340" stroke="#C4862A" stroke-width="1" opacity="0.12"/>
+      <line x1="246" y1="400" x2="554" y2="400" stroke="#C4862A" stroke-width="1" opacity="0.10"/>
+      <line x1="176" y1="460" x2="624" y2="460" stroke="#C4862A" stroke-width="1" opacity="0.08"/>
+      <line x1="96"  y1="520" x2="704" y2="520" stroke="#C4862A" stroke-width="1" opacity="0.06"/>
+      <line x1="350" y1="295" x2="450" y2="295" stroke="#C4862A" stroke-width="1" opacity="0.14"/>
+      <line x1="335" y1="315" x2="465" y2="315" stroke="#C4862A" stroke-width="1" opacity="0.13"/>
+      <!-- vanishing point dot -->
+      <circle cx="400" cy="260" r="2" fill="#C4862A" opacity="0.20"/>
+      <!-- Faint horizon line -->
+      <line x1="0" y1="260" x2="800" y2="260" stroke="#C4862A" stroke-width="0.5" opacity="0.08" stroke-dasharray="4 8"/>
+    </svg>
+    <h2>Mad med sjæl</h2>
+    <div class="sep"></div>
+    <p>Jernbanespor i perspektiv fra horisonten. Amber streger, meget subtile. On-brand for stationscafé.</p>
+  </div>
+
+  <div class="panel dark">
+    <span class="panel-label">A · Railway Tracks · Mørk baggrund</span>
+    <svg class="tracks-bg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="400" y1="260" x2="-40" y2="600" stroke="#F5F1EB" stroke-width="1.2" opacity="0.10"/>
+      <line x1="400" y1="260" x2="840" y2="600" stroke="#F5F1EB" stroke-width="1.2" opacity="0.10"/>
+      <line x1="312" y1="340" x2="488" y2="340" stroke="#F5F1EB" stroke-width="1" opacity="0.07"/>
+      <line x1="246" y1="400" x2="554" y2="400" stroke="#F5F1EB" stroke-width="1" opacity="0.06"/>
+      <line x1="176" y1="460" x2="624" y2="460" stroke="#F5F1EB" stroke-width="1" opacity="0.05"/>
+      <line x1="96"  y1="520" x2="704" y2="520" stroke="#F5F1EB" stroke-width="1" opacity="0.04"/>
+      <line x1="350" y1="295" x2="450" y2="295" stroke="#F5F1EB" stroke-width="1" opacity="0.08"/>
+      <line x1="335" y1="315" x2="465" y2="315" stroke="#F5F1EB" stroke-width="1" opacity="0.07"/>
+      <circle cx="400" cy="260" r="2" fill="#C4862A" opacity="0.35"/>
+      <line x1="0" y1="260" x2="800" y2="260" stroke="#F5F1EB" stroke-width="0.5" opacity="0.06" stroke-dasharray="4 8"/>
+      <!-- amber accent rails on dark -->
+      <line x1="400" y1="260" x2="-40" y2="600" stroke="#C4862A" stroke-width="0.5" opacity="0.12"/>
+      <line x1="400" y1="260" x2="840" y2="600" stroke="#C4862A" stroke-width="0.5" opacity="0.12"/>
+    </svg>
+    <h2>Vi bringer hyggen hjem</h2>
+    <div class="sep"></div>
+    <p>Samme sporperspektiv på mørk baggrund. Creme streger med amber accent.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     B · GRAIN NOISE
+══════════════════════════════════════════ -->
+<div class="row">
+
+  <div class="panel light grain">
+    <span class="panel-label">B · Grain Noise · Lys baggrund</span>
+    <h2>Mad med sjæl</h2>
+    <div class="sep"></div>
+    <p>Subtil papirkorn-tekstur over cremefarven. Giver en varm, slidt fornemmelse — som en gammel togbillet. Usynlig fra afstand.</p>
+  </div>
+
+  <div class="panel dark grain-dark">
+    <span class="panel-label">B · Grain Noise · Mørk baggrund</span>
+    <h2>Vi bringer hyggen hjem</h2>
+    <div class="sep"></div>
+    <p>Samme korn på mørk baggrund. Tilføjer dybde og forhindrer den flade "web-sort" fornemmelse.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     C · FLOATING ORNAMENTS
+══════════════════════════════════════════ -->
+<div class="row">
+
+  <div class="panel light" style="overflow:hidden;">
+    <span class="panel-label">C · Floating Ornaments · Lys baggrund</span>
+
+    <span class="orb orb-light" style="font-size:80px; top:8%; left:6%; animation-duration:7s; animation-delay:0s;">◆</span>
+    <span class="orb orb-light" style="font-size:24px; top:15%; right:12%; animation-duration:9s; animation-delay:1s;">◆</span>
+    <span class="orb orb-light" style="font-size:14px; top:70%; left:15%; animation-duration:11s; animation-delay:2s;">◆</span>
+    <span class="orb orb-light" style="font-size:44px; bottom:10%; right:8%; animation-duration:8s; animation-delay:0.5s;">◆</span>
+    <span class="orb orb-light" style="font-size:10px; top:45%; left:4%; animation-duration:6s; animation-delay:3s;">◆</span>
+    <span class="orb orb-light" style="font-size:18px; bottom:25%; left:28%; animation-duration:13s; animation-delay:1.5s;">◆</span>
+    <span class="orb orb-light" style="font-size:60px; top:5%; right:4%; animation-duration:10s; animation-delay:4s;">✦</span>
+    <span class="orb orb-light" style="font-size:20px; bottom:15%; left:6%; animation-duration:8.5s; animation-delay:2.5s;">✦</span>
+
+    <h2 style="position:relative;z-index:2;">Mad med sjæl</h2>
+    <div class="sep" style="position:relative;z-index:2;"></div>
+    <p style="position:relative;z-index:2;">Diamanter og stjerner flyder langsomt. Amber ved lav opacitet. Viser dybde uden at forstyrre tekst.</p>
+  </div>
+
+  <div class="panel dark" style="overflow:hidden;">
+    <span class="panel-label">C · Floating Ornaments · Mørk baggrund</span>
+
+    <span class="orb orb-dark" style="font-size:80px; top:8%; left:6%; animation-duration:7s; animation-delay:0s;">◆</span>
+    <span class="orb orb-dark" style="font-size:24px; top:15%; right:12%; animation-duration:9s; animation-delay:1s;">◆</span>
+    <span class="orb orb-dark" style="font-size:14px; top:70%; left:15%; animation-duration:11s; animation-delay:2s;">◆</span>
+    <span class="orb orb-dark" style="font-size:44px; bottom:10%; right:8%; animation-duration:8s; animation-delay:0.5s;">◆</span>
+    <span class="orb orb-dark" style="font-size:10px; top:45%; left:4%; animation-duration:6s; animation-delay:3s;">◆</span>
+    <span class="orb orb-dark" style="font-size:18px; bottom:25%; left:28%; animation-duration:13s; animation-delay:1.5s;">◆</span>
+    <span class="orb" style="font-size:60px; top:5%; right:4%; animation-duration:10s; animation-delay:4s; color:rgba(196,134,42,0.14);">✦</span>
+    <span class="orb" style="font-size:20px; bottom:15%; left:6%; animation-duration:8.5s; animation-delay:2.5s; color:rgba(196,134,42,0.18);">✦</span>
+
+    <h2 style="position:relative;z-index:2;">Vi bringer hyggen hjem</h2>
+    <div class="sep" style="position:relative;z-index:2;"></div>
+    <p style="position:relative;z-index:2;">Samme ornament på mørk baggrund. Creme diamanter + amber stjerner.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     D · BOTANICAL
+══════════════════════════════════════════ -->
+<div class="row">
+
+  <div class="panel light">
+    <span class="panel-label">D · Botanical · Lys baggrund</span>
+    <svg class="tracks-bg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left botanical: wheat/herb sprig -->
+      <g opacity="0.14" stroke="#C4862A" stroke-width="1" stroke-linecap="round">
+        <!-- main stem -->
+        <path d="M 60 500 Q 80 380 100 260 Q 110 200 90 140"/>
+        <!-- leaves left -->
+        <path d="M 78 430 Q 40 410 20 390"/>
+        <path d="M 88 370 Q 50 345 28 318"/>
+        <path d="M 95 310 Q 58 285 40 256"/>
+        <path d="M 98 250 Q 65 225 52 198"/>
+        <!-- leaves right -->
+        <path d="M 82 410 Q 118 392 136 374"/>
+        <path d="M 91 350 Q 128 328 148 308"/>
+        <path d="M 96 290 Q 133 268 152 246"/>
+        <!-- seed head -->
+        <path d="M 90 140 Q 85 120 82 105"/>
+        <path d="M 90 140 Q 78 124 72 112"/>
+        <path d="M 90 140 Q 96 122 100 108"/>
+        <path d="M 90 140 Q 104 126 112 114"/>
+      </g>
+      <!-- Right botanical: smaller sprig mirrored -->
+      <g opacity="0.10" stroke="#C4862A" stroke-width="1" stroke-linecap="round">
+        <path d="M 740 500 Q 720 400 710 300 Q 705 250 718 190"/>
+        <path d="M 722 440 Q 760 422 778 404"/>
+        <path d="M 714 380 Q 750 360 770 340"/>
+        <path d="M 710 320 Q 746 300 766 278"/>
+        <path d="M 718 260 Q 690 242 678 224"/>
+        <path d="M 716 390 Q 680 374 662 358"/>
+        <path d="M 712 330 Q 676 312 658 292"/>
+        <path d="M 718 190 Q 722 172 724 158"/>
+        <path d="M 718 190 Q 708 174 704 160"/>
+        <path d="M 718 190 Q 730 175 736 162"/>
+      </g>
+      <!-- Bottom center: horizontal herb branch -->
+      <g opacity="0.09" stroke="#C4862A" stroke-width="1" stroke-linecap="round">
+        <path d="M 280 480 Q 400 460 520 480"/>
+        <path d="M 320 475 Q 320 455 318 440"/>
+        <path d="M 360 468 Q 360 448 358 432"/>
+        <path d="M 400 464 Q 400 444 400 428"/>
+        <path d="M 440 468 Q 440 448 442 432"/>
+        <path d="M 480 474 Q 480 454 482 440"/>
+      </g>
+    </svg>
+    <h2>Mad med sjæl</h2>
+    <div class="sep"></div>
+    <p>Botaniske stilke og blade i hjørnerne — som gamle menukortsillustrations. Amber på lys baggrund.</p>
+  </div>
+
+  <div class="panel dark">
+    <span class="panel-label">D · Botanical · Mørk baggrund</span>
+    <svg class="tracks-bg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.12" stroke="#F5F1EB" stroke-width="1" stroke-linecap="round">
+        <path d="M 60 500 Q 80 380 100 260 Q 110 200 90 140"/>
+        <path d="M 78 430 Q 40 410 20 390"/>
+        <path d="M 88 370 Q 50 345 28 318"/>
+        <path d="M 95 310 Q 58 285 40 256"/>
+        <path d="M 98 250 Q 65 225 52 198"/>
+        <path d="M 82 410 Q 118 392 136 374"/>
+        <path d="M 91 350 Q 128 328 148 308"/>
+        <path d="M 96 290 Q 133 268 152 246"/>
+        <path d="M 90 140 Q 85 120 82 105"/>
+        <path d="M 90 140 Q 78 124 72 112"/>
+        <path d="M 90 140 Q 96 122 100 108"/>
+        <path d="M 90 140 Q 104 126 112 114"/>
+      </g>
+      <!-- Amber accent sprig right side -->
+      <g opacity="0.16" stroke="#C4862A" stroke-width="1" stroke-linecap="round">
+        <path d="M 740 500 Q 720 400 710 300 Q 705 250 718 190"/>
+        <path d="M 722 440 Q 760 422 778 404"/>
+        <path d="M 714 380 Q 750 360 770 340"/>
+        <path d="M 710 320 Q 746 300 766 278"/>
+        <path d="M 718 260 Q 690 242 678 224"/>
+        <path d="M 716 390 Q 680 374 662 358"/>
+        <path d="M 712 330 Q 676 312 658 292"/>
+        <path d="M 718 190 Q 722 172 724 158"/>
+        <path d="M 718 190 Q 708 174 704 160"/>
+        <path d="M 718 190 Q 730 175 736 162"/>
+      </g>
+    </svg>
+    <h2>Vi bringer hyggen hjem</h2>
+    <div class="sep"></div>
+    <p>Creme stilke på mørk baggrund med amber accent. Elegant og varm — passer til catering-sektionen.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     A+B COMBINATION (tracks + grain)
+══════════════════════════════════════════ -->
+<div style="margin-top: 2px;">
+  <div class="panel dark grain-dark" style="height: 400px;">
+    <span class="panel-label">A + B Kombination · Tracks + Grain · Mørk (anbefalet til hero/catering)</span>
+    <svg class="tracks-bg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" fill="none">
+      <line x1="600" y1="180" x2="0" y2="500" stroke="#F5F1EB" stroke-width="1.5" opacity="0.07"/>
+      <line x1="600" y1="180" x2="1200" y2="500" stroke="#F5F1EB" stroke-width="1.5" opacity="0.07"/>
+      <line x1="490" y1="260" x2="710" y2="260" stroke="#F5F1EB" stroke-width="1" opacity="0.05"/>
+      <line x1="420" y1="310" x2="780" y2="310" stroke="#F5F1EB" stroke-width="1" opacity="0.04"/>
+      <line x1="340" y1="360" x2="860" y2="360" stroke="#F5F1EB" stroke-width="1" opacity="0.03"/>
+      <line x1="240" y1="420" x2="960" y2="420" stroke="#F5F1EB" stroke-width="1" opacity="0.025"/>
+      <circle cx="600" cy="180" r="3" fill="#C4862A" opacity="0.30"/>
+      <line x1="600" y1="180" x2="0" y2="500" stroke="#C4862A" stroke-width="0.8" opacity="0.15"/>
+      <line x1="600" y1="180" x2="1200" y2="500" stroke="#C4862A" stroke-width="0.8" opacity="0.15"/>
+    </svg>
+    <h2>Jernbane Cafeen</h2>
+    <div class="sep"></div>
+    <p>Tracks + grain kombineret. Det er det der anbefales — sporene giver stedet identitet, kornet giver varme.</p>
+  </div>
+</div>
+
+<div style="margin-top: 2px; display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+  <div class="panel light grain" style="height:380px;">
+    <span class="panel-label">A + B + C Kombination · Lys · (alle tre)</span>
+    <svg class="tracks-bg" viewBox="0 0 800 380" preserveAspectRatio="xMidYMid slice" fill="none">
+      <line x1="400" y1="200" x2="-40" y2="500" stroke="#C4862A" stroke-width="1" opacity="0.10"/>
+      <line x1="400" y1="200" x2="840" y2="500" stroke="#C4862A" stroke-width="1" opacity="0.10"/>
+      <line x1="330" y1="260" x2="470" y2="260" stroke="#C4862A" stroke-width="0.8" opacity="0.08"/>
+      <line x1="280" y1="300" x2="520" y2="300" stroke="#C4862A" stroke-width="0.8" opacity="0.06"/>
+      <circle cx="400" cy="200" r="2" fill="#C4862A" opacity="0.20"/>
+    </svg>
+    <span class="orb orb-light" style="font-size:60px; top:5%; left:4%; animation-duration:7s;">◆</span>
+    <span class="orb orb-light" style="font-size:18px; top:18%; right:8%; animation-duration:9s; animation-delay:1s;">◆</span>
+    <span class="orb orb-light" style="font-size:38px; bottom:12%; right:6%; animation-duration:11s; animation-delay:2s;">✦</span>
+    <span class="orb orb-light" style="font-size:12px; bottom:28%; left:10%; animation-duration:8s; animation-delay:0.5s;">◆</span>
+    <h2>Mad med sjæl</h2>
+    <div class="sep"></div>
+    <p>Alle tre: spor + korn + ornament. Rigere og mere levende.</p>
+  </div>
+
+  <div class="panel light grain" style="height:380px; background: var(--c-cream-warm);">
+    <span class="panel-label">D · Botanical · Lys varm baggrund</span>
+    <svg class="tracks-bg" viewBox="0 0 800 380" preserveAspectRatio="xMidYMid slice" fill="none">
+      <g opacity="0.16" stroke="#C4862A" stroke-width="1.2" stroke-linecap="round">
+        <path d="M 40 400 Q 60 300 80 200 Q 90 155 72 105"/>
+        <path d="M 58 340 Q 22 322 4 306"/>
+        <path d="M 68 285 Q 32 265 14 244"/>
+        <path d="M 74 230 Q 38 210 22 188"/>
+        <path d="M 62 320 Q 96 302 112 286"/>
+        <path d="M 71 265 Q 104 246 120 226"/>
+        <path d="M 72 105 Q 68 88 64 75"/>
+        <path d="M 72 105 Q 60 90 54 78"/>
+        <path d="M 72 105 Q 82 88 88 75"/>
+      </g>
+      <g opacity="0.12" stroke="#C4862A" stroke-width="1" stroke-linecap="round">
+        <path d="M 760 400 Q 740 310 726 220 Q 720 175 732 125"/>
+        <path d="M 742 345 Q 776 328 794 312"/>
+        <path d="M 734 288 Q 768 270 786 252"/>
+        <path d="M 728 232 Q 700 215 688 198"/>
+        <path d="M 736 310 Q 702 295 686 280"/>
+        <path d="M 732 125 Q 736 108 738 95"/>
+        <path d="M 732 125 Q 722 110 718 98"/>
+        <path d="M 732 125 Q 742 110 748 98"/>
+      </g>
+    </svg>
+    <h2>Frokostmenu</h2>
+    <div class="sep"></div>
+    <p>Botaniske hjørneillustrationer alene — klassisk menukortstemning.</p>
+  </div>
+</div>
+
+<div style="padding: 60px 24px; text-align:center; color: rgba(255,255,255,0.35); font-size:12px; letter-spacing:0.2em; font-family: var(--f-body);">
+  Åbn ornament-preview.html i browser · Jernbane Cafeen 2025
+</div>
+
+</body>
+</html>

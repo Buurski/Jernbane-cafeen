@@ -81,13 +81,17 @@ if (burger) {
     drawer.setAttribute('role', 'dialog');
     drawer.setAttribute('aria-modal', 'true');
     drawer.setAttribute('aria-label', 'Navigation');
+    // Determine if we're on the landing page or a subpage.
+    // On subpages, in-page anchors must point back to index.html.
+    const onLanding = !!document.querySelector('main#top .hero');
+    const homeHref = onLanding ? '' : 'index.html';
     drawer.innerHTML = `
       <button class="drawer-close" aria-label="Luk menu">&times;</button>
-      <a href="#menu">Menukort</a>
-      <a href="#catering">Catering</a>
-      <a href="#om">Om cafeen</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#kontakt" class="btn-solid">Book bord</a>
+      <a href="menu.html">Menukort</a>
+      <a href="catering.html">Catering</a>
+      <a href="om-os.html">Om os</a>
+      <a href="${homeHref}#kontakt">Kontakt</a>
+      <a href="${homeHref}#kontakt" class="btn-solid">Book bord</a>
     `;
     document.body.appendChild(drawer);
     requestAnimationFrame(() => drawer.classList.add('is-open'));

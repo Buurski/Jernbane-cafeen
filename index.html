@@ -15,14 +15,14 @@
   <!-- NAV -->
   <header class="nav" role="banner">
     <div class="nav-left">
-      <a href="#menu" class="nav-link">Menukort</a>
-      <a href="#catering" class="nav-link">Catering</a>
+      <a href="menu.html" class="nav-link">Menukort</a>
+      <a href="catering.html" class="nav-link">Catering</a>
     </div>
     <a href="#top" class="nav-logo-link">
       <img src="billeder/jernbane-logo-lys.png" alt="Jernbane Cafeen" class="nav-logo" id="navLogo">
     </a>
     <div class="nav-right">
-      <a href="#om" class="nav-link">Om cafeen</a>
+      <a href="om-os.html" class="nav-link">Om os</a>
       <a href="#kontakt" class="nav-link">Kontakt</a>
       <a href="#kontakt" class="btn-solid">Book bord</a>
     </div>
@@ -38,8 +38,8 @@
       <div class="hero-right reveal">
         <img src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen logo" class="hero-logo">
         <p class="eyebrow">Café & Catering · Ikast</p>
-        <p class="body-lg">Velkommen indenfor. Vi serverer sæsonens bedste — til hverdag og fest.</p>
-        <a href="#menu" class="btn-outline">Se vores menukort</a>
+        <p class="body-lg">Velkommen indenfor. Thai-mad og dansk klassiker, lavet fra bunden.</p>
+        <a href="menu.html" class="btn-outline">Se vores menukort</a>
       </div>
       <div class="hero-left">
         <img src="billeder/hero-facade.png" alt="Jernbane Cafeens facade i Ikast" data-parallax="0.12" style="background:#2E2A26">
@@ -71,16 +71,37 @@
       </div>
     </section>
 
+    <!-- 2b. DAGENS RET (placeholder — kommer fra Notion senere) -->
+    <section class="section-pad-sm" id="dagens-ret" aria-label="Dagens ret">
+      <div class="col-wide">
+        <div class="dagens-ret-card reveal">
+          <div class="dagens-ret-card-text">
+            <p class="eyebrow">Dagens ret</p>
+            <h2>Opdateres dagligt af køkkenet</h2>
+            <div class="separator"></div>
+            <p class="body-lg">Niels og Rapheephon lægger dagens ret op her hver morgen. Lige nu er den ikke koblet på endnu — det kommer snart. Ring til <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad vi har på i dag.</p>
+            <p style="margin-top:24px">
+              <a href="menu.html" class="btn-ghost">Se hele menukortet <span class="arrow" aria-hidden="true"></span></a>
+            </p>
+          </div>
+          <div class="dagens-ret-card-image">
+            <div class="dagens-ret-card-image-placeholder" aria-hidden="true">
+              <span>Billede af dagens ret<br><em>(opdateres af køkkenet)</em></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 3. OM CAFEEN -->
-    <section class="section-pad" id="om" aria-label="Om cafeen">
+    <section class="section-pad" id="om" aria-label="Om os">
       <div class="col-wide om-grid">
         <div class="om-text reveal">
           <p class="eyebrow">Om os</p>
-          <h2>Mere end bare et cafeteria</h2>
+          <h2>Naboernes café siden 2023</h2>
           <div class="separator"></div>
-          <p class="body-lg">Vi er naboernes café ved stationen i Ikast. Her er plads til den gode frokost, en kop kaffe og hyggeligt samvær — uanset om du kommer alene eller med hele firmaet.</p>
-          <p class="body">Vores køkken tager udgangspunkt i sæsonens råvarer og serverer alt fra klassiske frokoster til tapas og Thai. Og kan vi ikke rumme jer, bringer vi maden ud til jer.</p>
-          <a href="#menu" class="btn-ghost">Se menukort <span class="arrow" aria-hidden="true"></span></a>
+          <p class="body-lg">I den gamle stationsbygning fra 1877. Dansk klassisk og thailandsk hverdagsmad fra lokale råvarer — drevet af Niels og Rapheephon Rasmussen.</p>
+          <a href="om-os.html" class="btn-ghost">Læs hele historien <span class="arrow" aria-hidden="true"></span></a>
         </div>
         <div class="pair offset-right reveal" data-delay="2">
           <div class="pair-frame">
@@ -106,21 +127,43 @@
             <h3>Frokostmenu</h3>
             <div class="separator"></div>
             <p class="body">Klassikere med sæsonens touch. Dagens ret skifter — kom ind og se, hvad der er på.</p>
-            <a href="#kontakt" class="btn-ghost">Spørg om dagens ret <span class="arrow" aria-hidden="true"></span></a>
+            <a href="menu.html#frokost" class="btn-ghost">Se frokostmenuen <span class="arrow" aria-hidden="true"></span></a>
           </div>
           <div class="menu-card reveal" data-delay="2">
             <span class="menu-num" aria-hidden="true">02</span>
-            <h3>Tapas</h3>
+            <h3>Aftenmenu</h3>
             <div class="separator"></div>
-            <p class="body">Perfekt til deling. Små retter med masser af smag — Thai, klassisk og sæsonmad.</p>
-            <a href="#kontakt" class="btn-ghost">Book tapas-aften <span class="arrow" aria-hidden="true"></span></a>
+            <p class="body">Oksesteak, bøffer, café-burger og varme Thai-retter. Serveres fra kl. 16.</p>
+            <a href="menu.html#aften" class="btn-ghost">Se aftenmenuen <span class="arrow" aria-hidden="true"></span></a>
           </div>
-          <div class="menu-card reveal" data-delay="3">
+          <div class="menu-card menu-card--featured reveal" data-delay="3">
+            <span class="menu-badge">Lokalt favorit</span>
             <span class="menu-num" aria-hidden="true">03</span>
-            <h3>Catering</h3>
+            <h3>Thai</h3>
             <div class="separator"></div>
-            <p class="body">Vi bringer hyggen hjem til jer. Op til ca. 40 gæster i cafeen eller transportabel til dit sted.</p>
-            <a href="#catering" class="btn-ghost">Læs mere <span class="arrow" aria-hidden="true"></span></a>
+            <p class="body">Hverdagsthai fra Rapheephons køkken — krydret, autentisk, lavet fra bunden.</p>
+            <a href="menu.html#aften" class="btn-ghost">Se Thai-retterne <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="menu-grid-cta reveal" style="text-align:center; margin-top:48px">
+          <a href="menu.html" class="btn-solid">Se hele menukortet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4b. THAI (lille integreret editorial) -->
+    <section class="section-pad-sm" id="thai" aria-label="Thai-mad">
+      <div class="col-wide thai-strip">
+        <div class="thai-strip-text reveal-left">
+          <p class="eyebrow">Fra Rapheephons køkken</p>
+          <h2>Thai-mad, lavet fra bunden</h2>
+          <div class="separator"></div>
+          <p class="body-lg">Mens Niels står for de danske retter, laver Rapheephon Thai-maden — krydret, hjemmelavet og lige så ærligt som resten af menuen. Det er en stor del af det folk kommer for.</p>
+          <a href="menu.html#aften" class="btn-ghost">Se Thai-retterne <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+        <div class="thai-strip-image reveal-right">
+          <div class="pair-frame">
+            <img src="billeder/mad-restaurant2.jpg" alt="Thai-mad fra Jernbane Cafeen" loading="lazy" style="background:#2E2A26">
           </div>
         </div>
       </div>
@@ -129,7 +172,7 @@
     <!-- 5. BREDT STEMNINGSFOTO -->
     <section class="wide-photo" aria-label="Stemningsbillede fra cafeen">
       <img src="billeder/mad-restaurant.jpg" alt="" data-parallax="0.08" style="background:#3A3028">
-      <p class="wide-caption caption">Et hyggeligt hjørne ved stationen</p>
+      <p class="wide-caption caption">Hjemmelavet mad fra to traditioner — hver dag</p>
     </section>
 
     <!-- 6. CATERING -->
@@ -139,10 +182,9 @@
           <p class="eyebrow">Catering & Selskaber</p>
           <h2>Vi bringer hyggen hjem til jer</h2>
           <div class="separator"></div>
-          <p class="body-lg">Autentisk mad til jeres fest — transportabel eller med os som vært. Plads til ca. 40 gæster i cafeen.</p>
-          <p class="body">Thai, tapas og sæsonmad. Vi tilpasser menuen til anledningen — hvad enten det er firmafrokost, familiefest eller firmaårsfest.</p>
-          <p class="body">96% af vores gæster anbefaler os på Facebook.</p>
-          <a href="#kontakt" class="btn-solid">Få et tilbud</a>
+          <p class="body-lg">Catering til mindre selskaber, take away — og private dining med Niels som lejekok i jeres egne rammer. Op til ca. 40 gæster i cafeen, eller transportabel mad til jeres sted.</p>
+          <p class="body">Dansk klassisk, thailandsk og sæsonmad. Vi tilpasser menuen til anledningen.</p>
+          <a href="catering.html" class="btn-solid">Læs om catering og lejekok</a>
         </div>
         <div class="catering-image reveal-right">
           <div class="pair-frame">
@@ -245,22 +287,25 @@
         <address>
           Lille Torv 3, 7430 Ikast<br>
           <a href="tel:30807241">30 80 72 41</a><br>
-          <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a>
+          <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a><br>
+          CVR: 35890564
         </address>
       </div>
       <div>
         <h4>Links</h4>
         <nav aria-label="Footer navigation">
-          <a href="#menu">Menukort</a>
-          <a href="#catering">Catering</a>
-          <a href="#om">Om cafeen</a>
+          <a href="menu.html">Menukort</a>
+          <a href="om-os.html">Om os</a>
+          <a href="catering.html">Catering</a>
           <a href="#kontakt">Find os</a>
-          <a href="https://facebook.com/p/Jernbane-cafeen-100094077635043" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/jernbanecafeen_7430_ikast/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.findsmiley.dk/1355830" target="_blank" rel="noopener">Fødevarekontrol</a>
         </nav>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Jernbane Cafeen · Lille Torv 3, 7430 Ikast</p>
+      <p>&copy; 2026 Jernbane Cafeen · Lille Torv 3, 7430 Ikast · CVR 35890564</p>
     </div>
   </footer>
 
