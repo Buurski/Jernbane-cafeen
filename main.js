@@ -232,3 +232,71 @@ const logoLight = new Image();
 logoLight.src = 'billeder/jernbane-logo-lys.png';
 const logoDark = new Image();
 logoDark.src = 'billeder/jernbane-logo-creme.png';
+
+// ===== DAGENS RET LOADER =====
+// Henter dagens ret fra /api/dagens-ret (som henter fra Notion) og populerer
+// .dagens-ret-card-elementer med live data. Hvis intet svar / ingen aktiv ret,
+// beholdes placeholder-indholdet.
+
+(async function loadDagensRet() {
+  const cards = document.querySelectorAll('.dagens-ret-card');
+  if (!cards.length) return;
+
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatPris(pris) {
+    if (typeof pris !== 'number') return '';
+    return `${pris} kr`;
+  }
+
+  function render(dagens) {
+    const hasImage = !!dagens.billede;
+    const hasDesc = !!dagens.beskrivelse;
+    const hasPris = typeof dagens.pris === 'number';
+
+    return `
+      <div class="dagens-ret-card-text">
+        <p class="eyebrow">Dagens ret</p>
+        <h2>${escapeHtml(dagens.ret)}</h2>
+        <div class="separator"></div>
+        ${hasDesc ? `<p class="body-lg">${escapeHtml(dagens.beskrivelse)}</p>` : ''}
+        ${hasPris ? `<p class="body" style="margin-top:12px"><strong style="color:var(--c-ink); font-size:17px">${formatPris(dagens.pris)}</strong></p>` : ''}
+        <p style="margin-top:24px">
+          <a href="menu.html" class="btn-ghost">Se hele menukortet <span class="arrow" aria-hidden="true"></span></a>
+        </p>
+      </div>
+      <div class="dagens-ret-card-image">
+        ${hasImage
+          ? `<img src="${escapeHtml(dagens.billede)}" alt="${escapeHtml(dagens.ret)}" style="width:100%; height:100%; object-fit:cover; border-radius:2px;">`
+          : `<div class="dagens-ret-card-image-placeholder" aria-hidden="true"><span>Billede kommer snart</span></div>`}
+      </div>
+    `;
+  }
+
+  try {
+    const response = await fetch('/api/dagens-ret', { cache: 'no-cache' });
+    if (!response.ok) {
+      // API findes ikke endnu (lokal dev uden Vercel) eller server-fejl —
+      // behold placeholder uden at bryde noget
+      return;
+    }
+    const json = await response.json();
+    if (!json || !json.dagens || !json.dagens.ret) {
+      // Ingen aktiv dagens ret — behold placeholder
+      return;
+    }
+    cards.forEach((card) => {
+      card.innerHTML = render(json.dagens);
+    });
+  } catch (e) {
+    // Network fejl, CORS, osv. — behold placeholder
+    console.warn('[Jernbane] Kunne ikke hente dagens ret:', e);
+  }
+})();
