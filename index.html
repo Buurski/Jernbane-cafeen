@@ -238,7 +238,7 @@
         </div>
         <div class="kontakt-form reveal" data-delay="2">
           <p class="eyebrow">Book bord eller catering</p>
-          <form class="form" action="mailto:info@jbcafeen.dk" method="POST" enctype="text/plain">
+          <form class="form" id="buur-kontaktform" data-slug="jernbane-cafeen" novalidate>
             <div class="form-group">
               <label for="navn" class="form-label">Navn</label>
               <input type="text" id="navn" name="navn" class="form-input" required autocomplete="name" minlength="2" maxlength="100">
@@ -255,8 +255,64 @@
               <label for="besked" class="form-label">Besked</label>
               <textarea id="besked" name="besked" class="form-input form-textarea" rows="4" required minlength="10" maxlength="2000"></textarea>
             </div>
+            <!-- Honeypot — bots udfylder den, mennesker ser den ikke. Må ikke fjernes. -->
+            <label class="buur-honeypot" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+              Lad dette felt være tomt
+              <input name="website" type="text" tabindex="-1" autocomplete="off">
+            </label>
             <button type="submit" class="btn-solid">Send besked</button>
+            <p class="buur-feedback body" role="status" aria-live="polite" style="margin-top:12px;"></p>
           </form>
+          <script>
+            (function () {
+              var form = document.getElementById("buur-kontaktform");
+              if (!form) return;
+              var renderedAt = Date.now();
+              var slug = form.getAttribute("data-slug");
+              var feedback = form.querySelector(".buur-feedback");
+              var submitBtn = form.querySelector("button[type=submit]");
+              var originalLabel = submitBtn ? submitBtn.textContent : "Send";
+
+              form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) { form.reportValidity(); return; }
+                var data = new FormData(form);
+                var telefon = (data.get("telefon") || "").toString().trim();
+                var besked = (data.get("besked") || "").toString();
+                var body = {
+                  name: data.get("navn") || "",
+                  email: data.get("email") || "",
+                  message: (telefon ? "Telefon: " + telefon + "\n\n" : "") + besked,
+                  honeypot: data.get("website") || "",
+                  ts: renderedAt,
+                };
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sender…"; }
+                if (feedback) feedback.textContent = "";
+
+                fetch("https://buur-cms.vercel.app/api/inbox/" + encodeURIComponent(slug), {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(body),
+                })
+                  .then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); })
+                  .then(function (res) {
+                    if (res.status === 200 && res.body && res.body.ok) {
+                      form.reset();
+                      renderedAt = Date.now();
+                      if (feedback) feedback.textContent = "Tak for din besked — vi vender tilbage hurtigst muligt.";
+                    } else {
+                      if (feedback) feedback.textContent = (res.body && res.body.error) || "Kunne ikke sende lige nu. Prøv igen om lidt.";
+                    }
+                  })
+                  .catch(function () {
+                    if (feedback) feedback.textContent = "Kunne ikke sende lige nu. Prøv igen om lidt.";
+                  })
+                  .finally(function () {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+                  });
+              });
+            })();
+          </script>
         </div>
         <div class="kontakt-kort reveal" data-delay="3">
           <iframe
