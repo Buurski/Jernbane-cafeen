@@ -258,7 +258,7 @@ h1 em, h2 em, h3 em { font-style: italic; }
 
 /* Hosting */
 .hosting-section { position: relative; overflow: hidden; padding: 140px 0; }
-.hosting-section::after { content: "↗"; position: absolute; right: 4vw; bottom: -30px; color: rgba(16,19,16,.08); font-family: var(--display); font-size: 240px; line-height: 1; }
+.hosting-section::after { content: ""; position: absolute; right: 4vw; bottom: -30px; width: 5rem; height: 5rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); opacity: .08; }
 .hosting-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .85fr 1fr; gap: clamp(40px, 10vw, 170px); align-items: center; }
 .hosting-copy h2 { max-width: 8ch; font-size: clamp(62px, 8vw, 120px); line-height: .83; letter-spacing: -.06em; }
 .hosting-copy h2 em { color: var(--tomato); }

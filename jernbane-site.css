@@ -12,6 +12,7 @@
   --display: "DM Serif Display", Georgia, serif;
   --body: "Space Grotesk", Arial, sans-serif;
   --mono: "IBM Plex Mono", monospace;
+  --script: "Caveat", cursive;
   --ease: cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after { box-sizing: border-box; }
@@ -23,10 +24,10 @@ button,input,textarea { font: inherit; }
 :focus-visible { outline: 3px solid var(--brass); outline-offset: 4px; }
 .skip-link { position: fixed; top: -5rem; left: 1rem; z-index: 50; padding: .7rem 1rem; color: var(--linen); background: var(--forest-deep); }
 .skip-link:focus { top: 1rem; }
-.jb-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem clamp(1.25rem, 5vw, 5rem); color: var(--linen); background: var(--forest); border-bottom: 1px solid rgba(241,238,230,.18); }
+.jb-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem clamp(1.25rem, 5vw, 5rem); color: var(--linen); background: var(--forest); border-top: 4px solid var(--copper); border-bottom: 1px solid rgba(241,238,230,.18); }
 .jb-logo { width: 175px; }
 .jb-logo img { width: 100%; height: auto; }
-.jb-nav { display: flex; align-items: center; gap: clamp(1rem, 2.7vw, 2.4rem); font-family: var(--mono); font-size: .61rem; letter-spacing: .09em; text-transform: uppercase; }
+.jb-nav { display: flex; align-items: center; gap: clamp(1rem, 2.7vw, 2.4rem); font-family: var(--display); font-size: .95rem; letter-spacing: 0; }
 .jb-nav a { text-decoration: none; }
 .jb-nav a[aria-current="page"],.jb-nav a:not(.jb-button):hover { color: #d7a988; }
 .jb-menu { display: none; color: var(--linen); border: 1px solid rgba(241,238,230,.4); background: transparent; padding: .55rem .7rem; cursor: pointer; font-family: var(--mono); font-size: .62rem; text-transform: uppercase; }
@@ -51,18 +52,21 @@ h1 { font-size: clamp(4rem, 9vw, 8.7rem); }
 .jb-hero h1 span,.jb-hero h1 em { white-space: nowrap; }
 h2 { max-width: 12ch; font-size: clamp(3rem, 6.3vw, 7rem); }
 h3 { font-size: clamp(2.3rem, 4.2vw, 4.2rem); }
-em { color: var(--copper); font-style: italic; }
+em { color: inherit; font-style: normal; }
+.arrow { position: relative; display: inline-block; width: .78rem; height: .78rem; flex: 0 0 .78rem; }
+.arrow::before { content: ""; position: absolute; left: .06rem; top: .37rem; width: .62rem; height: 1px; background: currentColor; }
+.arrow::after { content: ""; position: absolute; right: .04rem; top: .16rem; width: .42rem; height: .42rem; border-top: 1px solid currentColor; border-right: 1px solid currentColor; }
+.hand-note { color: var(--copper); font-family: var(--script); font-size: 1.8rem; line-height: .9; }
 .jb-hero { display: grid; grid-template-columns: minmax(0, .85fr) minmax(400px, 1.15fr); min-height: min(790px,calc(100svh - 82px)); color: var(--linen); background: var(--forest-deep); }
 .jb-hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 8vw, 8rem); }
 .jb-hero-copy .jb-eyebrow { color: #d7a988; }
 .jb-hero-lead { max-width: 36ch; margin: 1.8rem 0 2.2rem; color: rgba(241,238,230,.76); font-size: 1.04rem; }
 .jb-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.jb-hero-media { position: relative; min-height: 620px; overflow: hidden; background: var(--linen-2); }
-.jb-hero-media > img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.68) contrast(1.05); }
-.jb-hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(23,39,33,.58),transparent 50%); }
-.jb-hero-caption { position: absolute; right: 1.5rem; bottom: 1.5rem; z-index: 1; color: var(--linen); }
-.jb-hero-caption strong { display: block; margin-top: .4rem; font-family: var(--display); font-size: 3rem; line-height: .8; }
-.jb-hero-fact { position: absolute; right: 1.5rem; top: 1.5rem; z-index: 1; max-width: 18ch; color: rgba(241,238,230,.82); text-align: right; }
+.jb-hero-media { display: flex; flex-direction: column; min-height: 620px; overflow: hidden; background: var(--linen-2); }
+.jb-hero-media > img { flex: 1 1 auto; min-height: 0; width: 100%; object-fit: cover; object-position: center; filter: saturate(.78) contrast(1.05); }
+.jb-hero-media::after { display: none; }
+.jb-hero-caption { position: static; padding: .9rem 1.5rem; color: var(--forest); background: var(--linen-2); }
+.jb-hero-fact { position: static; max-width: none; padding: 1rem 1.5rem; color: var(--forest); background: var(--brass); text-align: left; }
 .jb-rail { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem clamp(1.25rem,5vw,5rem); color: var(--forest); background: var(--brass); font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; }
 .jb-choice { background: var(--linen); }
 .jb-choice-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 4rem; }
@@ -170,9 +174,10 @@ em { color: var(--copper); font-style: italic; }
   .jb-mobile a { font-size: clamp(2.1rem, 9vw, 3.4rem); }
   .jb-hero-copy { min-height: auto; padding: 4.7rem 1.25rem 3.7rem; }
   .jb-hero h1 span, .jb-hero h1 em { white-space: normal; }
-  .jb-hero-media { min-height: 340px; }
-  .jb-hero-media > img { min-height: 340px; }
-  .jb-hero-fact { display: none; }
+  .jb-hero-media { min-height: auto; }
+  .jb-hero-media > img { flex: 0 0 auto; min-height: 300px; height: 300px; }
+  .jb-hero-fact { display: block; padding: .9rem 1rem; }
+  .jb-hero-caption { padding-inline: 1rem; }
   .jb-rail { display: grid; grid-template-columns: 1fr; gap: .55rem; padding: 1rem; }
   .jb-rail span { text-align: left; }
   .jb-choice-head { margin-bottom: 2.5rem; }
@@ -186,7 +191,9 @@ em { color: var(--copper); font-style: italic; }
   h1 { font-size: clamp(3.35rem, 15vw, 5.2rem); }
   h2 { font-size: clamp(2.55rem, 12vw, 4.3rem); }
   .jb-hero-copy { padding-inline: 1rem; }
-  .jb-hero-media, .jb-hero-media > img { min-height: 310px; height: 310px; }
+  .jb-hero-media, .jb-hero-media > img { min-height: 0; height: auto; }
+  .jb-hero-media > img { aspect-ratio: 4 / 3; }
+  .jb-hero-fact { display: block; }
   .jb-hero-actions { display: grid; gap: .7rem; }
   .jb-hero-actions .jb-button, .jb-hero-actions .jb-link { width: 100%; }
   .jb-hero-actions .jb-link { justify-content: center; }
