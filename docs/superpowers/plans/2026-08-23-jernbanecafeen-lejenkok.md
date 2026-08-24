@@ -1,8 +1,8 @@
-# Jernbanecaféen + Lejen Kok Implementation Plan
+# Jernbanecaféen + Lej en Kok Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking.
 
-**Goal:** Redesign Jernbanecaféen around Danish kro-mad and Thai food, build Lejen Kok as a separate site in Niels' universe, connect both to the existing CMS model, and verify the full experience on desktop and mobile.
+**Goal:** Redesign Jernbanecaféen around Danish kro-mad and Thai food, build Lej en Kok as a separate site in Niels' universe, connect both to the existing CMS model, and verify the full experience on desktop and mobile.
 
 **Architecture:** Keep Jernbanecaféen as a vanilla static site with its existing flat HTML files and CMS anchors. Add the missing today's-dish page without migrating frameworks. Create Lejen Kok in a separate local codebase with its own HTML, CSS, JavaScript, metadata, and CMS slug. Reuse the existing CMS inbox and content field types instead of adding a new backend.
 

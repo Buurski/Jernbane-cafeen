@@ -1,251 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jernbane Cafeen i Ikast | Dansk kromad og thai i stationsbygningen</title>
-  <meta name="description" content="Klassisk dansk kromad og hjemmelavet thai i den gamle stationsbygning på Lille Torv 3 i Ikast. Se dagens ret, menukort og åbningstider.">
-  <link rel="canonical" href="https://jbcafeen.dk/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="da_DK">
-  <meta property="og:site_name" content="Jernbane Cafeen">
-  <meta property="og:url" content="https://jbcafeen.dk/">
-  <meta property="og:title" content="Jernbane Cafeen i Ikast | Dansk kromad og thai i stationsbygningen">
-  <meta property="og:description" content="Klassisk dansk kromad og hjemmelavet thai i den gamle stationsbygning på Lille Torv 3 i Ikast.">
-  <meta property="og:image" content="https://jbcafeen.dk/billeder/mad-restaurant.jpg">
-  <meta property="og:image:alt" content="Mad fra Jernbane Cafeen i Ikast">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "@id": "https://jbcafeen.dk/#restaurant",
-    "name": "Jernbane Cafeen",
-    "url": "https://jbcafeen.dk/",
-    "image": "https://jbcafeen.dk/billeder/mad-restaurant.jpg",
-    "telephone": "+45 30 80 72 41",
-    "email": "info@jbcafeen.dk",
-    "address": {"@type": "PostalAddress", "streetAddress": "Lille Torv 3", "postalCode": "7430", "addressLocality": "Ikast", "addressCountry": "DK"},
-    "geo": {"@type": "GeoCoordinates", "latitude": 56.14471, "longitude": 9.155242},
-    "openingHoursSpecification": [
-      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "16:00", "closes": "20:00"},
-      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Friday"], "opens": "12:00", "closes": "20:00"},
-      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "20:00"},
-      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:00"}
-    ],
-    "servesCuisine": ["Danish", "Thai"],
-    "sameAs": ["https://www.instagram.com/jernbanecafeen_7430_ikast/", "https://www.findsmiley.dk/1355830"]
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jernbanecaféen i Ikast | Mad fra stationen</title>
+  <meta name="description" content="Jernbanecaféen i Ikast serverer dansk kromad, hjemmelavet thai, dagens ret, take away og catering fra den gamle stationsbygning på Lille Torv 3.">
+  <link rel="canonical" href="https://jbcafeen.dk/"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta property="og:type" content="website"><meta property="og:locale" content="da_DK"><meta property="og:site_name" content="Jernbanecaféen"><meta property="og:url" content="https://jbcafeen.dk/"><meta property="og:title" content="Jernbanecaféen i Ikast | Mad fra stationen"><meta property="og:description" content="Dansk kromad, hjemmelavet thai og dagens ret i den gamle stationsbygning på Lille Torv 3 i Ikast."><meta property="og:image" content="https://jbcafeen.dk/billeder/hero-facade.png"><meta property="og:image:alt" content="Jernbanecaféens gamle stationsbygning i Ikast">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","@id":"https://jbcafeen.dk/#restaurant","name":"Jernbanecaféen","url":"https://jbcafeen.dk/","image":"https://jbcafeen.dk/billeder/hero-facade.png","telephone":"+4530807241","email":"info@jbcafeen.dk","address":{"@type":"PostalAddress","streetAddress":"Lille Torv 3","postalCode":"7430","addressLocality":"Ikast","addressCountry":"DK"},"servesCuisine":["Danish","Thai"],"sameAs":["https://www.instagram.com/jernbanecafeen_7430_ikast/","https://www.findsmiley.dk/1355830"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="jernbane-home.css">
 </head>
-<body data-page="home">
-  <a class="skip-link" href="#top">Spring til indhold</a>
-
-  <header class="nav nav-theme-dark" role="banner">
-    <div class="nav-left">
-      <div class="nav-location">
-        <span class="nav-route">7430 / IKAST</span>
-        <span class="nav-status"><i aria-hidden="true"></i> ÅBEN ONS-SØN</span>
-      </div>
-      <nav class="nav-links" aria-label="Hovednavigation">
-        <a data-cms="linktekst" href="menu.html" class="nav-link">Menukort</a>
-        <a data-cms="linktekst-2" href="dagens-ret.html" class="nav-link">Dagens ret</a>
-      </nav>
-    </div>
-    <a href="#top" class="nav-logo-link" aria-label="Jernbane Cafeen, forside">
-      <img data-cms="billede" src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen" class="nav-logo" id="navLogo">
-    </a>
-    <div class="nav-right">
-      <nav class="nav-links" aria-label="Mere navigation">
-        <a data-cms="linktekst-3" href="catering.html" class="nav-link">Catering</a>
-        <a data-cms="linktekst-4" href="om-os.html" class="nav-link">Om os</a>
-        <a data-cms="linktekst-5" href="#kontakt" class="nav-link">Kontakt</a>
-      </nav>
-      <a data-cms="linktekst-6" href="#kontakt" class="nav-cta">Book bord <span aria-hidden="true">↗</span></a>
-    </div>
-    <button class="burger" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-navigation">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <main id="top">
-    <section class="hero-rail" data-tone="dark" aria-label="Velkommen til Jernbane Cafeen">
-      <div class="hero-copy">
-        <div class="hero-kicker reveal">JERNBANE CAFÉEN <span>/</span> IKAST</div>
-        <img data-cms="billede-2" src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen logo" class="hero-logo reveal" data-delay="1">
-        <h1 data-cms="overskrift-hero" class="hero-heading reveal" data-delay="2">Mad, der får<br><em>byen til at stoppe.</em></h1>
-        <p data-cms="tekst-2" class="hero-lead reveal" data-delay="3">Dansk kromad, hjemmelavet thai og dagens ret i den gamle stationsbygning. Sæt dig ned, eller tag smagen med videre.</p>
-        <div class="hero-actions reveal" data-delay="4">
-          <a data-cms="linktekst-21" href="dagens-ret.html" class="button button-signal">Se dagens ret <span aria-hidden="true">↗</span></a>
-          <a href="menu.html" class="button button-quiet">Menukortet</a>
-        </div>
-        <div class="hero-meta reveal" data-delay="4">
-          <span>Lille Torv 3</span><span>7430 Ikast</span><span>30 80 72 41</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-image-wrap">
-          <img data-cms="billede-3" src="billeder/mad-restaurant.jpg" alt="En tallerken mad og kaffe på Jernbane Cafeen" class="hero-image">
-        </div>
-        <div class="hero-image-note"><span>FRA KØKKENET</span><strong>02 / 04</strong></div>
-        <div class="hero-vertical-word" aria-hidden="true">HVERDAG · FROKOST · AFTEN</div>
-      </div>
-      <div class="hero-corner" aria-hidden="true"><span>EST.</span><strong>2023</strong></div>
-    </section>
-
-    <div class="ticker ticker-signal" data-tone="signal" aria-label="Jernbane Cafeen serverer">
-      <div class="ticker-track">
-        <span>DANSK KROMAD</span><b>✦</b><span>HJEMMELAVET THAI</span><b>✦</b><span>DAGENS RET</span><b>✦</b><span>7430 IKAST</span><b>✦</b>
-        <span>DANSK KROMAD</span><b>✦</b><span>HJEMMELAVET THAI</span><b>✦</b><span>DAGENS RET</span><b>✦</b><span>7430 IKAST</span><b>✦</b>
-      </div>
-    </div>
-
-    <section class="today-section" id="dagens-ret" data-tone="signal" aria-label="Dagens ret">
-      <div class="section-shell today-grid">
-        <div class="today-label reveal">
-          <span class="section-number">01</span>
-          <p data-cms="tekst-10" class="eyebrow eyebrow-dark">Fra køkkenet i dag</p>
-          <h2 data-cms="overskrift">Dagens<br><em>ret</em></h2>
-          <p class="today-stamp">OPDATERES AF KØKKENET</p>
-        </div>
-        <div class="today-content reveal" data-delay="1">
-          <div data-cms="dagens-ret" data-cms-type="banner" class="daily-banner daily-banner-dark" aria-live="polite">
-            <p class="today-placeholder">Dagens ret bliver lagt op her, når køkkenet har valgt den. Ring på <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne, hvad der står på i dag.</p>
-          </div>
-          <div class="today-bottom">
-            <span>Spis her eller tag med</span>
-            <a class="text-link text-link-dark" href="menu.html">Se menukortet <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="today-image reveal" data-delay="2">
-          <img src="billeder/mad-restaurant2.jpg" alt="Mad fra Jernbane Cafeen" loading="lazy">
-          <span class="image-caption">DAGENS RET / IKAST</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="editorial-section section-light" id="om" data-tone="light" aria-label="Om cafeen">
-      <div class="section-shell editorial-grid">
-        <div class="section-marker reveal"><span>02</span><span class="marker-line"></span><span>STED</span></div>
-        <div class="editorial-copy reveal" data-delay="1">
-          <p data-cms="tekst-13" class="eyebrow">Naboernes café</p>
-          <h2 data-cms="overskrift-2">En station.<br><em>To køkkener.</em><br>Én god grund til at blive.</h2>
-          <div class="rule"></div>
-          <p data-cms="tekst-14" class="body-large">I den gamle stationsbygning møder den klassiske danske tallerken Rapheephons thailandske hverdagsmad. Niels og Rapheephon driver caféen som et sted, hvor man kan spise godt uden at gøre en stor ting ud af det.</p>
-          <a href="om-os.html" class="text-link">Læs historien <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="editorial-collage reveal" data-delay="2">
-          <div class="collage-main"><img data-cms="billede-4" src="billeder/om-interior.png" alt="Interiør i Jernbane Cafeen" loading="lazy"></div>
-          <div class="collage-small"><img data-cms="billede-5" src="billeder/hero-facade.png" alt="Jernbane Cafeens stationsbygning i Ikast" loading="lazy"></div>
-          <span class="collage-caption">LILLE TORV 3<br>SIDEN 2023</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="menu-stage" id="menu" data-tone="dark" aria-label="Menukort">
-      <div class="section-shell">
-        <div class="menu-heading reveal">
-          <div class="section-marker section-marker-light"><span>03</span><span class="marker-line"></span><span>MENU</span></div>
-          <div>
-            <p data-cms="tekst-15" class="eyebrow eyebrow-signal">Hvad serverer vi</p>
-            <h2 data-cms="overskrift-3">Vælg dit spor.</h2>
-          </div>
-          <a data-cms="linktekst-7" href="menu.html" class="button button-outline-light">Hele menukortet <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="tracks-grid tracks-grid-new">
-          <article class="track-card track-card-danish reveal" data-delay="1">
-            <div class="track-card-top"><span>FROKOST / 12-16</span><span class="track-icon" aria-hidden="true">↘</span></div>
-            <h3 data-cms="overskrift-4">Dansk<br><em>kromad</em></h3>
-            <p data-cms="tekst-16">Stjerneskud, pariserbøf, smørrebrød og dagens ret. Det velkendte, lavet ordentligt.</p>
-            <a class="text-link text-link-light" href="menu.html#frokost">Se frokostmenuen <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="track-card track-card-thai reveal" data-delay="2">
-            <div class="track-card-top"><span>AFTEN / 16-20</span><span class="track-icon" aria-hidden="true">↗</span></div>
-            <h3 data-cms="overskrift-6">Thai fra<br><em>bunden</em></h3>
-            <p data-cms="tekst-18">Rapheephons thailandske hverdagsmad med varme, syre og masser af smag.</p>
-            <a class="text-link text-link-light" href="menu.html#aften">Se aftenmenuen <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-        <div class="menu-footnote reveal" data-delay="3"><span>Menuen skifter løbende</span><span>Spørg gerne om allergener</span><span>Take away muligt</span></div>
-      </div>
-    </section>
-
-    <section class="photo-break" data-tone="light" aria-label="Mad fra caféen">
-      <img data-cms="billede-7" src="billeder/mad-catering2.png" alt="Cateringfade fra Jernbane Cafeen" loading="lazy">
-      <div class="photo-break-overlay"></div>
-      <div class="photo-break-copy reveal"><span>FRA STATIONEN</span><strong>Mad til<br>hverdag og fest.</strong></div>
-      <p data-cms="tekst-21" class="photo-break-caption">Hjemmelavet mad fra to køkkener, hver dag</p>
-    </section>
-
-    <section class="hosting-section section-signal" id="catering" data-tone="light" aria-label="Catering og selskaber">
-      <div class="section-shell hosting-grid">
-        <div class="hosting-copy reveal">
-          <div class="section-marker"><span>04</span><span class="marker-line"></span><span>ANLEDNING</span></div>
-          <p data-cms="tekst-22" class="eyebrow eyebrow-dark">Catering & selskaber</p>
-          <h2 data-cms="overskrift-8">Tag Jernbane<br><em>med hjem.</em></h2>
-          <div class="rule rule-dark"></div>
-          <p data-cms="tekst-23" class="body-large">Firmafrokost, fødselsdag eller en aften, hvor I helst vil sidde med gæsterne i stedet for gryderne. Vi laver mad til selskaber i caféen og hos jer.</p>
-          <a data-cms="linktekst-8" href="catering.html" class="button button-dark">Se catering <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="hosting-image reveal" data-delay="1">
-          <img data-cms="billede-8" src="billeder/mad-catering.png" alt="Cateringmad fra Jernbane Cafeen" loading="lazy">
-          <div class="hosting-note">OP TIL CA.<br><strong>40</strong><br>GÆSTER I CAFÉEN</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-stage section-light" id="kontakt" data-tone="light" aria-label="Kontakt og booking">
-      <div class="section-shell contact-grid-new">
-        <div class="contact-copy reveal">
-          <div class="section-marker"><span>05</span><span class="marker-line"></span><span>BOOKING</span></div>
-          <p data-cms="tekst-27" class="eyebrow">Kom forbi</p>
-          <h2 data-cms="overskrift-10">Vi sidder<br><em>klar på stationen.</em></h2>
-          <div class="rule"></div>
-          <address class="contact-address">
-            Lille Torv 3<br>
-            7430 Ikast<br><br>
-            <a href="tel:30807241">30 80 72 41</a><br>
-            <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a>
-          </address>
-          <a class="text-link" href="https://maps.google.com/?q=Lille+Torv+3,+7430+Ikast" target="_blank" rel="noopener">Find vej <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="contact-form-wrap reveal" data-delay="1">
-          <p data-cms="tekst-28" class="form-kicker">Book bord eller spørg om catering</p>
-          <form class="form form-new" id="buur-kontaktform" data-slug="jernbane-cafeen" data-endpoint="" novalidate>
-            <div class="form-row">
-              <div class="form-group"><label for="navn" class="form-label">Navn</label><input type="text" id="navn" name="navn" class="form-input" required autocomplete="name" minlength="2" maxlength="100"></div>
-              <div class="form-group"><label for="email" class="form-label">Email</label><input type="email" id="email" name="email" class="form-input" required autocomplete="email" maxlength="150"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label for="telefon" class="form-label">Telefon</label><input type="tel" id="telefon" name="telefon" class="form-input" autocomplete="tel" maxlength="20"></div>
-              <div class="form-group"><label for="dato" class="form-label">Dato</label><input type="date" id="dato" name="dato" class="form-input"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label for="antal" class="form-label">Antal gæster</label><input type="number" id="antal" name="antal" class="form-input" min="1" max="200" inputmode="numeric"></div>
-              <div class="form-group"><label for="besked" class="form-label">Hvad kan vi hjælpe med?</label><input type="text" id="besked" name="besked" class="form-input" required minlength="10" maxlength="2000"></div>
-            </div>
-            <label class="buur-honeypot" aria-hidden="true">Lad dette felt være tomt<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-            <div class="form-submit-row"><button data-cms="knaptekst" type="submit" class="button button-dark">Send besked <span aria-hidden="true">↗</span></button><p data-cms="tekst-29" class="buur-feedback" role="status" aria-live="polite"></p></div>
-          </form>
-        </div>
-        <div class="contact-map reveal" data-delay="2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2224.0!2d9.15542!3d56.13916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c0c2f5ab6abe7%3A0xb3f24d3d0e12c35a!2sLille+Torv+3%2C+7430+Ikast!5e0!3m2!1sda!2sdk!4v1" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Jernbane Cafeen på kortet"></iframe></div>
-      </div>
-    </section>
+<body class="site-jernbane">
+  <a class="skip-link" href="#main">Spring til indhold</a>
+  <header class="jb-nav nav-dark"><a class="jb-logo" href="#top" aria-label="Jernbanecaféen, forside"><img src="billeder/jernbane-logo-creme.png" alt="Jernbanecaféen"></a><nav aria-label="Hovednavigation"><a href="menu.html">Menukort</a><a href="dagens-ret.html">Dagens ret</a><a href="catering.html">Catering</a><a href="om-os.html">Om os</a><a class="jb-nav-cta" href="#kontakt">Book bord <span aria-hidden="true">↗</span></a></nav><button class="jb-menu" type="button" aria-expanded="false" aria-controls="jb-mobile-nav">Menu</button></header>
+  <aside class="jb-mobile-nav" id="jb-mobile-nav" aria-label="Mobilnavigation"><button type="button" class="jb-close">Luk</button><a href="menu.html">Menukort</a><a href="dagens-ret.html">Dagens ret</a><a href="catering.html">Catering</a><a href="om-os.html">Om os</a><a href="#kontakt">Book bord</a></aside>
+  <main id="main">
+    <section class="jb-hero nav-dark" id="top" data-nav="dark"><div class="jb-hero-image"><img src="billeder/hero-facade.png" alt="Jernbanecaféens gamle stationsbygning i Ikast"></div><div class="jb-hero-shade"></div><div class="jb-hero-panel reveal"><p class="jb-eyebrow">Jernbanecaféen / Ikast</p><img class="jb-hero-logo" src="billeder/jernbane-logo-creme.png" alt="Jernbanecaféen logo"><h1>Mad fra<br><em>stationen.</em></h1><p class="jb-lead">Dansk kromad, hjemmelavet thai og dagens ret i den gamle stationsbygning på Lille Torv.</p><div class="jb-actions"><a class="jb-button jb-button-signal" href="dagens-ret.html">Se dagens ret <span aria-hidden="true">↗</span></a><a class="jb-text-link jb-text-link-light" href="menu.html">Se menukortet</a></div></div><div class="jb-hero-note">LILLE TORV 3<br>7430 IKAST</div></section>
+    <div class="jb-rail"><span>Onsdag til søndag</span><span>Spis her / tag med</span><span>Åben for selskaber</span></div>
+    <section class="jb-today nav-signal" id="dagens-ret" data-nav="signal" aria-labelledby="jb-today-title"><div class="jb-wrap jb-today-grid"><div class="jb-today-label reveal"><p class="jb-eyebrow">Fra køkkenet i dag</p><h2 id="jb-today-title">Dagens<br><em>ret.</em></h2><span class="jb-mono">OPDATERES AF KØKKENET</span></div><div class="jb-today-copy reveal" data-delay="1"><div data-cms="dagens-ret" data-cms-type="banner" class="jb-daily-banner" aria-live="polite"><p>Dagens ret bliver lagt op her, når køkkenet har valgt den. Ring på <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne, hvad der står på i dag.</p></div><div class="jb-underline"><span>Spis her eller tag med</span><a href="menu.html">Menukortet <span aria-hidden="true">↗</span></a></div></div><div class="jb-today-image reveal" data-delay="2"><img src="billeder/mad-restaurant2.jpg" alt="Mad fra Jernbanecaféen" loading="lazy"></div></div></section>
+    <section class="jb-kitchens nav-light" id="køkkener" data-nav="light" aria-labelledby="jb-kitchens-title"><div class="jb-wrap"><div class="jb-section-intro reveal"><p class="jb-eyebrow">To køkkener under ét tag</p><h2 id="jb-kitchens-title">Vælg det, du har lyst til.</h2></div><div class="jb-kitchen-grid"><article class="jb-kitchen jb-kitchen-danish reveal"><div class="jb-kitchen-image"><img src="billeder/mad-restaurant.jpg" alt="Dansk ret fra Jernbanecaféen" loading="lazy"></div><div class="jb-kitchen-copy"><span class="jb-mono">Frokost / klassikere</span><h3>Dansk<br><em>kromad.</em></h3><p>Stjerneskud, pariserbøf, smørrebrød og dagens ret. Det velkendte, lavet ordentligt.</p><a href="menu.html#frokost">Se frokostmenuen <span aria-hidden="true">↗</span></a></div></article><article class="jb-kitchen jb-kitchen-thai reveal" data-delay="1"><div class="jb-kitchen-image"><img src="billeder/mad-restaurant2.jpg" alt="Hjemmelavet thai fra Jernbanecaféen" loading="lazy"></div><div class="jb-kitchen-copy"><span class="jb-mono">Aften / hjemmelavet</span><h3>Thai fra<br><em>bunden.</em></h3><p>Rapheephons thailandske hverdagsmad med varme, syre og masser af smag.</p><a href="menu.html#aften">Se aftenmenuen <span aria-hidden="true">↗</span></a></div></article></div></div></section>
+    <section class="jb-place nav-dark" id="sted" data-nav="dark" aria-labelledby="jb-place-title"><div class="jb-place-image"><img src="billeder/om-interior.png" alt="Interiør i Jernbanecaféen" loading="lazy"></div><div class="jb-place-copy reveal"><p class="jb-eyebrow">Et sted at lande</p><h2 id="jb-place-title">Historiske rammer.<br><em>Helt almindelig god mad.</em></h2><p>Stationen i Ikast er fra 1877. I dag er den blevet til en café, hvor togbanen ligger på den ene side og en levende plads på den anden.</p><a class="jb-button jb-button-outline" href="om-os.html">Læs historien <span aria-hidden="true">↗</span></a></div><span class="jb-place-year">1877</span></section>
+    <section class="jb-hosting nav-paper" id="catering" data-nav="paper" aria-labelledby="jb-hosting-title"><div class="jb-wrap jb-hosting-grid"><div class="jb-hosting-copy reveal"><p class="jb-eyebrow">Catering / selskaber / private dining</p><h2 id="jb-hosting-title">Tag maden<br><em>med videre.</em></h2><p>Fødselsdag, firmafrokost eller en aften, hvor I helst vil blive ved gæsterne i stedet for gryderne. Vi laver mad til selskaber i caféen og hos jer.</p><a class="jb-button jb-button-dark" href="catering.html">Se catering <span aria-hidden="true">↗</span></a></div><div class="jb-hosting-image reveal" data-delay="1"><img src="billeder/mad-catering.png" alt="Cateringmad fra Jernbanecaféen" loading="lazy"><span class="jb-image-label">MAD TIL HVERDAG OG FEST</span></div></div></section>
+    <section class="jb-contact nav-light" id="kontakt" data-nav="light" aria-labelledby="jb-contact-title"><div class="jb-wrap jb-contact-grid"><div class="jb-contact-copy reveal"><p class="jb-eyebrow">Kom forbi</p><h2 id="jb-contact-title">Vi sidder klar på stationen.</h2><address>Lille Torv 3<br>7430 Ikast<br><br><a href="tel:30807241">30 80 72 41</a><br><a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a></address><a class="jb-text-link" href="https://maps.google.com/?q=Lille+Torv+3,+7430+Ikast" target="_blank" rel="noopener">Find vej <span aria-hidden="true">↗</span></a></div><div class="jb-form-wrap reveal" data-delay="1"><p class="jb-mono">Book bord eller spørg om catering</p><form id="buur-kontaktform" data-slug="jernbane-cafeen" data-endpoint="" novalidate><div class="jb-form-row"><label>Navn<input type="text" name="navn" required minlength="2" maxlength="100" autocomplete="name"></label><label>Email<input type="email" name="email" required maxlength="150" autocomplete="email"></label></div><div class="jb-form-row"><label>Telefon<input type="tel" name="telefon" maxlength="20" autocomplete="tel"></label><label>Dato<input type="date" name="dato"></label></div><label>Antal gæster<input type="number" name="antal" min="1" max="200" inputmode="numeric"></label><label>Hvad kan vi hjælpe med?<input type="text" name="besked" required minlength="10" maxlength="2000"></label><label class="jb-honeypot">Lad dette felt være tomt<input name="website" type="text" tabindex="-1" autocomplete="off"></label><button class="jb-button jb-button-dark" type="submit">Send besked <span aria-hidden="true">↗</span></button><p class="jb-feedback" data-cms="tekst-29" role="status" aria-live="polite"></p></form></div><div class="jb-map reveal" data-delay="2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2224.0!2d9.15542!3d56.13916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c0c2f5ab6abe7%3A0xb3f24d3d0e12c35a!2sLille+Torv+3%2C+7430+Ikast!5e0!3m2!1sda!2sdk!4v1" title="Jernbanecaféen på kortet" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
   </main>
-
-  <footer class="footer" data-tone="dark" aria-label="Sidefod">
-    <div class="footer-grid">
-      <div class="footer-brand"><img data-cms="billede-9" src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen" class="footer-logo"><p data-cms="tekst-30">Hyggelig stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p></div>
-      <div><h3 data-cms="lille-overskrift">Kontakt</h3><address>Lille Torv 3, 7430 Ikast<br><a data-cms="linktekst-9" href="tel:30807241">30 80 72 41</a><br><a data-cms="linktekst-10" href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a><br>CVR: 35890564</address></div>
-      <div><h3 data-cms="lille-overskrift-2">Links</h3><nav aria-label="Footer navigation"><a data-cms="linktekst-11" href="menu.html">Menukort</a><a data-cms="linktekst-12" href="om-os.html">Om os</a><a data-cms="linktekst-13" href="catering.html">Catering</a><a data-cms="linktekst-14" href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener">Facebook</a><a data-cms="linktekst-15" href="https://www.instagram.com/jernbanecafeen_7430_ikast/" target="_blank" rel="noopener">Instagram</a><a data-cms="linktekst-16" href="https://www.findsmiley.dk/1355830" target="_blank" rel="noopener">Fødevarekontrol</a></nav></div>
-    </div>
-    <div class="footer-bottom"><p data-cms="tekst-31">© 2026 Jernbane Cafeen · Lille Torv 3, 7430 Ikast · CVR 35890564</p><span>EN DEL AF BYEN SIDEN 2023</span></div>
-  </footer>
-
-  <script src="main.js"></script>
+  <footer class="jb-footer nav-dark" data-nav="dark"><div class="jb-wrap jb-footer-grid"><div><img src="billeder/jernbane-logo-creme.png" alt="Jernbanecaféen" class="jb-footer-logo"><p>Hyggelig stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p></div><div><p class="jb-mono">Kontakt</p><address>Lille Torv 3, 7430 Ikast<br><a href="tel:30807241">30 80 72 41</a><br><a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a></address></div><nav aria-label="Footer navigation"><p class="jb-mono">Links</p><a href="menu.html">Menukort</a><a href="om-os.html">Om os</a><a href="catering.html">Catering</a><a href="https://www.instagram.com/jernbanecafeen_7430_ikast/" target="_blank" rel="noopener">Instagram</a></nav></div><div class="jb-wrap jb-footer-bottom"><span>© 2026 Jernbanecaféen</span><span>Lille Torv 3 / 7430 Ikast</span></div></footer>
+  <script src="jernbane-home.js" defer></script>
 </body>
 </html>
