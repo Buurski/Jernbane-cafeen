@@ -201,4 +201,8 @@ em { color: inherit; font-style: normal; }
   .jb-contact { padding-top: 4.5rem; padding-bottom: 4.5rem; }
   .jb-contact-grid { gap: 1.5rem; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }.reveal { opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }.reveal, .js .reveal { opacity:1; transform:none; } }
+.jb-header.is-light { color: var(--ink); background: var(--linen); border-top-color: var(--copper-deep); border-bottom-color: var(--line); }
+.jb-header.is-light .jb-menu { color: var(--ink); border-color: rgba(26,37,33,.35); }
+.jb-header.is-light .jb-nav a[aria-current="page"], .jb-header.is-light .jb-nav a:not(.jb-button):hover { color: var(--copper-deep); }
+@media (max-width: 850px) { .jb-header.is-light .jb-nav { background: var(--linen); border-top-color: var(--line); } }

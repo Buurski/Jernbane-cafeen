@@ -19,6 +19,22 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const header = document.querySelector('.jb-header');
+  const headerLogo = header?.querySelector('.jb-logo img');
+  const lightAreas = '.jb-choice, .jb-today, .jb-story, .jb-service, .jb-menu-section, .jb-facts';
+  const syncHeaderTone = () => {
+    if (!header) return;
+    const y = Math.min(window.innerHeight - 1, header.getBoundingClientRect().bottom + 2);
+    const under = document.elementFromPoint(window.innerWidth / 2, y);
+    const light = Boolean(under?.closest(lightAreas));
+    header.classList.toggle('is-light', light);
+    if (headerLogo) headerLogo.src = light ? 'billeder/jernbane-logo-lys.png' : 'billeder/jernbane-logo-creme.png';
+  };
+  let toneFrame = 0;
+  const scheduleTone = () => { if (toneFrame) return; toneFrame = requestAnimationFrame(() => { toneFrame = 0; syncHeaderTone(); }); };
+  syncHeaderTone();
+  window.addEventListener('scroll', scheduleTone, { passive: true });
+  window.addEventListener('resize', scheduleTone);
   const reveals = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) reveals.forEach(el => el.classList.add('is-visible'));
   else {
