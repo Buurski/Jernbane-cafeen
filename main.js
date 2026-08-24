@@ -158,28 +158,9 @@
         honeypot: data.get("website") || "",
         ts: renderedAt
       };
-      var endpoint = form.getAttribute("data-endpoint") || "https://kinly-cms.vercel.app/api/inbox/" + encodeURIComponent(slug);
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sender..."; }
-      if (feedback) feedback.textContent = "";
-      fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
-        .then(function (response) {
-          return response.json().catch(function () { return {}; }).then(function (json) { return { status: response.status, body: json }; });
-        })
-        .then(function (result) {
-          if (result.status === 200 && result.body && result.body.ok) {
-            form.reset();
-            renderedAt = Date.now();
-            if (feedback) feedback.textContent = "Tak for din besked. Vi vender tilbage hurtigst muligt.";
-          } else if (feedback) {
-            feedback.textContent = (result.body && result.body.error) || "Kunne ikke sende lige nu. Prøv igen om lidt.";
-          }
-        })
-        .catch(function () {
-          if (feedback) feedback.textContent = "Kunne ikke sende lige nu. Prøv igen om lidt.";
-        })
-        .finally(function () {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
-        });
+      if (submitBtn) submitBtn.disabled = true;
+      if (feedback) feedback.textContent = "Tak for oplysningerne. Previewet er valideret lokalt, men ikke sendt.";
+      if (submitBtn) submitBtn.disabled = false;
     });
   }
 })();

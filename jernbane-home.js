@@ -49,18 +49,8 @@
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const data = new FormData(form);
     if (String(data.get('website') || '').trim()) return;
-    const details = [`Telefon: ${String(data.get('telefon') || '').trim() || 'Ikke oplyst'}`, `Dato: ${String(data.get('dato') || '').trim() || 'Ikke oplyst'}`, `Antal gæster: ${String(data.get('antal') || '').trim() || 'Ikke oplyst'}`, '', String(data.get('besked') || '').trim()].join('\n');
-    const endpoint = form.dataset.endpoint || `https://kinly-cms.vercel.app/api/inbox/${encodeURIComponent(form.dataset.slug || '')}`;
     submit.disabled = true;
-    submit.textContent = 'Sender...';
-    feedback.textContent = '';
-    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('navn') || '', email: data.get('email') || '', message: details, honeypot: '', ts: renderedAt }) })
-      .then(response => response.json().catch(() => ({})).then(body => ({ response, body })))
-      .then(({ response, body }) => {
-        if (response.ok && body.ok) { form.reset(); renderedAt = Date.now(); feedback.textContent = 'Tak for din besked. Vi vender tilbage hurtigst muligt.'; }
-        else feedback.textContent = body.error || 'Kunne ikke sende lige nu. Prøv igen om lidt.';
-      })
-      .catch(() => { feedback.textContent = 'Kunne ikke sende lige nu. Prøv igen om lidt.'; })
-      .finally(() => { submit.disabled = false; submit.textContent = original; });
+    feedback.textContent = 'Tak for oplysningerne. Previewet er valideret lokalt, men ikke sendt.';
+    submit.disabled = false;
   });
 })();
