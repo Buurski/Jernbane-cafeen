@@ -1,92 +1,185 @@
-// ===== NAV INDLÆSNING =====
-setTimeout(() => {
-  document.querySelector('.nav')?.classList.add('is-loaded');
-}, 150);
+(function () {
+  "use strict";
 
-// ===== NAV MØRK/LYS =====
-const nav = document.querySelector('.nav');
-const toneSections = document.querySelectorAll('[data-tone]');
-let toneObserver = null;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var nav = document.querySelector(".nav");
+  var logo = document.getElementById("navLogo");
+  var navH = nav ? nav.offsetHeight : 80;
+  var logoDark = "billeder/jernbane-logo-creme.png";
+  var logoLight = "billeder/jernbane-logo-lys.png";
 
-function setNavTone(isDark) {
-  if (!nav) return;
-  nav.classList.toggle('is-dark', isDark);
-  const navLogo = document.getElementById('navLogo');
-  if (navLogo) {
-    navLogo.src = isDark
-      ? 'billeder/jernbane-logo-creme.png'
-      : 'billeder/jernbane-logo-lys.png';
+  document.documentElement.classList.add("js");
+  if (nav) window.requestAnimationFrame(function () { nav.classList.add("is-loaded"); });
+
+  function inferTone(section) {
+    if (section.dataset.tone) return section.dataset.tone;
+    if (section.classList.contains("footer") || section.classList.contains("subpage-hero") || section.classList.contains("daily-hero") || section.classList.contains("catering-section")) return "dark";
+    if (section.classList.contains("hosting-section") || section.classList.contains("today-section")) return "signal";
+    return "light";
   }
-}
 
-function observeNavTone() {
-  if (!nav || !toneSections.length) return;
-  toneObserver?.disconnect();
-  const navHeight = nav.getBoundingClientRect().height;
-  const bandHeight = Math.max(window.innerHeight - navHeight - 1, 0);
-  toneObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) setNavTone(entry.target.dataset.tone === 'dark');
+  var sections = Array.prototype.slice.call(document.querySelectorAll("main section, footer"));
+  sections.forEach(function (section) {
+    if (!section.dataset.tone) section.dataset.tone = inferTone(section);
+  });
+
+  function setNavTheme(tone) {
+    if (!nav) return;
+    var theme = tone === "signal" ? "signal" : tone === "light" ? "light" : "dark";
+    nav.classList.remove("nav-theme-dark", "nav-theme-light", "nav-theme-signal");
+    nav.classList.add("nav-theme-" + theme);
+    if (logo) logo.src = theme === "dark" ? logoDark : logoLight;
+  }
+
+  function themeAtNav() {
+    if (!sections.length) return;
+    var point = navH + 4;
+    var active = sections.find(function (section) {
+      var box = section.getBoundingClientRect();
+      return box.top <= point && box.bottom > point;
     });
-  }, {
-    rootMargin: `-${navHeight}px 0px -${bandHeight}px 0px`,
-    threshold: 0,
-  });
-  toneSections.forEach(section => toneObserver.observe(section));
-}
-
-observeNavTone();
-window.addEventListener('resize', observeNavTone, { passive: true });
-
-// ===== SCROLL-REVEAL (reveal, reveal-left, reveal-right, reveal-clip) =====
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('is-in');
-      io.unobserve(e.target);
+    if (!active) {
+      active = sections.reduce(function (closest, section) {
+        var distance = Math.abs(section.getBoundingClientRect().top - point);
+        return distance < closest.distance ? { section: section, distance: distance } : closest;
+      }, { section: sections[0], distance: Infinity }).section;
     }
+    setNavTheme(active.dataset.tone || "light");
+  }
+
+  setNavTheme(sections[0] ? sections[0].dataset.tone : "dark");
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      themeAtNav();
+      ticking = false;
+    });
+  }, { passive: true });
+  window.addEventListener("resize", function () {
+    navH = nav ? nav.offsetHeight : 80;
+    themeAtNav();
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-clip')
-  .forEach(el => io.observe(el));
+  var revealItems = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach(function (item) { item.classList.add("is-in"); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+    revealItems.forEach(function (item) { revealObserver.observe(item); });
+  }
 
-// ===== MOBIL-DRAWER =====
-const burger = document.querySelector('.burger');
-let drawer = null;
+  function openDrawer() {
+    if (!drawer || !burger) return;
+    drawer.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    var first = drawer.querySelector("a, button");
+    if (first) first.focus();
+  }
+  function closeDrawer() {
+    if (!drawer || !burger) return;
+    drawer.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
 
-if (burger) {
-  burger.addEventListener('click', () => {
-    if (drawer) return;
-    burger.setAttribute('aria-expanded', 'true');
-    drawer = document.createElement('div');
-    drawer.className = 'nav-drawer';
-    drawer.setAttribute('role', 'dialog');
-    drawer.setAttribute('aria-modal', 'true');
-    drawer.setAttribute('aria-label', 'Navigation');
-    // På undersider peger ankre tilbage til index.html.
-    const onLanding = !!document.querySelector('main#top .hero');
-    const homeHref = onLanding ? '' : 'index.html';
-    drawer.innerHTML = `
-      <button class="drawer-close" aria-label="Luk menu">&times;</button>
-      <a href="${onLanding ? '' : 'index.html'}">Forside</a>
-      <a href="dagens-ret.html">Dagens ret</a>
-      <a href="menu.html">Menukort</a>
-      <a href="catering.html">Catering</a>
-      <a href="om-os.html">Om os</a>
-      <a href="${homeHref}#kontakt" class="btn-solid">Book bord</a>
-    `;
+  var burger = document.querySelector(".burger");
+  var drawer = null;
+  if (burger) {
+    drawer = document.createElement("aside");
+    drawer.id = "mobile-navigation";
+    drawer.className = "nav-drawer";
+    drawer.setAttribute("aria-label", "Mobilnavigation");
+    var close = document.createElement("button");
+    close.className = "drawer-close";
+    close.type = "button";
+    close.setAttribute("aria-label", "Luk menu");
+    close.textContent = "×";
+    drawer.appendChild(close);
+    var drawerLinks = document.querySelectorAll(".nav-links a, .nav-cta");
+    drawerLinks.forEach(function (link) {
+      var copy = link.cloneNode(true);
+      copy.className = "drawer-link";
+      drawer.appendChild(copy);
+    });
     document.body.appendChild(drawer);
-    requestAnimationFrame(() => drawer.classList.add('is-open'));
+    burger.addEventListener("click", function () { drawer.classList.contains("is-open") ? closeDrawer() : openDrawer(); });
+    close.addEventListener("click", closeDrawer);
+    drawer.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeDrawer();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeDrawer();
+    });
+  }
 
-    function closeDrawer() {
-      drawer.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      setTimeout(() => { drawer?.remove(); drawer = null; }, 400);
-    }
-
-    drawer.querySelector('.drawer-close').addEventListener('click', closeDrawer);
-    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
-    drawer.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+  var currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-link").forEach(function (link) {
+    var href = (link.getAttribute("href") || "").split("#")[0];
+    if (href && href === currentPage) link.setAttribute("aria-current", "page");
   });
-}
+
+  var form = document.getElementById("buur-kontaktform");
+  if (form) {
+    var renderedAt = Date.now();
+    var slug = form.getAttribute("data-slug") || "jernbane-cafeen";
+    var feedback = form.querySelector(".buur-feedback");
+    var submitBtn = form.querySelector("button[type=submit]");
+    var originalLabel = submitBtn ? submitBtn.textContent : "Send besked";
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = new FormData(form);
+      var honeypot = (data.get("website") || "").toString().trim();
+      if (honeypot) {
+        if (feedback) feedback.textContent = "Kunne ikke sende lige nu. Prøv igen om lidt.";
+        return;
+      }
+      var details = [];
+      var telefon = (data.get("telefon") || "").toString().trim();
+      var dato = (data.get("dato") || "").toString().trim();
+      var antal = (data.get("antal") || "").toString().trim();
+      if (telefon) details.push("Telefon: " + telefon);
+      if (dato) details.push("Dato: " + dato);
+      if (antal) details.push("Antal gæster: " + antal);
+      var body = {
+        name: data.get("navn") || "",
+        email: data.get("email") || "",
+        message: (details.length ? details.join("\n") + "\n\n" : "") + (data.get("besked") || ""),
+        honeypot: data.get("website") || "",
+        ts: renderedAt
+      };
+      var endpoint = form.getAttribute("data-endpoint") || "https://buur-cms.vercel.app/api/inbox/" + encodeURIComponent(slug);
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sender..."; }
+      if (feedback) feedback.textContent = "";
+      fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+        .then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (json) { return { status: response.status, body: json }; });
+        })
+        .then(function (result) {
+          if (result.status === 200 && result.body && result.body.ok) {
+            form.reset();
+            renderedAt = Date.now();
+            if (feedback) feedback.textContent = "Tak for din besked. Vi vender tilbage hurtigst muligt.";
+          } else if (feedback) {
+            feedback.textContent = (result.body && result.body.error) || "Kunne ikke sende lige nu. Prøv igen om lidt.";
+          }
+        })
+        .catch(function () {
+          if (feedback) feedback.textContent = "Kunne ikke sende lige nu. Prøv igen om lidt.";
+        })
+        .finally(function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+        });
+    });
+  }
+})();
