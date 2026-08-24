@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menukort — Jernbane Cafeen i Ikast</title>
+  <title>Menukort | Jernbane Cafeen i Ikast</title>
   <meta name="description" content="Frokostmenu kl. 12-16 og aftenmenu kl. 16-20 på Jernbane Cafeen i Ikast. Dansk klassisk og thailandsk hverdagsmad. Lille Torv 3, 7430 Ikast.">
   <link rel="canonical" href="https://jbcafeen.dk/menu.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="da_DK">
   <meta property="og:site_name" content="Jernbane Cafeen">
   <meta property="og:url" content="https://jbcafeen.dk/menu.html">
-  <meta property="og:title" content="Menukort — Jernbane Cafeen i Ikast">
+  <meta property="og:title" content="Menukort | Jernbane Cafeen i Ikast">
   <meta property="og:description" content="Frokost fra kl. 12 og aften fra kl. 16. Dansk klassisk og thailandsk hverdagsmad i Ikast.">
   <meta property="og:image" content="https://jbcafeen.dk/billeder/mad-restaurant2.jpg">
   <meta property="og:image:alt" content="Mad fra Jernbane Cafeen">
@@ -21,7 +21,7 @@
     "@id": "https://jbcafeen.dk/#restaurant",
     "name": "Jernbane Cafeen",
     "url": "https://jbcafeen.dk/",
-    "image": "https://jbcafeen.dk/billeder/hero-facade.png",
+    "image": "https://jbcafeen.dk/billeder/mad-restaurant2.jpg",
     "telephone": "+45 30 80 72 41",
     "email": "info@jbcafeen.dk",
     "address": {"@type": "PostalAddress", "streetAddress": "Lille Torv 3", "postalCode": "7430", "addressLocality": "Ikast", "addressCountry": "DK"},
@@ -42,10 +42,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Spring til indhold</a>
 
   <!-- NAV -->
   <header class="nav" role="banner">
     <div class="nav-left">
+      <a data-cms="linktekst-22" href="dagens-ret.html" class="nav-link">Dagens ret</a>
       <a data-cms="linktekst" href="menu.html" class="nav-link" aria-current="page">Menukort</a>
       <a data-cms="linktekst-2" href="catering.html" class="nav-link">Catering</a>
     </div>
@@ -66,25 +68,26 @@
 
     <!-- 1. SUBPAGE HERO -->
     <section class="subpage-hero" data-tone="dark" aria-label="Menukort">
-      <img data-cms="billede-2" src="billeder/mad-restaurant2.jpg" alt="" data-parallax="0.10" style="background:#2E2A26">
+      <img data-cms="billede-2" src="billeder/mad-restaurant2.jpg" alt="" style="background:#2E2A26">
       <div class="subpage-hero-overlay"></div>
       <div class="subpage-hero-content reveal">
         <p data-cms="tekst" class="eyebrow">Menukort</p>
         <h1 data-cms="overskrift">Hvad er på menuen</h1>
-        <p data-cms="tekst-2" class="body-lg">Frokost fra kl. 12, aften fra kl. 16. Dansk klassisk og thailandsk hverdagsmad. Menuen skifter løbende — kig forbi for at se hvad vi har i dag.</p>
+        <p data-cms="tekst-2" class="body-lg">Frokost fra kl. 12, aften fra kl. 16. Dansk klassisk og thailandsk hverdagsmad. Menuen skifter løbende. Kig forbi for at se, hvad vi har i dag.</p>
       </div>
     </section>
 
-    <!-- 2. DAGENS RET (placeholder — kommer fra Notion senere) -->
+    <!-- 2. DAGENS RET: samme CMS-værdi som forsiden og dagens-ret.html -->
     <section class="section-pad-sm" id="dagens-ret" aria-label="Dagens ret">
       <div class="col-wide">
         <div class="dagens-ret-card reveal">
           <div class="dagens-ret-card-text">
             <p data-cms="tekst-3" class="eyebrow">Dagens ret</p>
-            <h2 data-cms="overskrift-2">Opdateres dagligt af køkkenet</h2>
+            <h2 data-cms="overskrift-2">Dagens ret</h2>
             <div class="separator"></div>
-            <p data-cms="tekst-4" class="body-lg">Niels og Rapheephon lægger dagens ret op her hver morgen. Lige nu er den ikke koblet på — det kommer snart. Indtil da, ring til os på <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad vi har på i dag.</p>
-            <p data-cms="tekst-5" class="body" style="margin-top:8px"><em>Vi serverer dagens ret som en del af både frokost- og aftenmenuen.</em></p>
+            <div data-cms="dagens-ret" data-cms-type="banner" class="daily-banner" aria-live="polite">
+              <p class="body-lg">Dagens ret bliver lagt op her, når køkkenet har valgt den. Ring til os på <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad vi har på i dag.</p>
+            </div>
           </div>
           <div class="dagens-ret-card-image">
             <div class="dagens-ret-card-image-placeholder" aria-hidden="true">
@@ -96,68 +99,68 @@
     </section>
 
     <!-- 3. FROKOST + AFTEN (kolonner på desktop, tabs på mobil) -->
-    <section class="section-pad" id="frokost" aria-label="Frokost- og aftenmenu">
+    <section class="section-pad" id="menu" aria-label="Frokost- og aftenmenu">
       <div class="col-wide">
 
         <!-- Tabs (kun synlige på mobil) -->
         <div class="menu-tabs" role="tablist" aria-label="Vælg menu">
-          <button data-cms="knaptekst" class="menu-tab is-active" role="tab" aria-selected="true" aria-controls="frokost" data-tab="frokost">Frokostmenu</button>
+          <button data-cms="knaptekst" class="menu-tab is-active" role="tab" aria-selected="true" aria-controls="frokost-menu" data-tab="frokost">Frokostmenu</button>
           <button data-cms="knaptekst-2" class="menu-tab" role="tab" aria-selected="false" aria-controls="aften" data-tab="aften">Aftenmenu</button>
         </div>
 
         <div class="menu-cols">
 
           <!-- FROKOST -->
-          <div class="menu-col is-active" role="tabpanel" id="frokost" data-pane="frokost" style="scroll-margin-top:120px">
+          <div class="menu-col is-active" role="tabpanel" id="frokost-menu" data-pane="frokost" style="scroll-margin-top:120px">
             <p data-cms="tekst-6" class="eyebrow">Frokostmenu</p>
-            <p data-cms="tekst-7" class="menu-time caption">Kl. 12 – 16</p>
+            <p data-cms="tekst-7" class="menu-time caption">Kl. 12-16</p>
             <div class="separator"></div>
             <ul class="menu-items">
-              <li data-cms="punkt">
-                <span class="item-name">Stjerneskud med det hele</span>
+              <li>
+                <span data-cms="punkt" class="item-name">Stjerneskud med det hele</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">140 kr</span>
               </li>
-              <li data-cms="punkt-2">
-                <span class="item-name">Pariserbøf</span>
+              <li>
+                <span data-cms="punkt-2" class="item-name">Pariserbøf</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">149 kr</span>
               </li>
-              <li data-cms="punkt-3">
-                <span class="item-name">Dagens smørrebrød</span>
+              <li>
+                <span data-cms="punkt-3" class="item-name">Dagens smørrebrød</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">35 kr/stk</span>
               </li>
-              <li data-cms="punkt-4">
-                <span class="item-name">Fiskefilet m. rejer og rugbrød</span>
+              <li>
+                <span data-cms="punkt-4" class="item-name">Fiskefilet m. rejer og rugbrød</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">65 kr</span>
               </li>
-              <li data-cms="punkt-5">
-                <span class="item-name">Dagens sandwich</span>
+              <li>
+                <span data-cms="punkt-5" class="item-name">Dagens sandwich</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">65 kr</span>
               </li>
-              <li data-cms="punkt-6">
-                <span class="item-name">Dagens salat</span>
+              <li>
+                <span data-cms="punkt-6" class="item-name">Dagens salat</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">75 kr</span>
               </li>
-              <li data-cms="punkt-7" class="item-note">
-                <em>Tilvalg til salat: kylling 40 kr · røget laks 40 kr</em>
+              <li class="item-note">
+                <em data-cms="punkt-7">Tilvalg til salat: kylling 40 kr · røget laks 40 kr</em>
               </li>
-              <li data-cms="punkt-8">
-                <span class="item-name">10 små forårsruller m. grønt</span>
+              <li>
+                <span data-cms="punkt-8" class="item-name">10 små forårsruller m. grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">55 kr</span>
               </li>
-              <li data-cms="punkt-9">
-                <span class="item-name">Panang m. kylling, rød curry og grønt</span>
+              <li>
+                <span data-cms="punkt-9" class="item-name">Panang m. kylling, rød curry og grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">85 kr</span>
               </li>
-              <li data-cms="punkt-10">
-                <span class="item-name">Stegte ris m. æg og grønt</span>
+              <li>
+                <span data-cms="punkt-10" class="item-name">Stegte ris m. æg og grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">110 kr</span>
               </li>
@@ -167,51 +170,51 @@
           <!-- AFTEN -->
           <div class="menu-col" role="tabpanel" id="aften" data-pane="aften" style="scroll-margin-top:120px" hidden>
             <p data-cms="tekst-8" class="eyebrow">Aftenmenu</p>
-            <p data-cms="tekst-9" class="menu-time caption">Kl. 16 – 20</p>
+            <p data-cms="tekst-9" class="menu-time caption">Kl. 16-20</p>
             <div class="separator"></div>
             <ul class="menu-items">
-              <li data-cms="punkt-11">
-                <span class="item-name">Oksesteak m. fritter og bearnaise</span>
+              <li>
+                <span data-cms="punkt-11" class="item-name">Oksesteak m. fritter og bearnaise</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">170 kr</span>
               </li>
-              <li data-cms="punkt-12">
-                <span class="item-name">Stjerneskud med det hele</span>
+              <li>
+                <span data-cms="punkt-12" class="item-name">Stjerneskud med det hele</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">140 kr</span>
               </li>
-              <li data-cms="punkt-13">
-                <span class="item-name">Café Burger m. fritter</span>
+              <li>
+                <span data-cms="punkt-13" class="item-name">Café Burger m. fritter</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">140 kr</span>
               </li>
-              <li data-cms="punkt-14">
-                <span class="item-name">Bøf m. bløde løg, brun sovs og kartofler</span>
+              <li>
+                <span data-cms="punkt-14" class="item-name">Bøf m. bløde løg, brun sovs og kartofler</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">140 kr</span>
               </li>
-              <li data-cms="punkt-15">
-                <span class="item-name">Panang m. kylling, rød curry og grønt</span>
+              <li>
+                <span data-cms="punkt-15" class="item-name">Panang m. kylling, rød curry og grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">85 kr</span>
               </li>
-              <li data-cms="punkt-16">
-                <span class="item-name">Stegte ris m. æg og grønt</span>
+              <li>
+                <span data-cms="punkt-16" class="item-name">Stegte ris m. æg og grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">110 kr</span>
               </li>
-              <li data-cms="punkt-17">
-                <span class="item-name">10 små forårsruller m. grønt</span>
+              <li>
+                <span data-cms="punkt-17" class="item-name">10 små forårsruller m. grønt</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">55 kr</span>
               </li>
-              <li data-cms="punkt-18">
-                <span class="item-name">Stegte nudler m. kylling og grøntsager</span>
+              <li>
+                <span data-cms="punkt-18" class="item-name">Stegte nudler m. kylling og grøntsager</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">125 kr</span>
               </li>
-              <li data-cms="punkt-19">
-                <span class="item-name">Oksekødstrimler i østerssauce m. ris</span>
+              <li>
+                <span data-cms="punkt-19" class="item-name">Oksekødstrimler i østerssauce m. ris</span>
                 <span class="item-leader" aria-hidden="true"></span>
                 <span class="item-price">140 kr</span>
               </li>
@@ -227,7 +230,7 @@
     <section class="section-pad-sm" aria-label="Noter til menuen">
       <div class="col-narrow" style="text-align:center">
         <div class="separator separator-center"></div>
-        <p data-cms="tekst-10" class="body" style="font-family:var(--f-display); font-style:italic; color:var(--c-ink); font-size:18px; margin:24px 0 16px"><em>Torsdags-tapas — spørg om aktuelle retter, det skifter ugentligt.</em></p>
+        <p data-cms="tekst-10" class="body" style="font-family:var(--f-display); font-style:italic; color:var(--c-ink); font-size:18px; margin:24px 0 16px"><em>Torsdags-tapas: spørg om aktuelle retter, det skifter ugentligt.</em></p>
         <p data-cms="tekst-11" class="caption" style="margin-bottom:12px">Retterne kan tilpasses efter ønske i forhold til allergener.</p>
         <div class="separator separator-center"></div>
       </div>
@@ -257,7 +260,7 @@
         <p data-cms="tekst-15">Hyggeligt stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p>
       </div>
       <div>
-        <h4 data-cms="lille-overskrift">Kontakt</h4>
+        <h3 data-cms="lille-overskrift">Kontakt</h3>
         <address>
           Lille Torv 3, 7430 Ikast<br>
           <a data-cms="linktekst-6" href="tel:30807241">30 80 72 41</a><br>
@@ -266,7 +269,7 @@
         </address>
       </div>
       <div>
-        <h4 data-cms="lille-overskrift-2">Links</h4>
+        <h3 data-cms="lille-overskrift-2">Links</h3>
         <nav aria-label="Footer navigation">
           <a data-cms="linktekst-8" href="menu.html">Menukort</a>
           <a data-cms="linktekst-9" href="om-os.html">Om cafeen</a>
@@ -303,7 +306,7 @@
           else if (!window.matchMedia('(min-width: 881px)').matches) p.setAttribute('hidden', '');
         });
         if (scrollTo) {
-          var el = document.getElementById(target);
+          var el = document.querySelector('.menu-col[data-pane="' + target + '"]');
           if (el && !window.matchMedia('(min-width: 881px)').matches) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }

@@ -716,51 +716,28 @@ setTimeout(() => {
 ```javascript
 const nav = document.querySelector('.nav');
 const sections = document.querySelectorAll('[data-tone]');
+const navHeight = nav.getBoundingClientRect().height;
+const bandHeight = Math.max(window.innerHeight - navHeight - 1, 0);
 
-function updateNav() {
-  const navBottom = nav.getBoundingClientRect().bottom;
-  let isDark = false;
-  sections.forEach(s => {
-    const r = s.getBoundingClientRect();
-    if (r.top <= navBottom && r.bottom >= navBottom) {
-      if (s.dataset.tone === 'dark') isDark = true;
+const toneObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      nav.classList.toggle('is-dark', entry.target.dataset.tone === 'dark');
     }
   });
-  nav.classList.toggle('is-dark', isDark);
-}
+}, { rootMargin: `-${navHeight}px 0px -${bandHeight}px 0px` });
 
-window.addEventListener('scroll', updateNav, { passive: true });
-window.addEventListener('resize', updateNav, { passive: true });
-updateNav();
+sections.forEach(section => toneObserver.observe(section));
 ```
 
 **Brug `data-tone="dark"` på mørke sektioner (hero, catering-sektion, footer).**
 
-### Parallax (hero-billede og stemningsbilleder)
+### Billedmotion
 
-```javascript
-const parallaxEls = document.querySelectorAll('[data-parallax]');
-let ticking = false;
-
-function doParallax() {
-  parallaxEls.forEach(el => {
-    const speed = parseFloat(el.dataset.parallax);
-    const r = el.getBoundingClientRect();
-    const offset = -r.top * speed;
-    el.style.transform = `translate3d(0, ${offset}px, 0)`;
-  });
-  ticking = false;
-}
-
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(doParallax);
-    ticking = true;
-  }
-}, { passive: true });
-```
-
-**Brug `data-parallax="0.12"` på hero-billedet og `data-parallax="0.08"` på sekundære billeder.**
+Billederne holdes statiske. Brug `IntersectionObserver` til at vise indhold med
+`.reveal`, hvis en sektion har brug for bevægelse. Tilføj ikke
+`data-parallax` eller scroll-baserede layoutberegninger. Det holder mobilscroll
+og reduced-motion enkelt.
 
 ### Mobil-drawer
 

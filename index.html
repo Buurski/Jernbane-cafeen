@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jernbane Cafeen — Hyggeligt stationscafé i Ikast</title>
-  <meta name="description" content="Jernbane Cafeen i Ikast. Sæsonmad, tapas, frokost og catering til op til 40 gæster. Lille Torv 3, 7430 Ikast.">
+  <title>Jernbane Cafeen i Ikast | Dansk kromad og thai i stationsbygningen</title>
+  <meta name="description" content="Klassisk dansk kromad og hjemmelavet thai i den gamle stationsbygning på Lille Torv 3 i Ikast. Se dagens ret, menukort og åbningstider.">
   <link rel="canonical" href="https://jbcafeen.dk/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="da_DK">
   <meta property="og:site_name" content="Jernbane Cafeen">
   <meta property="og:url" content="https://jbcafeen.dk/">
-  <meta property="og:title" content="Jernbane Cafeen — Hyggeligt stationscafé i Ikast">
-  <meta property="og:description" content="Thai-mad og dansk klassiker fra bunden i den gamle stationsbygning på Lille Torv 3 i Ikast.">
-  <meta property="og:image" content="https://jbcafeen.dk/billeder/hero-facade.png">
-  <meta property="og:image:alt" content="Jernbane Cafeens facade i Ikast">
+  <meta property="og:title" content="Jernbane Cafeen i Ikast | Dansk kromad og thai i stationsbygningen">
+  <meta property="og:description" content="Klassisk dansk kromad og hjemmelavet thai i den gamle stationsbygning på Lille Torv 3 i Ikast.">
+  <meta property="og:image" content="https://jbcafeen.dk/billeder/mad-restaurant.jpg">
+  <meta property="og:image:alt" content="Mad fra Jernbane Cafeen i Ikast">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,7 +22,7 @@
     "@id": "https://jbcafeen.dk/#restaurant",
     "name": "Jernbane Cafeen",
     "url": "https://jbcafeen.dk/",
-    "image": "https://jbcafeen.dk/billeder/hero-facade.png",
+    "image": "https://jbcafeen.dk/billeder/mad-restaurant.jpg",
     "telephone": "+45 30 80 72 41",
     "email": "info@jbcafeen.dk",
     "address": {"@type": "PostalAddress", "streetAddress": "Lille Torv 3", "postalCode": "7430", "addressLocality": "Ikast", "addressCountry": "DK"},
@@ -32,7 +33,7 @@
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "20:00"},
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:00"}
     ],
-    "servesCuisine": ["Thai", "Danish"],
+    "servesCuisine": ["Danish", "Thai"],
     "sameAs": ["https://www.instagram.com/jernbanecafeen_7430_ikast/", "https://www.findsmiley.dk/1355830"]
   }
   </script>
@@ -42,6 +43,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Spring til indhold</a>
 
   <!-- NAV -->
   <header class="nav" role="banner">
@@ -64,20 +66,19 @@
 
   <main id="top">
 
-    <!-- 1. HERO -->
+    <!-- 1. HERO: mad og mennesker først, ikke facaden -->
     <section class="hero" data-tone="dark" aria-label="Velkomst">
-      <div class="hero-right reveal">
-        <img data-cms="billede-2" src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen logo" class="hero-logo">
-        <p data-cms="tekst" class="eyebrow">Café & Catering · Ikast</p>
-        <p data-cms="tekst-2" class="body-lg">Velkommen indenfor. Thai-mad og dansk klassiker, lavet fra bunden.</p>
-        <a data-cms="linktekst-6" href="menu.html" class="btn-outline">Se vores menukort</a>
-      </div>
       <div class="hero-left">
-        <img data-cms="billede-3" src="billeder/hero-facade.png" alt="Jernbane Cafeens facade i Ikast" data-parallax="0.12" style="background:#2E2A26">
+        <img data-cms="billede-3" src="billeder/mad-restaurant.jpg" alt="Mad fra Jernbane Cafeen i Ikast" style="background:#2E2A26">
         <div class="hero-overlay"></div>
-        <p data-cms="tekst-3" class="hero-tagline">Hyggeligt stationscafé.<br><em>Dejlig mad. Godt selskab.</em></p>
-        <div class="scroll-cue" aria-hidden="true">
-          <div class="scroll-arrow"></div>
+      </div>
+      <div class="hero-right">
+        <img data-cms="billede-2" src="billeder/jernbane-logo-creme.png" alt="Jernbane Cafeen logo" class="hero-logo">
+        <h1 data-cms="overskrift-hero" class="hero-title">Dansk kromad i Ikast</h1>
+        <p data-cms="tekst-2" class="body-lg">Niels er vokset op på en kro. På Jernbane Cafeen møder den klassiske danske tallerken hjemmelavet thai fra Rapheephons køkken. Spis her, eller tag maden med.</p>
+        <div class="hero-actions">
+          <a data-cms="linktekst-6" href="dagens-ret.html" class="btn-solid">Se dagens ret</a>
+          <a data-cms="linktekst-21" href="menu.html" class="btn-outline">Se menukortet</a>
         </div>
       </div>
     </section>
@@ -91,9 +92,9 @@
       <div class="reveal" data-delay="2">
         <p data-cms="tekst-6" class="eyebrow">Åbningstider</p>
         <p data-cms="tekst-7" class="body">
-          Ons: 16–20 · Tor–fre: 12–20<br>
-          Lør: 12–20 · Søn: 12–19<br>
-          <em>Man–tirs: Lukket</em>
+          Ons: 16-20 · Tor-fre: 12-20<br>
+          Lør: 12-20 · Søn: 12-19<br>
+          <em>Man-tirs: Lukket</em>
         </p>
       </div>
       <div class="reveal" data-delay="3">
@@ -102,18 +103,17 @@
       </div>
     </section>
 
-    <!-- 2b. DAGENS RET (placeholder — kommer fra Notion senere) -->
+    <!-- 2b. DAGENS RET: CMS-banner, samme værdi som dagens-ret.html -->
     <section class="section-pad-sm" id="dagens-ret" aria-label="Dagens ret">
       <div class="col-wide">
         <div class="dagens-ret-card reveal">
           <div class="dagens-ret-card-text">
             <p data-cms="tekst-10" class="eyebrow">Dagens ret</p>
-            <h2 data-cms="overskrift">Opdateres dagligt af køkkenet</h2>
+            <h2 data-cms="overskrift">Dagens ret</h2>
             <div class="separator"></div>
-            <p data-cms="tekst-11" class="body-lg">Niels og Rapheephon lægger dagens ret op her hver morgen. Lige nu er den ikke koblet på endnu — det kommer snart. Ring til <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad vi har på i dag.</p>
-            <p data-cms="tekst-12" style="margin-top:24px">
-              <a href="menu.html" class="btn-ghost">Se hele menukortet <span class="arrow" aria-hidden="true"></span></a>
-            </p>
+            <div data-cms="dagens-ret" data-cms-type="banner" class="daily-banner" aria-live="polite">
+              <p class="body-lg">Dagens ret bliver lagt op her, når køkkenet har valgt den. Ring til <a href="tel:30807241">30 80 72 41</a>, så fortæller vi gerne hvad der står på i dag.</p>
+            </div>
           </div>
           <div class="dagens-ret-card-image">
             <div class="dagens-ret-card-image-placeholder" aria-hidden="true">
@@ -131,7 +131,7 @@
           <p data-cms="tekst-13" class="eyebrow">Om os</p>
           <h2 data-cms="overskrift-2" style="font-size:64px;margin-top:60px;margin-bottom:30px;font-weight:700">Naboernes café siden 2023</h2>
           <div class="separator"></div>
-          <p data-cms="tekst-14" class="body-lg">I den gamle stationsbygning fra 1877. Dansk klassisk og thailandsk hverdagsmad fra lokale råvarer — drevet af Niels og Rapheephon Rasmussen.</p>
+          <p data-cms="tekst-14" class="body-lg">I den gamle stationsbygning fra 1877. Klassisk dansk kromad og thailandsk hverdagsmad, drevet af Niels og Rapheephon Rasmussen.</p>
           <a href="om-os.html" class="btn-ghost">Læs hele historien <span class="arrow" aria-hidden="true"></span></a>
         </div>
         <div class="pair offset-right reveal" data-delay="2">
@@ -145,36 +145,26 @@
       </div>
     </section>
 
-    <!-- 4. MENUKORT -->
+    <!-- 4. MENUKORT: to spor, ikke tre ens kort -->
     <section class="section-pad-sm" id="menu" aria-label="Menukort">
       <div class="col-wide">
         <div class="section-header reveal">
           <p data-cms="tekst-15" class="eyebrow">Hvad serverer vi</p>
-          <h2 data-cms="overskrift-3">Mad med sjæl</h2>
+          <h2 data-cms="overskrift-3">To køkkener, én café</h2>
         </div>
-        <div class="menu-grid">
-          <div class="menu-card reveal" data-delay="1">
-            <span class="menu-num" aria-hidden="true">01</span>
-            <h3 data-cms="overskrift-4">Frokostmenu</h3>
+        <div class="tracks-grid">
+          <section class="track-card reveal" data-delay="1" aria-labelledby="track-dansk">
+            <h3 data-cms="overskrift-4" id="track-dansk">Dansk kromad</h3>
             <div class="separator"></div>
-            <p data-cms="tekst-16" class="body">Klassikere med sæsonens touch. Dagens ret skifter — kom ind og se, hvad der er på.</p>
+            <p data-cms="tekst-16" class="body">Klassiske danske retter, frokost og dagens ret. Niels' køkken laver det, som man får det på en kro: ærligt og fra bunden.</p>
             <a href="menu.html#frokost" class="btn-ghost">Se frokostmenuen <span class="arrow" aria-hidden="true"></span></a>
-          </div>
-          <div class="menu-card reveal" data-delay="2">
-            <span class="menu-num" aria-hidden="true">02</span>
-            <h3 data-cms="overskrift-5">Aftenmenu</h3>
+          </section>
+          <section class="track-card reveal" data-delay="2" aria-labelledby="track-thai">
+            <h3 data-cms="overskrift-6" id="track-thai">Thai fra bunden</h3>
             <div class="separator"></div>
-            <p data-cms="tekst-17" class="body">Oksesteak, bøffer, café-burger og varme Thai-retter. Serveres fra kl. 16.</p>
-            <a href="menu.html#aften" class="btn-ghost">Se aftenmenuen <span class="arrow" aria-hidden="true"></span></a>
-          </div>
-          <div class="menu-card menu-card--featured reveal" data-delay="3">
-            <span data-cms="tekststykke" class="menu-badge">Lokalt favorit</span>
-            <span class="menu-num" aria-hidden="true">03</span>
-            <h3 data-cms="overskrift-6">Thai</h3>
-            <div class="separator"></div>
-            <p data-cms="tekst-18" class="body">Hverdagsthai fra Rapheephons køkken — krydret, autentisk, lavet fra bunden.</p>
-            <a href="menu.html#aften" class="btn-ghost">Se Thai-retterne <span class="arrow" aria-hidden="true"></span></a>
-          </div>
+            <p data-cms="tekst-18" class="body">Rapheephon laver thailandsk hverdagsmad fra bunden. Spis den i caféen eller bestil take away.</p>
+            <a href="menu.html#aften" class="btn-ghost">Se thai-retterne <span class="arrow" aria-hidden="true"></span></a>
+          </section>
         </div>
         <div class="menu-grid-cta reveal" style="text-align:center; margin-top:48px">
           <a data-cms="linktekst-7" href="menu.html" class="btn-solid">Se hele menukortet</a>
@@ -182,28 +172,10 @@
       </div>
     </section>
 
-    <!-- 4b. THAI (lille integreret editorial) -->
-    <section class="section-pad-sm" id="thai" aria-label="Thai-mad">
-      <div class="col-wide thai-strip">
-        <div class="thai-strip-text reveal-left">
-          <p data-cms="tekst-19" class="eyebrow">Fra Rapheephons køkken</p>
-          <h2 data-cms="overskrift-7">Thai-mad, lavet fra bunden</h2>
-          <div class="separator"></div>
-          <p data-cms="tekst-20" class="body-lg">Mens Niels står for de danske retter, laver Rapheephon Thai-maden — krydret, hjemmelavet og lige så ærligt som resten af menuen. Det er en stor del af det folk kommer for.</p>
-          <a href="menu.html#aften" class="btn-ghost">Se Thai-retterne <span class="arrow" aria-hidden="true"></span></a>
-        </div>
-        <div class="thai-strip-image reveal-right">
-          <div class="pair-frame">
-            <img data-cms="billede-6" src="billeder/mad-restaurant2.jpg" alt="Thai-mad fra Jernbane Cafeen" loading="lazy" style="background:#2E2A26">
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 5. BREDT STEMNINGSFOTO -->
     <section class="wide-photo" aria-label="Stemningsbillede fra cafeen">
-      <img data-cms="billede-7" src="billeder/mad-restaurant.jpg" alt="" data-parallax="0.08" style="background:#3A3028">
-      <p data-cms="tekst-21" class="wide-caption caption">Hjemmelavet mad fra to traditioner — hver dag</p>
+      <img data-cms="billede-7" src="billeder/mad-catering2.png" alt="" style="background:#3A3028">
+      <p data-cms="tekst-21" class="wide-caption caption">Hjemmelavet mad fra to køkkener, hver dag</p>
     </section>
 
     <!-- 6. CATERING -->
@@ -213,9 +185,9 @@
           <p data-cms="tekst-22" class="eyebrow">Catering & Selskaber</p>
           <h2 data-cms="overskrift-8">Vi bringer hyggen hjem til jer</h2>
           <div class="separator"></div>
-          <p data-cms="tekst-23" class="body-lg">Catering til mindre selskaber, take away — og private dining med Niels som lejekok i jeres egne rammer. Op til ca. 40 gæster i cafeen, eller transportabel mad til jeres sted.</p>
+          <p data-cms="tekst-23" class="body-lg">Catering til mindre selskaber og take away. Op til ca. 40 gæster i cafeen, eller transportabel mad til jeres sted.</p>
           <p data-cms="tekst-24" class="body">Dansk klassisk, thailandsk og sæsonmad. Vi tilpasser menuen til anledningen.</p>
-          <a data-cms="linktekst-8" href="catering.html" class="btn-solid">Læs om catering og lejekok</a>
+          <a data-cms="linktekst-8" href="catering.html" class="btn-solid">Læs om catering</a>
         </div>
         <div class="catering-image reveal-right">
           <div class="pair-frame">
@@ -225,28 +197,12 @@
       </div>
     </section>
 
-    <!-- 7. ANMELDELSER -->
-    <section class="reviews-section section-pad" aria-label="Gæsteanmeldelser">
-      <div class="col-wide">
-        <div class="reviews-header reveal">
-          <p data-cms="tekst-25" class="eyebrow">Hvad siger vores gæster</p>
-          <h2 data-cms="overskrift-9"><span class="counter-num" data-target="96">96</span>% anbefaler os</h2>
-        </div>
-      </div>
-      <div class="reviews-marquee-outer">
-        <div class="reviews-marquee" id="reviewsMarquee"></div>
-      </div>
-    </section>
-
-    <!-- 8. CITAT -->
-    <section class="quote-section section-pad">
+    <!-- 8. PAUSE -->
+    <section class="quote-section section-pad" aria-label="Om Jernbane Cafeen">
       <div class="col-narrow reveal">
         <div class="separator separator-center"></div>
-        <blockquote data-cms="citat" class="quote-text">
-          <em>"Hyggeligt stationscafé, med dejlig mad og drikke."</em>
-        </blockquote>
+        <p data-cms="tekst-26" class="quote-text">Klassisk dansk kromad og thai i stationsbygningen i Ikast.</p>
         <div class="separator separator-center"></div>
-        <p data-cms="tekst-26" class="caption">— Jernbane Cafeen · Ikast</p>
       </div>
     </section>
 
@@ -269,7 +225,7 @@
         </div>
         <div class="kontakt-form reveal" data-delay="2">
           <p data-cms="tekst-28" class="eyebrow">Book bord eller catering</p>
-          <form class="form" id="buur-kontaktform" data-slug="jernbane-cafeen" novalidate>
+          <form class="form" id="buur-kontaktform" data-slug="jernbane-cafeen" data-endpoint="" novalidate>
             <div class="form-group">
               <label for="navn" class="form-label">Navn</label>
               <input type="text" id="navn" name="navn" class="form-input" required autocomplete="name" minlength="2" maxlength="100">
@@ -283,10 +239,18 @@
               <input type="email" id="email" name="email" class="form-input" required autocomplete="email" maxlength="150">
             </div>
             <div class="form-group">
+              <label for="dato" class="form-label">Dato</label>
+              <input type="date" id="dato" name="dato" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="antal" class="form-label">Antal gæster</label>
+              <input type="number" id="antal" name="antal" class="form-input" min="1" max="200" inputmode="numeric">
+            </div>
+            <div class="form-group">
               <label for="besked" class="form-label">Besked</label>
               <textarea id="besked" name="besked" class="form-input form-textarea" rows="4" required minlength="10" maxlength="2000"></textarea>
             </div>
-            <!-- Honeypot — bots udfylder den, mennesker ser den ikke. Må ikke fjernes. -->
+            <!-- Honeypot: bots udfylder den, mennesker ser den ikke. Må ikke fjernes. -->
             <label class="buur-honeypot" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
               Lad dette felt være tomt
               <input name="website" type="text" tabindex="-1" autocomplete="off">
@@ -309,18 +273,30 @@
                 if (!form.checkValidity()) { form.reportValidity(); return; }
                 var data = new FormData(form);
                 var telefon = (data.get("telefon") || "").toString().trim();
+                var dato = (data.get("dato") || "").toString().trim();
+                var antal = (data.get("antal") || "").toString().trim();
                 var besked = (data.get("besked") || "").toString();
+                var honeypot = (data.get("website") || "").toString().trim();
+                if (honeypot) {
+                  if (feedback) feedback.textContent = "Kunne ikke sende lige nu. Prøv igen om lidt.";
+                  return;
+                }
+                var details = [];
+                if (telefon) details.push("Telefon: " + telefon);
+                if (dato) details.push("Dato: " + dato);
+                if (antal) details.push("Antal gæster: " + antal);
                 var body = {
                   name: data.get("navn") || "",
                   email: data.get("email") || "",
-                  message: (telefon ? "Telefon: " + telefon + "\n\n" : "") + besked,
+                  message: (details.length ? details.join("\n") + "\n\n" : "") + besked,
                   honeypot: data.get("website") || "",
                   ts: renderedAt,
                 };
                 if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sender…"; }
                 if (feedback) feedback.textContent = "";
 
-                fetch("https://buur-cms.vercel.app/api/inbox/" + encodeURIComponent(slug), {
+                var endpoint = form.getAttribute("data-endpoint") || "https://buur-cms.vercel.app/api/inbox/" + encodeURIComponent(slug);
+                fetch(endpoint, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(body),
@@ -330,7 +306,7 @@
                     if (res.status === 200 && res.body && res.body.ok) {
                       form.reset();
                       renderedAt = Date.now();
-                      if (feedback) feedback.textContent = "Tak for din besked — vi vender tilbage hurtigst muligt.";
+                      if (feedback) feedback.textContent = "Tak for din besked. Vi vender tilbage hurtigst muligt.";
                     } else {
                       if (feedback) feedback.textContent = (res.body && res.body.error) || "Kunne ikke sende lige nu. Prøv igen om lidt.";
                     }
@@ -370,7 +346,7 @@
         <p data-cms="tekst-30">Hyggeligt stationscafé i hjertet af Ikast.<br>Mad med sjæl og selskab i fokus.</p>
       </div>
       <div>
-        <h4 data-cms="lille-overskrift">Kontakt</h4>
+        <h3 data-cms="lille-overskrift">Kontakt</h3>
         <address>
           Lille Torv 3, 7430 Ikast<br>
           <a data-cms="linktekst-12" href="tel:30807241">30 80 72 41</a><br>
@@ -379,7 +355,7 @@
         </address>
       </div>
       <div>
-        <h4 data-cms="lille-overskrift-2">Links</h4>
+        <h3 data-cms="lille-overskrift-2">Links</h3>
         <nav aria-label="Footer navigation">
           <a data-cms="linktekst-14" href="menu.html">Menukort</a>
           <a data-cms="linktekst-15" href="om-os.html">Om os</a>

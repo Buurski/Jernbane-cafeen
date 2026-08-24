@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Jernbane Cafeen nytårsskabelon</title><desc id="desc">En kvadratisk skabelon med plads til dagens ret.</desc>
+  <rect width="1080" height="1080" fill="#17231f"/><path d="M0 790H1080" stroke="#d59a78" stroke-width="3"/><path d="M0 808H1080" stroke="#f4f0e8" stroke-width="1" opacity=".45"/>
+  <text x="86" y="110" fill="#f4f0e8" font-family="Arial,sans-serif" font-size="28" letter-spacing="6">JERNBANE CAFEEN</text>
+  <text x="86" y="260" fill="#d59a78" font-family="Arial,sans-serif" font-size="24" letter-spacing="5">NYTÅR</text>
+  <text x="86" y="380" fill="#f4f0e8" font-family="Georgia,serif" font-size="82">Dagens ret</text>
+  <rect x="86" y="452" width="908" height="210" fill="#f4f0e8"/>
+  <text x="126" y="550" fill="#17231f" font-family="Georgia,serif" font-size="54">Skriv dagens ret her</text>
+  <text x="126" y="610" fill="#637069" font-family="Arial,sans-serif" font-size="24">Menu eller kort besked fra køkkenet</text>
+  <text x="86" y="920" fill="#f4f0e8" font-family="Arial,sans-serif" font-size="22" letter-spacing="2">LILLE TORV 3 · 7430 IKAST</text>
+  <text x="86" y="965" fill="#d59a78" font-family="Arial,sans-serif" font-size="22">30 80 72 41</text>
+</svg>
