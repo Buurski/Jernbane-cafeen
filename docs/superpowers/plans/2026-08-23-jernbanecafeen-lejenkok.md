@@ -1,5 +1,7 @@
 # Jernbanecaféen + Lej en Kok Implementation Plan
 
+> **Status 2026-08-24:** Planen er et historisk implementeringsgrundlag. De aktive sider bruger `jernbane-site.css`/`jernbane-site.js`, Lej en Kok ligger i det separate repo `Buurski/Lejen-kok`, og begge kontaktformularer er bevidst preview-only uden netværks-POST. Aktuel status og beslutninger ligger i KnowledgeOS-handoffet `wiki/handoff/2026-08-24-jernbanecafeen-lejenkok.md`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking.
 
 **Goal:** Redesign Jernbanecaféen around Danish kro-mad and Thai food, build Lej en Kok as a separate site in Niels' universe, connect both to the existing CMS model, and verify the full experience on desktop and mobile.
