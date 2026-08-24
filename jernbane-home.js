@@ -50,7 +50,7 @@
     const data = new FormData(form);
     if (String(data.get('website') || '').trim()) return;
     const details = [`Telefon: ${String(data.get('telefon') || '').trim() || 'Ikke oplyst'}`, `Dato: ${String(data.get('dato') || '').trim() || 'Ikke oplyst'}`, `Antal gæster: ${String(data.get('antal') || '').trim() || 'Ikke oplyst'}`, '', String(data.get('besked') || '').trim()].join('\n');
-    const endpoint = form.dataset.endpoint || `https://buur-cms.vercel.app/api/inbox/${encodeURIComponent(form.dataset.slug || '')}`;
+    const endpoint = form.dataset.endpoint || `https://kinly-cms.vercel.app/api/inbox/${encodeURIComponent(form.dataset.slug || '')}`;
     submit.disabled = true;
     submit.textContent = 'Sender...';
     feedback.textContent = '';

@@ -170,7 +170,7 @@ const body = {
 };
 ```
 
-Add an optional `data-endpoint` attribute to the form. The production default remains `https://buur-cms.vercel.app/api/inbox/`, and the local test can replace the attribute with a mock endpoint without changing production behavior.
+Add an optional `data-endpoint` attribute to the form. The production default remains `https://kinly-cms.vercel.app/api/inbox/`, and the local test can replace the attribute with a mock endpoint without changing production behavior.
 
 - [ ] **Step 5: Run CMS ingest tests against the new anchors.**
 

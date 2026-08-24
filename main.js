@@ -158,7 +158,7 @@
         honeypot: data.get("website") || "",
         ts: renderedAt
       };
-      var endpoint = form.getAttribute("data-endpoint") || "https://buur-cms.vercel.app/api/inbox/" + encodeURIComponent(slug);
+      var endpoint = form.getAttribute("data-endpoint") || "https://kinly-cms.vercel.app/api/inbox/" + encodeURIComponent(slug);
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sender..."; }
       if (feedback) feedback.textContent = "";
       fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
