@@ -26,6 +26,7 @@
   const headerLogo = header?.querySelector('.jb-logo img');
   const syncHeaderTone = () => {
     if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
     const y = Math.min(window.innerHeight - 1, header.getBoundingClientRect().bottom + 2);
     const under = document.elementFromPoint(window.innerWidth / 2, y);
     const light = Boolean(under?.closest('[data-tone="light"]'));
@@ -83,10 +84,12 @@
 
   // 1877-ghosttallet glider langsommere end resten (diskret parallax).
   const ghost = document.querySelector('.jb-ghosttal');
+  const desktopMedia = window.matchMedia('(min-width: 981px)');
   if (ghost && !reduceMotion && !noAnim) {
     let ghostFrame = 0;
     const drift = () => {
       ghostFrame = 0;
+      if (!desktopMedia.matches) { ghost.style.transform = ''; return; }
       const r = ghost.getBoundingClientRect();
       const d = r.top + r.height / 2 - window.innerHeight / 2;
       ghost.style.transform = `translateY(${(d * 0.12).toFixed(1)}px)`;

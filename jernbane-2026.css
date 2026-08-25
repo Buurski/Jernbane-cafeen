@@ -46,6 +46,7 @@ p { margin: 0; }
 /* ---------- Header ---------- */
 .jb-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 78px; padding: .7rem clamp(1.25rem, 4vw, 3.5rem); color: var(--linen); background: var(--forest); transition: background .25s ease, color .25s ease; }
 .jb-header.is-light { background: var(--linen); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+.jb-header.is-scrolled:not(.is-light) { box-shadow: 0 1px 0 rgba(241, 238, 230, .18); }
 .jb-logo { width: 148px; flex: none; }
 .jb-logo img { width: 100%; height: auto; }
 .jb-nav { display: flex; align-items: center; gap: clamp(.9rem, 2.2vw, 2rem); font-size: .8rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; }
@@ -125,8 +126,13 @@ p { margin: 0; }
 .figur .chip.tilt { left: -1.1rem; bottom: 1.8rem; transform: rotate(1.5deg); box-shadow: 0 4px 14px rgba(26,37,33,.15); }
 
 /* 1877-tal */
-p.jb-ghosttal { font-family: var(--display); font-size: clamp(4.5rem, 10vw, 9.5rem); line-height: 1; color: var(--linen-2); }
-p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 10vw, 9.5rem) * -.4); }
+p.jb-ghosttal { font-family: var(--display); font-size: clamp(4.5rem, 11vw, 10.5rem); line-height: 1; color: #ded7c5; }
+p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
+
+/* 1877 som svag baggrund i de moerke sektioner */
+.jb-har-ghost { position: relative; overflow: hidden; }
+.jb-ghostbg { position: absolute; right: -1rem; bottom: -.15em; margin: 0; font-family: var(--display); font-size: clamp(11rem, 26vw, 24rem); line-height: 1; color: rgba(241, 238, 230, .055); pointer-events: none; user-select: none; }
+.jb-har-ghost > .jb-wrap { position: relative; }
 
 /* CTA-bånd */
 .s-ctaband { background: var(--copper); color: var(--linen); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.6rem; padding: clamp(2.2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem); }
@@ -215,7 +221,9 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 10vw, 9.5rem) * -.4); }
   .jb-menu { display: inline-block; }
   .only-desktop { display: none !important; }
   .jb-logo { width: 118px; }
-  .jb-ring-mobil { display: inline-block; margin-left: auto; padding: .7rem .9rem; font-size: .75rem; }
+  .jb-ring-mobil { display: inline-block; margin-left: auto; padding: .7rem .85rem; font-size: .75rem; white-space: nowrap; }
+  .jb-header { padding-left: 1rem; padding-right: 1rem; gap: .7rem; }
+  .jb-menu { padding: .5rem .7rem; }
   .s-hero-inner { padding-top: 1.6rem; }
   .s-hero-media { position: static; width: 100%; aspect-ratio: auto; height: 235px; margin-top: 1.25rem; }
   .s-hero h1 { font-size: clamp(3.6rem, 20.5vw, 5rem); line-height: 1.15; }
@@ -237,8 +245,9 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 10vw, 9.5rem) * -.4); }
   .thai-mobilfoto img, .dagensret-mobilfoto img { max-width: none; }
   .kromad-cta { display: flex; flex-direction: column; gap: .75rem; text-align: center; margin-top: .6rem; }
   .kromad-cta .jb-button { width: 100%; }
-  p.jb-ghosttal { font-size: 4.5rem; }
-  p.jb-ghosttal + h2 { margin-top: -1.875rem; }
+  p.jb-ghosttal { font-size: 6rem; }
+  p.jb-ghosttal + h2 { margin-top: -2.4rem; }
+  .jb-ghostbg { font-size: 9.5rem; right: -.75rem; }
   .s-dagensret-grid, .s-split, .jb-contact-grid, .jb-form-grid { grid-template-columns: 1fr; }
   .jb-steps { grid-template-columns: 1fr; }
   .figur img { height: clamp(240px, 60vw, 380px); }
