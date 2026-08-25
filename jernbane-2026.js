@@ -22,37 +22,42 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Navbaren følger tonen i sektionen under den (data-tone="light" på lyse sektioner).
+  // Al scroll-logik samles i ÉN requestAnimationFrame med cachede mål, så der
+  // ikke laves layout-læsninger (getBoundingClientRect/elementFromPoint) hver frame.
   const header = document.querySelector('.jb-header');
-  const headerLogo = header?.querySelector('.jb-logo img');
-  const syncHeaderTone = () => {
+  const heroName = document.querySelector('.s-hero h1');
+  let headerBottom = 80;
+  let lastTone = null;
+  let lastToneAt = 0;
+  const syncHeaderTone = now => {
     if (!header) return;
     header.classList.toggle('is-scrolled', window.scrollY > 40);
-    const y = Math.min(window.innerHeight - 1, header.getBoundingClientRect().bottom + 2);
+    if (now - lastToneAt < 120) return;
+    lastToneAt = now;
+    const y = Math.min(window.innerHeight - 1, headerBottom + 2);
     const under = document.elementFromPoint(window.innerWidth / 2, y);
     const light = Boolean(under?.closest('[data-tone="light"]'));
-    header.classList.toggle('is-light', light);
-    if (headerLogo) headerLogo.src = light ? 'billeder/jernbane-logo-lys.png' : 'billeder/jernbane-logo-creme.png';
+    if (light !== lastTone) { lastTone = light; header.classList.toggle('is-light', light); }
   };
-  let toneFrame = 0;
-  const scheduleTone = () => { if (toneFrame) return; toneFrame = requestAnimationFrame(() => { toneFrame = 0; syncHeaderTone(); }); };
-  syncHeaderTone();
-  window.addEventListener('scroll', scheduleTone, { passive: true });
-  window.addEventListener('resize', scheduleTone);
-
-  // Hero-navnetrækket fader ud, når man scroller forbi heroen.
-  const heroName = document.querySelector('.s-hero h1');
-  if (heroName && !reduceMotion) {
-    let fadeFrame = 0;
-    const fade = () => {
-      fadeFrame = 0;
-      const limit = Math.max(240, window.innerHeight * 0.55);
-      const t = Math.min(1, Math.max(0, window.scrollY / limit));
-      heroName.style.opacity = String(1 - t * 0.9);
-      heroName.style.transform = `translateY(${t * -18}px)`;
-    };
-    window.addEventListener('scroll', () => { if (!fadeFrame) fadeFrame = requestAnimationFrame(fade); }, { passive: true });
-    fade();
-  }
+  const measure = () => { if (header) headerBottom = header.getBoundingClientRect().bottom; };
+  let frame = 0;
+  const onScroll = () => {
+    if (frame) return;
+    frame = requestAnimationFrame(now => {
+      frame = 0;
+      syncHeaderTone(now);
+      if (heroName && !reduceMotion) {
+        const limit = Math.max(240, window.innerHeight * 0.55);
+        const t = Math.min(1, Math.max(0, window.scrollY / limit));
+        heroName.style.opacity = String(1 - t * 0.9);
+        heroName.style.transform = `translateY(${t * -18}px)`;
+      }
+    });
+  };
+  measure();
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measure(); lastToneAt = 0; onScroll(); });
 
   const noAnim = document.documentElement.classList.contains('no-anim');
 
@@ -82,19 +87,26 @@
     tavleIO.observe(tavle);
   }
 
-  // 1877-ghosttallet glider langsommere end resten (diskret parallax).
+  // 1877-ghosttallet glider langsommere end resten (diskret parallax, kun desktop).
   const ghost = document.querySelector('.jb-ghosttal');
   const desktopMedia = window.matchMedia('(min-width: 981px)');
   if (ghost && !reduceMotion && !noAnim) {
+    let ghostMid = 0;
+    const measureGhost = () => {
+      ghost.style.transform = '';
+      const r = ghost.getBoundingClientRect();
+      ghostMid = r.top + window.scrollY + r.height / 2;
+    };
     let ghostFrame = 0;
     const drift = () => {
       ghostFrame = 0;
       if (!desktopMedia.matches) { ghost.style.transform = ''; return; }
-      const r = ghost.getBoundingClientRect();
-      const d = r.top + r.height / 2 - window.innerHeight / 2;
+      const d = ghostMid - window.scrollY - window.innerHeight / 2;
       ghost.style.transform = `translateY(${(d * 0.12).toFixed(1)}px)`;
     };
+    measureGhost();
     window.addEventListener('scroll', () => { if (!ghostFrame) ghostFrame = requestAnimationFrame(drift); }, { passive: true });
+    window.addEventListener('resize', () => { measureGhost(); drift(); });
     drift();
   }
 
