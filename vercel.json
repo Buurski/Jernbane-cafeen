@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    { "source": "/menu/", "destination": "/menu.html", "permanent": true },
+    { "source": "/kontakt/", "destination": "/#selskaber", "permanent": true },
+    { "source": "/dagens-ret/", "destination": "/dagens-ret.html", "permanent": true },
+    { "source": "/booking/", "destination": "/#selskaber", "permanent": true },
+    { "source": "/catering.html", "destination": "/#selskaber", "permanent": true },
+    { "source": "/dansk-kromad-ikast.html", "destination": "/menu.html", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/billeder/(.*)", "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ] },
+    { "source": "/(.*)\\.(css|js|svg)", "headers": [ { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" } ] }
+  ]
+}

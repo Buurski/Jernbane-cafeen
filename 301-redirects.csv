@@ -1,5 +1,7 @@
 old_path,new_path,status
 /menu/,/menu.html,301
-/kontakt/,/#kontakt,301
+/kontakt/,/#selskaber,301
 /dagens-ret/,/dagens-ret.html,301
-/booking/,/#kontakt,301
+/booking/,/#selskaber,301
+/catering.html,/#selskaber,301
+/dansk-kromad-ikast.html,/menu.html,301

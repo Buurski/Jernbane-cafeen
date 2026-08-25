@@ -1,13 +1,12 @@
 # Jernbanecaféen
-> Stationscafé i hjertet af Ikast med dansk kro-mad i høj kvalitet, hjemmelavet thai og dagens ret.
+> Restaurant og café i Ikast med dansk kro-mad, hjemmelavet thai, dagens ret og takeaway. Ligger i den gamle stationsbygning fra 1877 på Lille Torv 3, 7430 Ikast.
 
-## Hovedsider
-- [Forside](https://jbcafeen.dk/): Dansk kro-mad, thai, dagens ret, catering og kontakt.
-- [Dansk kro-mad i Ikast](https://jbcafeen.dk/dansk-kromad-ikast.html): Stjerneskud, pariserbøf, smørrebrød og klassiske retter.
-- [Thai mad i Ikast](https://jbcafeen.dk/thai-mad-ikast.html): Hjemmelavet thai med Rapheephons køkken.
-- [Menukort](https://jbcafeen.dk/menu.html): Frokost, aften, dansk og thai.
-- [Dagens ret](https://jbcafeen.dk/dagens-ret.html): Dagens ret og ugens ret fra køkkenet.
-- [Catering](https://jbcafeen.dk/catering.html): Catering, selskaber, take away og private dining.
+## Sider
+- [Forside](https://jbcafeen.dk/): Dansk kro-mad, thai, dagens ret, takeaway og selskaber.
+- [Menukort](https://jbcafeen.dk/menu.html): Frokost (kl. 12-16), aften (kl. 16-20) og thai-kort med priser.
+- [Dagens ret](https://jbcafeen.dk/dagens-ret.html): Dagens ret til 135 kr. Skifter løbende.
+- [Takeaway i Ikast](https://jbcafeen.dk/takeaway.html): Alt på menukortet kan tages med. Ring 30 80 72 41 og hent på stationen.
+- [Thai mad i Ikast](https://jbcafeen.dk/thai-mad-ikast.html): Rapheephons hjemmelavede thai.
 - [Om os](https://jbcafeen.dk/om-os.html): Niels, Rapheephon og stationsbygningen fra 1877.
 
 ## Fakta
@@ -15,8 +14,12 @@
 - Adresse: Lille Torv 3, 7430 Ikast, Danmark
 - Telefon: +45 30 80 72 41
 - Email: info@jbcafeen.dk
-- Åbent: Onsdag 16-20, torsdag-lørdag 12-20, søndag 12-19. Tjek åbningstider før en særlig tur.
-- Ejerteam: Niels og Rapheephon Rasmussen
+- CVR: 35890564
+- Åbningstider: Onsdag 16-20, torsdag-lørdag 12-20, søndag 12-19. Mandag og tirsdag lukket.
+- Bordbestilling: Ikke nødvendig, kom bare forbi.
+- Takeaway: Hele menukortet. Ring 30 80 72 41, hent på Lille Torv 3.
+- Priser (udvalg): Dagens ret 135 kr, stjerneskud 140 kr, pariserbøf 149 kr, smørrebrød 35 kr/stk, panang m. kylling 85 kr, stegte nudler 125 kr, oksesteak 170 kr.
+- Ejere: Niels Rasmussen (kok, fortid på Le Canard og Norsminde Kro) og Rapheephon Rasmussen (thai-køkkenet).
 
 ## Relateret
-- [Lej en Kok](https://lejenkok.dk/): Private dining, selskaber og catering med Niels Rasmussen.
+- [Lej en Kok](https://lejenkok.dk/): Niels som privat kok, selskaber, private dining og catering ude af huset.

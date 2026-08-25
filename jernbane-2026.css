@@ -10,7 +10,7 @@
   --copper-deep: #874c39;
   --brass: #c49a51;
   --ink: #1a2521;
-  --muted: #67736c;
+  --muted: #5a655e;
   --line: rgba(26, 37, 33, .18);
   --line-cream: rgba(241, 238, 230, .16);
   --display: "Anton", "Arial Narrow", sans-serif;
@@ -31,7 +31,7 @@ button, input, textarea { font: inherit; }
 
 h1, h2, h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: .98; margin: 0; letter-spacing: .005em; }
 h1 { font-size: clamp(3.2rem, 9vw, 8.5rem); }
-h2 { font-size: clamp(2.1rem, 4.4vw, 3.9rem); }
+h2 { font-size: clamp(2.1rem, 4.4vw, 3.9rem); text-wrap: balance; }
 h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
 p { margin: 0; }
 
@@ -210,7 +210,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 .jb-some a { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid rgba(241,238,230,.35); transition: border-color .2s ease, transform .2s var(--ease); }
 .jb-some a:hover { border-color: var(--brass); transform: translateY(-2px); }
 .jb-some .txt { font-size: .85rem; color: rgba(241,238,230,.7); }
-.jb-footer-bund { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--line-cream); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .78rem; color: rgba(241,238,230,.5); }
+.jb-footer-bund { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--line-cream); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .78rem; color: rgba(241,238,230,.62); }
 
 /* ---------- Reveal ---------- */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
@@ -240,7 +240,8 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .jb-menu { display: inline-block; }
   .only-desktop { display: none !important; }
   .jb-logo { width: 118px; }
-  .jb-ring-mobil { display: inline-block; margin-left: auto; padding: .7rem .85rem; font-size: .75rem; white-space: nowrap; }
+  .jb-ring-mobil { display: inline-flex; align-items: center; min-height: 44px; margin-left: auto; padding: .5rem .85rem; font-size: .75rem; white-space: nowrap; }
+  .jb-menu { min-height: 44px; }
   .jb-header { padding-left: 1rem; padding-right: 1rem; gap: .7rem; }
   .jb-menu { padding: .5rem .7rem; }
   .s-hero-inner { padding-top: 1.6rem; }
@@ -282,3 +283,11 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 
 /* Vis/skjul-mønster: skjul kun — elementerne beholder deres egen display */
 @media (min-width: 981px) { .only-mobile { display: none !important; } }
+
+/* FAQ (takeaway-siden) */
+.jb-faq details { border-bottom: 1px solid var(--line); }
+.jb-faq summary { cursor: pointer; padding: 1rem 0; font-weight: 700; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.jb-faq summary::-webkit-details-marker { display: none; }
+.jb-faq summary::after { content: "+"; font-family: var(--display); font-size: 1.4rem; color: var(--copper-deep); }
+.jb-faq details[open] summary::after { content: "\2212"; }
+.jb-faq details p { padding: 0 0 1.1rem; max-width: 60ch; }

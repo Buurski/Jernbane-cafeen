@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jbcafeen.dk/</loc></url>
-  <url><loc>https://jbcafeen.dk/dansk-kromad-ikast.html</loc></url>
-  <url><loc>https://jbcafeen.dk/thai-mad-ikast.html</loc></url>
-  <url><loc>https://jbcafeen.dk/menu.html</loc></url>
-  <url><loc>https://jbcafeen.dk/dagens-ret.html</loc></url>
-  <url><loc>https://jbcafeen.dk/catering.html</loc></url>
-  <url><loc>https://jbcafeen.dk/om-os.html</loc></url>
+  <url><loc>https://jbcafeen.dk/</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://jbcafeen.dk/menu.html</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://jbcafeen.dk/dagens-ret.html</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://jbcafeen.dk/takeaway.html</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://jbcafeen.dk/thai-mad-ikast.html</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://jbcafeen.dk/om-os.html</loc><lastmod>2026-08-25</lastmod></url>
 </urlset>
