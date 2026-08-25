@@ -53,6 +53,48 @@
     fade();
   }
 
+  const noAnim = document.documentElement.classList.contains('no-anim');
+
+  // Togtavle-split-flap: tiderne klapper på plads som en gammel afgangstavle, én gang.
+  const tavle = document.querySelector('.s-tavle');
+  if (tavle && !reduceMotion && !noAnim && 'IntersectionObserver' in window) {
+    const POOL = '0123456789KLUET';
+    const flip = el => {
+      const text = el.textContent;
+      el.textContent = '';
+      [...text].forEach((ch, i) => {
+        const slot = document.createElement('span');
+        slot.textContent = ch;
+        el.appendChild(slot);
+        if (!ch.trim()) return;
+        let n = 0;
+        const timer = setInterval(() => {
+          n += 1;
+          if (n > 2 + (i % 3)) { slot.textContent = ch; clearInterval(timer); }
+          else slot.textContent = POOL[Math.floor(Math.random() * POOL.length)];
+        }, 70);
+      });
+    };
+    const tavleIO = new IntersectionObserver((entries, inst) => entries.forEach(entry => {
+      if (entry.isIntersecting) { tavle.querySelectorAll('.tid').forEach(flip); inst.disconnect(); }
+    }), { threshold: .4 });
+    tavleIO.observe(tavle);
+  }
+
+  // 1877-ghosttallet glider langsommere end resten (diskret parallax).
+  const ghost = document.querySelector('.jb-ghosttal');
+  if (ghost && !reduceMotion && !noAnim) {
+    let ghostFrame = 0;
+    const drift = () => {
+      ghostFrame = 0;
+      const r = ghost.getBoundingClientRect();
+      const d = r.top + r.height / 2 - window.innerHeight / 2;
+      ghost.style.transform = `translateY(${(d * 0.12).toFixed(1)}px)`;
+    };
+    window.addEventListener('scroll', () => { if (!ghostFrame) ghostFrame = requestAnimationFrame(drift); }, { passive: true });
+    drift();
+  }
+
   const reveals = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) reveals.forEach(el => el.classList.add('is-visible'));
   else {

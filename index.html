@@ -12,12 +12,14 @@
 <a class="skip-link" href="#main">Spring til indhold</a>
 <header class="jb-header">
   <a class="jb-logo" href="index.html" aria-label="Jernbanecaféen, forside"><img src="billeder/jernbane-logo-creme.png" alt="Jernbanecaféen"></a>
+  <a class="jb-button jb-ring-mobil only-mobile" href="tel:+4530807241">Ring 30 80 72 41</a>
   <button class="jb-menu" type="button" aria-controls="jb-mobile-nav" aria-expanded="false">Menu</button>
   <nav class="jb-nav" aria-label="Hovednavigation">
     <a href="menu.html">Menukort</a>
     <a href="dagens-ret.html">Dagens ret</a>
     <a href="thai-mad-ikast.html">Thai</a>
     <a href="takeaway.html">Takeaway</a>
+    <a href="index.html#selskaber">Selskaber</a>
     <a href="om-os.html">Om os</a>
     <a class="jb-button" href="tel:+4530807241">Ring 30 80 72 41</a>
   </nav>
@@ -29,6 +31,7 @@
   <a href="dagens-ret.html">Dagens ret</a>
   <a href="thai-mad-ikast.html">Thai</a>
   <a href="takeaway.html">Takeaway</a>
+  <a href="index.html#selskaber">Selskaber</a>
   <a href="om-os.html">Om os</a>
   <a href="tel:+4530807241">Ring 30 80 72 41</a>
 </nav>
@@ -37,20 +40,21 @@
 
 <section class="s-hero" data-tone="dark">
   <div class="s-hero-inner">
-    <p class="jb-eyebrow s-hero-eyebrow">Kro-mad &amp; thai &middot; Stationsbygningen fra 1877 &middot; Lille Torv 3, Ikast</p>
-    <h1>Jernbane&shy;caf&eacute;en</h1>
+    <p class="jb-eyebrow s-hero-eyebrow"><span class="only-desktop">Kro-mad &amp; thai &middot; Stationsbygningen fra 1877 &middot; Lille Torv 3, Ikast</span><span class="only-mobile">Kro-mad &amp; thai &middot; Ikast &middot; 1877</span></p>
+    <h1>Jernbane<br>caf&eacute;en</h1>
     <div class="s-hero-media"><img src="billeder/2026/facade.jpg" alt="Jernbanecaféen i den gamle stationsbygning, Niels og Rapheephon i døren" fetchpriority="high"></div>
+    <p class="s-hero-intro only-mobile">Stjerneskud, pariserb&oslash;f og dagens ret. Og Rapheephons hjemmelavede thai. Spis her, eller tag maden med hjem.</p>
     <div class="s-hero-actions">
       <a class="jb-button" href="menu.html">Se menukortet</a>
       <a class="jb-button jb-button-outline" href="tel:+4530807241">Takeaway: 30 80 72 41</a>
-      <p class="s-hero-note">Kom bare forbi, du beh&oslash;ver ikke at bestille bord</p>
+      <p class="s-hero-note only-mobile">Kom bare forbi, ingen bordbestilling</p>
     </div>
   </div>
   <div class="s-tavle" aria-label="Åbningstider">
-    <div><p class="dag">Torsdag&ndash;l&oslash;rdag</p><p class="tid">12&ndash;20</p></div>
+    <div><p class="dag"><span class="only-desktop">Torsdag&ndash;l&oslash;rdag</span><span class="only-mobile">Tors&ndash;l&oslash;r</span></p><p class="tid">12&ndash;20</p></div>
     <div><p class="dag">S&oslash;ndag</p><p class="tid">12&ndash;19</p></div>
     <div><p class="dag">Onsdag</p><p class="tid">16&ndash;20</p></div>
-    <div><p class="dag">Mandag &amp; tirsdag</p><p class="tid lukket">Lukket</p></div>
+    <div><p class="dag"><span class="only-desktop">Mandag &amp; tirsdag</span><span class="only-mobile">Man &amp; tirs</span></p><p class="tid lukket">Lukket</p></div>
   </div>
 </section>
 
@@ -59,10 +63,11 @@
     <div class="s-copy reveal" data-cms="dagens-ret" data-cms-type="banner" aria-live="polite">
       <p><span class="jb-badge">I dag</span> <span class="jb-datestamp" data-cms-field="dato">Torsdag 28. august</span></p>
       <h2 id="dagensret-title" data-cms-field="ret">Gr&aelig;sk kylling med tzatziki og kartofler</h2>
-      <p><span class="jb-price" data-cms-field="pris">135,-</span> &nbsp; Spis her, eller ring og tag den med: <a href="tel:+4530807241">30 80 72 41</a></p>
-      <p class="jb-datestamp">Dagens ret skifter l&oslash;bende. F&oslash;lg med her eller p&aring; <a href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener">Facebook</a></p>
+      <p class="only-mobile dagensret-mobilfoto"><img src="billeder/2026/dagensret.jpg" alt="Dagens ret: græsk kylling med tzatziki og kartofler" style="width:100%;height:280px;object-fit:cover;object-position:center 60%;" loading="lazy" data-cms-field="billede"></p>
+      <p><span class="jb-price" data-cms-field="pris">135,-</span> &nbsp; <span class="only-desktop">Spis her, eller ring og tag den med: <a href="tel:+4530807241">30 80 72 41</a></span><span class="only-mobile">Spis her, eller ring: <a href="tel:+4530807241">30 80 72 41</a></span></p>
+      <p class="jb-datestamp"><span class="only-desktop">Dagens ret skifter l&oslash;bende. F&oslash;lg med her eller p&aring;</span><span class="only-mobile">Skifter l&oslash;bende. F&oslash;lg med her eller p&aring;</span> <a href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener">Facebook</a></p>
     </div>
-    <div class="reveal" data-delay="1"><img src="billeder/2026/dagensret.jpg" alt="Dagens ret: græsk kylling med tzatziki og kartofler" style="width:100%;height:clamp(260px,30vw,420px);object-fit:cover;object-position:center 60%;" loading="lazy" data-cms-field="billede"></div>
+    <div class="reveal only-desktop" data-delay="1"><img src="billeder/2026/dagensret.jpg" alt="Dagens ret: græsk kylling med tzatziki og kartofler" style="width:100%;height:clamp(260px,30vw,420px);object-fit:cover;object-position:center 60%;" loading="lazy" data-cms-field="billede"></div>
   </div>
 </section>
 
@@ -70,16 +75,16 @@
   <div class="jb-wrap s-split top">
     <div class="s-copy reveal">
       <h2 id="kromad-title">Kro-maden er ikke nostalgi.<br>Den er h&aring;ndv&aelig;rk.</h2>
-      <p>Niels er vokset op p&aring; en kro og uddannet kok med fortid p&aring; Le Canard og Norsminde Kro. S&aring; n&aring;r der st&aring;r stjerneskud og pariserb&oslash;f p&aring; kortet, er det fordi han kan dem, ikke fordi de skal fylde.</p>
+      <p><span class="only-desktop">Niels er vokset op p&aring; en kro og uddannet kok med fortid p&aring; Le Canard og Norsminde Kro. S&aring; n&aring;r der st&aring;r stjerneskud og pariserb&oslash;f p&aring; kortet, er det fordi han kan dem, ikke fordi de skal fylde.</span><span class="only-mobile">Niels er vokset op p&aring; en kro og uddannet kok med fortid p&aring; Le Canard og Norsminde Kro. S&aring; n&aring;r der st&aring;r stjerneskud p&aring; kortet, er det fordi han kan det.</span></p>
       <div class="jb-menuliste">
         <div class="row"><span class="navn">Stjerneskud med det hele</span><span class="pris">140,-</span></div>
         <div class="row"><span class="navn">Pariserb&oslash;f</span><span class="pris">149,-</span></div>
-        <div class="row"><span class="navn">Oksesteak m. fritter og bearnaise</span><span class="pris">170,-</span></div>
-        <div class="row"><span class="navn">Dagens sm&oslash;rrebr&oslash;d</span><span class="pris">35,- pr. stk.</span></div>
+        <div class="row"><span class="navn"><span class="only-desktop">Oksesteak m. fritter og bearnaise</span><span class="only-mobile">Oksesteak m. bearnaise</span></span><span class="pris">170,-</span></div>
+        <div class="row"><span class="navn">Dagens sm&oslash;rrebr&oslash;d</span><span class="pris"><span class="only-desktop">35,- pr. stk.</span><span class="only-mobile">35,-/stk.</span></span></div>
       </div>
-      <p><a class="jb-button jb-button-dark" href="menu.html">Hele menukortet</a> &nbsp; <span class="jb-datestamp">Alt p&aring; kortet kan tages med</span></p>
+      <p class="kromad-cta"><a class="jb-button jb-button-dark" href="menu.html">Hele menukortet</a> <span class="jb-datestamp">Alt p&aring; kortet kan tages med</span></p>
     </div>
-    <div class="figur reveal" data-delay="1">
+    <div class="figur reveal only-desktop" data-delay="1">
       <img src="billeder/2026/stjerneskud.jpg" alt="Stjerneskud med det hele" loading="lazy">
       <p class="chip tilt">Stjerneskuddet, husets klassiker</p>
     </div>
@@ -90,16 +95,17 @@
   <div class="jb-wrap s-split">
     <div class="s-copy reveal">
       <h2 id="thai-title">Rapheephons hjemmelavede thai</h2>
-      <p>Ingen f&aelig;rdigretter: Rapheephon st&aring;r selv for hver eneste ret. Spis i caf&eacute;en, eller ring og tag med hjem: <a href="tel:+4530807241">30 80 72 41</a>.</p>
-      <div class="jb-menuliste">
-        <div class="row"><span class="navn">Panang m. kylling</span><span class="pris">85,-</span></div>
-        <div class="row"><span class="navn">Stegte nudler m. kylling</span><span class="pris">125,-</span></div>
+      <p class="only-mobile thai-mobilfoto"><img src="billeder/2026/thai.jpg" alt="Phad hmu krob, lynstegt sprødt grisebryst med grønt og ris" loading="lazy" style="width:100%;height:240px;object-fit:cover;"></p>
+      <p><span class="only-desktop">Ingen f&aelig;rdigretter: Rapheephon st&aring;r selv for hver eneste ret. Spis i caf&eacute;en, eller ring og tag med hjem: <a href="tel:+4530807241">30 80 72 41</a>.</span><span class="only-mobile">Panang, stegte nudler og for&aring;rsruller, lavet fra bunden. Spis dem her, eller ring og tag dem med.</span></p>
+      <div class="jb-menuliste thin">
+        <div class="row"><span class="navn"><span class="only-desktop">Panang m. kylling</span><span class="only-mobile">Panang med kylling</span></span><span class="pris">85,-</span></div>
+        <div class="row"><span class="navn"><span class="only-desktop">Stegte nudler m. kylling</span><span class="only-mobile">Stegte nudler med kylling</span></span><span class="pris">125,-</span></div>
         <div class="row"><span class="navn">10 sm&aring; for&aring;rsruller</span><span class="pris">55,-</span></div>
-        <div class="row"><span class="navn">Oksek&oslash;dstrimler i &oslash;sterssauce m. ris</span><span class="pris">140,-</span></div>
+        <div class="row"><span class="navn"><span class="only-desktop">Oksek&oslash;dstrimler i &oslash;sterssauce m. ris</span><span class="only-mobile">Oksek&oslash;d i &oslash;sterssauce</span></span><span class="pris">140,-</span></div>
       </div>
-      <p><a class="jb-button" href="thai-mad-ikast.html">Se hele thai-kortet</a></p>
+      <p class="only-desktop"><a class="jb-button" href="thai-mad-ikast.html">Se hele thai-kortet</a></p>
     </div>
-    <div class="figur reveal" data-delay="1">
+    <div class="figur reveal only-desktop" data-delay="1">
       <img src="billeder/2026/thai.jpg" alt="Phad hmu krob, lynstegt sprødt grisebryst med grønt og ris" loading="lazy">
       <p class="chip dark">Phad hmu krob, lynstegt spr&oslash;dt grisebryst</p>
     </div>
@@ -112,14 +118,13 @@
     <div class="s-copy reveal" data-delay="1">
       <p class="jb-ghosttal" aria-hidden="true">1877</p>
       <h2 id="historie-title">Stationen, der blev et spisested</h2>
-      <p>Ikast Station er fra 1877, bygget til str&aelig;kningen mellem Silkeborg og Herning. I dag st&aring;r bygningen stort set som dengang, med togbanen p&aring; den ene side og Lille Torv p&aring; den anden.</p>
-      <p>Niels overtog caf&eacute;en i 2023 og st&aring;r for k&oslash;kkenet. Rapheephon tager imod g&aelig;sterne og st&aring;r bag det thai, der er blevet fast inventar.</p>
-      <p><a class="jb-ghostlink" href="om-os.html">L&aelig;s mere under Om os</a></p>
+      <p><span class="only-desktop">Ikast Station er fra 1877, bygget til str&aelig;kningen mellem Silkeborg og Herning. I dag st&aring;r bygningen stort set som dengang, med togbanen p&aring; den ene side og Lille Torv p&aring; den anden.</span><span class="only-mobile">Ikast Station er fra 1877. I dag st&aring;r bygningen stort set som dengang, med togbanen p&aring; den ene side og Lille Torv p&aring; den anden.</span></p>
+      <p><span class="only-desktop">Niels overtog caf&eacute;en i 2023 og st&aring;r for k&oslash;kkenet. Rapheephon tager imod g&aelig;sterne og st&aring;r bag det thai, der er blevet fast inventar.</span><span class="only-mobile">Niels overtog caf&eacute;en i 2023. Han har fortid p&aring; Le Canard og Norsminde Kro. Rapheephon tager imod g&aelig;sterne og st&aring;r bag det thai, der er blevet fast inventar.</span></p>
     </div>
   </div>
 </section>
 
-<section class="s-ctaband" data-tone="dark">
+<section class="s-ctaband only-desktop" data-tone="dark">
   <h2>Bord eller takeaway?</h2>
   <div class="cta-side">
     <a class="jb-button jb-button-dark" href="tel:+4530807241">Ring 30 80 72 41</a>
@@ -130,40 +135,11 @@
 <section class="jb-pad" data-tone="light" id="selskaber" aria-labelledby="selskab-title">
   <div class="jb-wrap s-split">
     <div class="s-copy reveal">
-      <p class="jb-eyebrow">Selskaber og private dining</p>
       <h2 id="selskab-title">Skal Niels lave maden hos jer?</h2>
-      <p>Til selskaber, private dining og catering kommer Niels ud til jer. Det foreg&aring;r gennem Lej en Kok, hans andet k&oslash;kken.</p>
+      <p><span class="only-desktop">Til selskaber, private dining og catering kommer Niels ud til jer. Det foreg&aring;r gennem Lej en Kok, hans andet k&oslash;kken.</span><span class="only-mobile">Til selskaber, private dining og catering kommer Niels ud til jer, gennem Lej en Kok.</span></p>
       <p><a class="jb-button jb-button-outline" href="https://lejenkok.dk/" style="color:var(--ink)!important">Bes&oslash;g lejenkok.dk</a></p>
     </div>
-    <div class="figur reveal" data-delay="1"><img src="billeder/2026/frokost.jpg" alt="Catering-anretninger, klar til servering" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="jb-pad" data-tone="light" id="kontakt" aria-labelledby="contact-title">
-  <div class="jb-wrap jb-contact-grid">
-    <div class="s-copy reveal">
-      <p class="jb-eyebrow">Kom forbi</p>
-      <h2 id="contact-title">Ingen reservation n&oslash;dvendig</h2>
-      <p>Du er velkommen til bare at komme. Vil du v&aelig;re sikker p&aring; plads til et st&oslash;rre selskab, kan du skrive til os.</p>
-      <address class="jb-address">Lille Torv 3<br>7430 Ikast<br><br><a href="tel:+4530807241">30 80 72 41</a><br><a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a></address>
-    </div>
-    <form class="jb-form reveal" data-delay="1" id="jb-contact-form" data-slug="jernbane-cafeen">
-      <div class="jb-form-grid">
-        <div class="jb-field"><label for="navn">Navn<input id="navn" name="navn" type="text" required minlength="2" maxlength="100" autocomplete="name"></label></div>
-        <div class="jb-field"><label for="email">Email<input id="email" name="email" type="email" required maxlength="150" autocomplete="email"></label></div>
-      </div>
-      <div class="jb-form-grid">
-        <div class="jb-field"><label for="telefon">Telefon<input id="telefon" name="telefon" type="tel" maxlength="20" autocomplete="tel"></label></div>
-        <div class="jb-field"><label for="dato">Dato<input id="dato" name="dato" type="date"></label></div>
-      </div>
-      <div class="jb-form-grid">
-        <div class="jb-field"><label for="antal">Antal g&aelig;ster<input id="antal" name="antal" type="number" min="1" max="200" inputmode="numeric"></label></div>
-        <div class="jb-field jb-honeypot"><label for="website">Website<input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
-      </div>
-      <div class="jb-field"><label for="besked">Hvad kan vi hj&aelig;lpe med?<textarea id="besked" name="besked" required minlength="10" maxlength="2000"></textarea></label></div>
-      <button class="jb-button jb-button-dark" type="submit">Send besked</button>
-      <p class="jb-feedback" role="status" aria-live="polite"></p>
-    </form>
+    <div class="figur reveal only-desktop" data-delay="1"><img src="billeder/2026/cups.jpg" alt="Catering-anretninger i bægre, klar til servering" loading="lazy"></div>
   </div>
 </section>
 
@@ -173,30 +149,32 @@
   <div class="jb-footer-grid">
     <div>
       <a class="jb-footer-logo" href="index.html" aria-label="Jernbanecaféen, forside"><img src="billeder/jernbane-logo-creme.png" alt="Jernbanecaféen"></a>
-      <p class="om">Dansk kro-mad og hjemmelavet thai i stationsbygningen i Ikast.</p>
+      <p class="om only-desktop">Dansk kro-mad og hjemmelavet thai i stationsbygningen i Ikast.</p>
       <div class="jb-some">
         <a href="https://www.facebook.com/profile.php?id=100094077635043" target="_blank" rel="noopener" aria-label="Jernbanecaféen på Facebook"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21.5v-7.4h2.5l.4-2.9h-2.9V9.3c0-.85.24-1.43 1.46-1.43h1.55V5.27c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.88v2.17H8v2.9h2.47v7.4z" fill="currentColor"></path></svg></a>
         <a href="https://www.instagram.com/jernbanecafeen_7430_ikast/" target="_blank" rel="noopener" aria-label="Jernbanecaféen på Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
-        <span class="txt">F&oslash;lg os p&aring; Facebook og Instagram</span>
+        <span class="txt"><span class="only-desktop">F&oslash;lg os p&aring; Facebook og Instagram</span><span class="only-mobile">F&oslash;lg os her</span></span>
       </div>
     </div>
     <div class="kol">
-      <p class="t">Find os</p>
+      <p class="t only-desktop">Find os</p>
       Lille Torv 3, 7430 Ikast<br>
       <a href="tel:+4530807241">Tlf. 30 80 72 41</a><br>
       <a href="mailto:info@jbcafeen.dk">info@jbcafeen.dk</a><br>
       CVR 35890564
     </div>
     <div class="kol">
-      <p class="t">&Aring;bningstider</p>
-      Torsdag&ndash;l&oslash;rdag 12&ndash;20<br>
+      <p class="t only-desktop">&Aring;bningstider</p>
+      <span class="only-desktop">Torsdag&ndash;l&oslash;rdag 12&ndash;20<br>
       S&oslash;ndag 12&ndash;19<br>
       Onsdag 16&ndash;20<br>
-      Mandag &amp; tirsdag lukket
+      Mandag &amp; tirsdag lukket</span>
+      <span class="only-mobile">Ons 16&ndash;20 &middot; Tors&ndash;l&oslash;r 12&ndash;20 &middot; S&oslash;n 12&ndash;19<br>
+      Mandag og tirsdag lukket</span>
     </div>
   </div>
   <div class="jb-footer-bund">
-    <span>Jernbanecaf&eacute;en &middot; Stationen i Ikast</span>
+    <span class="only-desktop">Jernbanecaf&eacute;en &middot; Stationen i Ikast</span>
     <span>Selskaber ude af huset: <a href="https://lejenkok.dk/">lejenkok.dk</a></span>
   </div>
 </footer>
