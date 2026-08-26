@@ -47,7 +47,7 @@ p { margin: 0; }
 
 /* ---------- Header ---------- */
 .jb-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 78px; padding: .7rem clamp(1.25rem, 4vw, 3.5rem); color: var(--linen); background: var(--forest); transition: background .35s ease, color .35s ease, box-shadow .35s ease; }
-.jb-header.is-light { background: var(--linen); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+.jb-header.is-light { background: var(--linen); color: var(--ink); box-shadow: 0 1px 0 rgba(26,37,33,.25); }
 .jb-header.is-scrolled:not(.is-light) { box-shadow: 0 1px 0 rgba(241, 238, 230, .18); }
 .jb-logo { width: 180px; flex: none; display: grid; }
 .jb-logo img { width: 100%; height: auto; grid-area: 1 / 1; transition: opacity .3s ease; }
@@ -90,7 +90,7 @@ p { margin: 0; }
 .s-hero { position: relative; background: var(--forest); color: var(--linen); overflow: hidden; }
 .s-hero-inner { position: relative; padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1.25rem, 4vw, 3.5rem) 0; }
 .s-hero-eyebrow { color: var(--brass); margin-bottom: clamp(.9rem, 2vw, 1.6rem); }
-.s-hero h1 { color: var(--linen); font-size: clamp(3.2rem, 9vw, 8.5rem); line-height: 1.08; }
+.s-hero h1 { color: var(--linen); font-size: clamp(3.2rem, 9vw, 8.5rem); line-height: 1.16; }
 .s-hero-media { position: absolute; right: clamp(1.25rem, 4vw, 3.5rem); top: clamp(4.5rem, 7vw, 6.5rem); width: 34vw; max-width: 550px; aspect-ratio: 540 / 620; }
 .s-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
 .s-hero-intro { font-size: 1rem; line-height: 1.55; color: rgba(241,238,230,.85); }
@@ -299,5 +299,5 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-hero-actions { max-width: 42vw; }
   .s-hero-media { width: clamp(350px, 34vw, 600px); right: clamp(1.5rem, 6vw, 5.5rem); top: clamp(4.5rem, 7vw, 6.5rem); bottom: auto; aspect-ratio: 540 / 575; background: var(--linen); padding: 12px 10px 72px 10px; border-radius: 4px 4px 8px 8px; box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25); }
 }
-.jb-button:not(.jb-button-outline):not(.jb-button-dark) { box-shadow: 0 0 0 1.5px rgba(241,238,230,.85); }
+.jb-button:not(.jb-button-outline) { box-shadow: 0 0 0 1.5px rgba(241,238,230,.85); }
 .jb-ring-mobil { box-shadow: 0 0 0 1.5px rgba(241,238,230,.85); }
