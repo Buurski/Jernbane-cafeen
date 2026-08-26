@@ -29,7 +29,7 @@ a { color: inherit; }
 button, input, textarea { font: inherit; }
 :focus-visible { outline: 3px solid var(--brass); outline-offset: 4px; }
 
-h1, h2, h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1.12; margin: 0; letter-spacing: .005em; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1.26; margin: 0; letter-spacing: .005em; }
 h1 { font-size: clamp(3.2rem, 9vw, 8.5rem); }
 h2 { font-size: clamp(2.1rem, 4.4vw, 3.9rem); text-wrap: balance; }
 h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
@@ -90,7 +90,7 @@ p { margin: 0; }
 .s-hero { position: relative; background: var(--forest); color: var(--linen); overflow: hidden; }
 .s-hero-inner { position: relative; padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1.25rem, 4vw, 3.5rem) 0; }
 .s-hero-eyebrow { color: var(--brass); margin-bottom: clamp(.9rem, 2vw, 1.6rem); }
-.s-hero h1 { color: var(--linen); font-size: clamp(3.2rem, min(13vw, 20.5vh), 16rem); line-height: 1.18; }
+.s-hero h1 { color: var(--linen); font-size: clamp(3.2rem, min(13vw, 20.5vh), 16rem); line-height: 1.24; }
 .s-hero-media { position: absolute; right: clamp(1.25rem, 4vw, 3.5rem); top: clamp(4.5rem, 7vw, 6.5rem); width: 34vw; max-width: 550px; aspect-ratio: 540 / 620; }
 .s-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
 .s-hero-intro { font-size: 1rem; line-height: 1.55; color: rgba(241,238,230,.85); }
@@ -200,7 +200,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 /* ---------- Footer ---------- */
 .jb-footer { background: var(--forest-deep); color: var(--linen); padding: clamp(3rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3.5rem) 2.4rem; }
 .jb-footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.8rem, 4vw, 3rem); align-items: start; }
-.jb-footer-logo { width: 170px; display: block; }
+.jb-footer-logo { width: 290px; max-width: 70%; display: block; }
 .jb-footer .kol { font-size: .9rem; line-height: 2.05; color: rgba(241,238,230,.85); }
 .jb-footer .kol .t { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin-bottom: .5rem; }
 .jb-footer .kol a { text-decoration: none; }
@@ -246,7 +246,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .jb-menu { padding: .5rem .7rem; }
   .s-hero-inner { padding-top: 1.6rem; }
   .s-hero-media { position: static; width: 100%; aspect-ratio: auto; height: 235px; margin-top: 1.25rem; }
-  .s-hero h1 { font-size: clamp(3.6rem, 20.5vw, 5rem); line-height: 1.15; }
+  .s-hero h1 { font-size: clamp(3.6rem, 20.5vw, 5rem); line-height: 1.22; }
   .s-hero-intro { padding-top: 1.5rem; }
   .s-hero-actions { max-width: none; flex-direction: column; align-items: stretch; padding-top: 1.1rem; padding-bottom: 2.1rem; gap: .75rem; }
   .s-hero-actions .jb-button, .s-hero-actions .jb-button-outline { text-align: center; }
@@ -275,7 +275,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-ctaband { flex-direction: column; align-items: flex-start; }
   .jb-footer-grid { display: flex; flex-direction: column; gap: 1.25rem; }
   .jb-footer-grid > div:first-child { display: contents; }
-  .jb-footer-logo { order: 1; width: 150px; }
+  .jb-footer-logo { order: 1; width: 240px; max-width: 78%; }
   .jb-footer .kol { order: 2; font-size: .8125rem; line-height: 2; }
   .jb-some { order: 3; margin-top: .3rem; }
   .jb-footer-bund { justify-content: flex-start; font-size: .6875rem; }
