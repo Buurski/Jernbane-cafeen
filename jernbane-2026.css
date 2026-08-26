@@ -325,7 +325,6 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 .on-dark .jb-tilvalg { --jb-edge-color: var(--linen); }
 .jb-ticket { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: visible; }
 .jb-ticket .fill { fill: var(--jb-fill); }
-.jb-ticket .edge { fill: none; stroke: var(--jb-edge-color); stroke-width: 2px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 @media (max-width: 980px) {
   .jb-button:not(.jb-button-outline).jb-ring-mobil { padding: .5rem .85rem; }
 }

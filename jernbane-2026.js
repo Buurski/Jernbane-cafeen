@@ -147,10 +147,9 @@
 (() => {
   const M = 2.5;
   const F = p => p[0].toFixed(2) + ' ' + p[1].toFixed(2);
-  // Billet-form: rent afrundet rektangel (ingen tick) — radius fra den godkendte
-  // mockup-reference: ca. 24 % af knappens højde, så 3px-linjen følger hjørnet rent.
+  // Billet-form = logoet: rent afrundet rektangel, radius 7,5 % af højden (målt på logoet).
   const ticketD = (w, h) => {
-    const R = Math.max(9, h * 0.24);
+    const R = Math.max(3.5, h * 0.075);
     return [
     `M ${F([w - M - R, M])}`,
     `A ${R} ${R} 0 0 1 ${F([w - M, M + R])}`,
@@ -181,10 +180,6 @@
         fill.setAttribute('d', d);
         svg.append(fill);
       }
-      const edge = document.createElementNS(NS, 'path');
-      edge.setAttribute('class', 'edge');
-      edge.setAttribute('d', d);
-      svg.append(edge);
       el.prepend(svg);
     });
   };
