@@ -299,14 +299,15 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-hero-actions { max-width: 42vw; }
   .s-hero-media { width: clamp(350px, 34vw, 600px); right: clamp(1.5rem, 6vw, 5.5rem); top: clamp(4.5rem, 7vw, 6.5rem); bottom: auto; aspect-ratio: 540 / 575; background: var(--linen); padding: 12px 10px 72px 10px; border-radius: 4px 4px 8px 8px; box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25); }
 }
-/* Outline på originalformen. Den ydre maske er en 3px offset af den
-   eksisterende ticket-form; radiusen trækkes fra, så indhakkene ikke tømmes. */
+/* Originalform på alle: fyldet ligger på ::after med samme notch-mask som før.
+   Outlinen (kun til knapper og Tilvalg) er en EKSAKT offset: den ydre form minus
+   originalformen (mask-composite: exclude) giver en 3px-ring der følger alle
+   indhak 1:1 uden skarpe kanter. Badges og chips beholder deres originale form
+   uden kant. */
 .jb-button:not(.jb-button-outline),
 .jb-badge,
 .figur .chip,
 .jb-tilvalg {
-  --jb-edge: 3px;
-  --jb-fill: var(--copper);
   position: relative;
   z-index: 0;
   isolation: isolate;
@@ -316,64 +317,90 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   -webkit-mask: none;
   mask: none;
 }
-.jb-button:not(.jb-button-outline) { --jb-fill: var(--copper); }
+.jb-button:not(.jb-button-outline) { --jb-fill: var(--copper); --jb-edge-color: var(--linen); }
 .jb-button:not(.jb-button-outline):hover { --jb-fill: var(--copper-deep); }
 .jb-button:not(.jb-button-outline).jb-button-dark { --jb-fill: var(--ink); }
 .jb-button:not(.jb-button-outline).jb-button-dark:hover { --jb-fill: var(--forest-deep); }
-.jb-badge { --jb-fill: var(--copper); --jb-edge-color: var(--ink); }
-.figur .chip { --jb-fill: var(--linen); --jb-edge-color: var(--ink); }
-.figur .chip.dark { --jb-fill: var(--forest-deep); --jb-edge-color: var(--linen); }
+.s-ctaband .jb-button-dark { --jb-fill: var(--forest-deep); }
+.jb-badge { --jb-fill: var(--copper); }
+.figur .chip { --jb-fill: var(--linen); }
+.figur .chip.dark { --jb-fill: var(--forest-deep); }
 .jb-tilvalg { --jb-fill: var(--linen-2); --jb-edge-color: var(--ink); }
-.jb-button:not(.jb-button-outline) { --jb-edge-color: var(--linen); }
 .jb-header.is-light .jb-button:not(.jb-button-outline),
-[data-tone="light"] .jb-button:not(.jb-button-outline) {
-  --jb-edge-color: var(--ink);
-}
-.on-dark .jb-badge,
-.on-dark .figur .chip,
+[data-tone="light"] .jb-button:not(.jb-button-outline) { --jb-edge-color: var(--ink); }
 .on-dark .jb-tilvalg { --jb-edge-color: var(--linen); }
 
-.jb-button:not(.jb-button-outline)::before,
 .jb-button:not(.jb-button-outline)::after,
-.jb-badge::before,
 .jb-badge::after,
-.figur .chip::before,
 .figur .chip::after,
-.jb-tilvalg::before,
 .jb-tilvalg::after {
   content: "";
   position: absolute;
-  pointer-events: none;
-  -webkit-mask:
-    radial-gradient(circle at var(--jb-mask-center) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at calc(100% - var(--jb-mask-center)) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at var(--jb-mask-center) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at calc(100% - var(--jb-mask-center)) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 100% / 51% 51% no-repeat;
-  mask:
-    radial-gradient(circle at var(--jb-mask-center) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at calc(100% - var(--jb-mask-center)) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at var(--jb-mask-center) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at calc(100% - var(--jb-mask-center)) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 100% / 51% 51% no-repeat;
-}
-.jb-button:not(.jb-button-outline)::before,
-.jb-badge::before,
-.figur .chip::before,
-.jb-tilvalg::before {
-  --jb-mask-center: var(--jb-edge);
-  --jb-mask-radius: calc(var(--nr) - var(--jb-edge));
-  inset: calc(var(--jb-edge) * -1);
-  z-index: -2;
-  background: var(--jb-edge-color);
-}
-.jb-button:not(.jb-button-outline)::after,
-.jb-badge::after,
-.figur .chip::after,
-.jb-tilvalg::after {
-  --jb-mask-center: 0px;
-  --jb-mask-radius: var(--nr);
   inset: 0;
   z-index: -1;
   background: var(--jb-fill);
+  -webkit-mask:
+    radial-gradient(circle at 0 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 100% / 51% 51% no-repeat;
+  mask:
+    radial-gradient(circle at 0 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 100% / 51% 51% no-repeat;
+}
+.jb-button:not(.jb-button-outline)::before,
+.jb-tilvalg::before {
+  --jb-edge: 3px;
+  content: "";
+  position: absolute;
+  inset: calc(var(--jb-edge) * -1);
+  z-index: -2;
+  background: var(--jb-edge-color);
+  /* Ydre form = originalform dilateret (skarpheter i bare indhak uden composite).
+     Shorthand mask: bruges fordi mask-image longhand ikke tager /-layers. */
+  -webkit-mask:
+    radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 100% / 51% 51% no-repeat;
+  mask:
+    radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 100% / 51% 51% no-repeat;
+  /* Præcis ring (støttet af moderne browsere): dilateret form UNIONS (add) og
+     originalformen TRÆKKES FRA (subtract) per hjørne. Skal stå EFTER shorthand. */
+  -webkit-mask-composite: add, add, add, add, subtract, subtract, subtract, subtract;
+  mask-composite: add, add, add, add, subtract, subtract, subtract, subtract;
+}
+@supports (mask-composite: subtract) {
+  .jb-button:not(.jb-button-outline)::before,
+  .jb-tilvalg::before {
+    /* Lag 1-4: dilateret form (radius nr-edge). Lag 5-8: originalform (radius nr),
+       SAMME centerposition i before-boksen, så subtraktionen matcher fyldet 1:1. */
+    -webkit-mask:
+      radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 0 / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 0 / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 100% / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 100% / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 100% / 51% 51% no-repeat;
+    mask:
+      radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 0 / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 0 / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 0 100% / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent calc(var(--nr) - var(--jb-edge)), #000 calc(var(--nr) - var(--jb-edge) + .5px)) 100% 100% / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) var(--jb-edge), transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) var(--jb-edge), transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
+      radial-gradient(circle at var(--jb-edge) calc(100% - var(--jb-edge)), transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
+      radial-gradient(circle at calc(100% - var(--jb-edge)) calc(100% - var(--jb-edge)), transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 100% / 51% 51% no-repeat;
+    -webkit-mask-composite: add, add, add, add, subtract, subtract, subtract, subtract;
+    mask-composite: add, add, add, add, subtract, subtract, subtract, subtract;
+  }
 }
 @media (max-width: 980px) {
   .jb-button:not(.jb-button-outline).jb-ring-mobil { padding: .5rem .85rem; }
