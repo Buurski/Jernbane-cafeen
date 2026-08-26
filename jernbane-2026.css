@@ -300,14 +300,50 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-hero-media { width: clamp(350px, 34vw, 600px); right: clamp(1.5rem, 6vw, 5.5rem); top: clamp(4.5rem, 7vw, 6.5rem); bottom: auto; aspect-ratio: 540 / 575; background: var(--linen); padding: 12px 10px 72px 10px; border-radius: 4px 4px 8px 8px; box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25); }
 }
 .jb-button:not(.jb-button-outline) {
-  border: 2px solid transparent;
-  padding: calc(.85rem - 2px) calc(1.5rem - 2px);
-  border-image: var(--notch-lys) 16 / 2px stretch;
+  border: 3px solid transparent;
+  padding: calc(.85rem - 3px) calc(1.5rem - 3px);
+  border-image: var(--notch-lys) 16 / 3px stretch;
   box-shadow: none;
 }
-[data-tone="light"] .jb-button:not(.jb-button-outline), .s-copy .jb-button:not(.jb-button-outline) {
+.jb-header.is-light .jb-button:not(.jb-button-outline),
+[data-tone="light"] .jb-button:not(.jb-button-outline),
+.s-copy .jb-button:not(.jb-button-outline) {
   border-image-source: var(--notch-ink);
 }
+.jb-badge, .figur .chip, .jb-tilvalg {
+  border: 3px solid transparent;
+  border-image: var(--notch-ink) 16 / 3px stretch;
+}
+.figur .chip.dark { border-image-source: var(--notch-lys); }
+.jb-tilvalg { padding: calc(.95rem - 3px) calc(1.2rem - 3px); }
+.jb-badge { padding: calc(.5rem - 3px) calc(.9rem - 3px); }
+.figur .chip { padding: calc(.7rem - 3px) calc(1.1rem - 3px); }
 @media (max-width: 980px) {
-  .jb-ring-mobil { padding: calc(.5rem - 2px) calc(.85rem - 2px); }
+  .jb-ring-mobil { padding: calc(.5rem - 3px) calc(.85rem - 3px); }
+}
+
+/* ---------- Scroll-progress: streg under navbaren ---------- */
+.jb-progress {
+  position: fixed;
+  top: var(--header-height, 78px);
+  left: 0;
+  z-index: 41;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--progress-color) 18%, transparent);
+}
+.jb-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress, 0%);
+  background: var(--progress-color);
+  transform-origin: left center;
+  transition: width .08s linear;
+}
+.jb-progress { --progress-color: var(--linen); }
+.jb-progress.on-light { --progress-color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  .jb-progress::after { transition: none; }
 }

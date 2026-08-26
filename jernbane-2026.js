@@ -25,6 +25,10 @@
   // Al scroll-logik samles i ÉN requestAnimationFrame med cachede mål, så der
   // ikke laves layout-læsninger (getBoundingClientRect/elementFromPoint) hver frame.
   const header = document.querySelector('.jb-header');
+  const progress = document.createElement('div');
+  progress.className = 'jb-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
   const heroName = document.querySelector('.s-hero h1');
   let headerBottom = 80;
   let lastTone = null;
@@ -32,12 +36,16 @@
   const syncHeaderTone = now => {
     if (!header) return;
     header.classList.toggle('is-scrolled', window.scrollY > 40);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.setProperty('--progress', max > 0 ? `${(window.scrollY / max) * 100}%` : '0%');
+    progress.style.setProperty('--header-height', `${headerBottom}px`);
     if (now - lastToneAt < 120) return;
     lastToneAt = now;
     const y = Math.min(window.innerHeight - 1, headerBottom + 2);
     const under = document.elementFromPoint(window.innerWidth / 2, y);
     const light = Boolean(under?.closest('[data-tone="light"]'));
     if (light !== lastTone) { lastTone = light; header.classList.toggle('is-light', light); }
+    progress.classList.toggle('on-light', light);
   };
   const measure = () => { if (header) headerBottom = header.getBoundingClientRect().bottom; };
   let frame = 0;
