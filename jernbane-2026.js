@@ -147,10 +147,10 @@
 (() => {
   const M = 2.5;
   const F = p => p[0].toFixed(2) + ' ' + p[1].toFixed(2);
-  // Billet-formen = logoets 1:1 (målt på jernbane-logo-lys.png: R ≈ 7,5 % af højden):
-  // rent afrundet rektangel, ingen tick.
+  // Billet-form: rent afrundet rektangel (ingen tick) — radius fra den godkendte
+  // mockup-reference: ca. 24 % af knappens højde, så 3px-linjen følger hjørnet rent.
   const ticketD = (w, h) => {
-    const R = Math.max(3.5, h * 0.075);
+    const R = Math.max(9, h * 0.24);
     return [
     `M ${F([w - M - R, M])}`,
     `A ${R} ${R} 0 0 1 ${F([w - M, M + R])}`,
