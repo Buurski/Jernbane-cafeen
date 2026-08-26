@@ -59,7 +59,7 @@ p { margin: 0; }
 .jb-nav a:hover, .jb-nav a[aria-current="page"] { opacity: 1; }
 .jb-nav a[aria-current="page"] { border-bottom: 2px solid var(--brass); padding-bottom: 3px; }
 .jb-notch, .jb-button, .jb-badge, .figur .chip, .jb-tilvalg {
-  --nr: 7px;
+  --nr: 5px;
   -webkit-mask: radial-gradient(circle at 0 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
     radial-gradient(circle at 100% 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
     radial-gradient(circle at 0 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
@@ -352,7 +352,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 }
 .jb-button:not(.jb-button-outline)::before,
 .jb-tilvalg::before {
-  --jb-edge: 3px;
+  --jb-edge: 2px;
   content: "";
   position: absolute;
   inset: calc(var(--jb-edge) * -1);
