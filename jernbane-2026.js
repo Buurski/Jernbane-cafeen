@@ -145,23 +145,24 @@
    perfekte cirkler uanset størrelse. Fyld + 3px strok følger samme path => indre og
    ydre form er præcist ens (som på logoen). */
 (() => {
-  const R = 13, T = 7, M = 2.5;
-  const pt = (cx, cy, a, r) => [cx + r * Math.cos(a * Math.PI / 180), cy - r * Math.sin(a * Math.PI / 180)];
+  const M = 2.5;
   const F = p => p[0].toFixed(2) + ' ' + p[1].toFixed(2);
-  // Et hjørne: r-bue -> konkav tick (sweep 0) -> r-bue. Lige kanter mellem hjørnerne.
-  const corner = (cx, cy, a0, a1, end) =>
-    `A ${R} ${R} 0 0 1 ${F(pt(cx, cy, a0, R))} A ${T} ${T} 0 0 0 ${F(pt(cx, cy, a1, R))} A ${R} ${R} 0 0 1 ${F(end)}`;
-  const ticketD = (w, h) => [
+  // Billet-formen = logoets 1:1 (målt på jernbane-logo-lys.png: R ≈ 7,5 % af højden):
+  // rent afrundet rektangel, ingen tick.
+  const ticketD = (w, h) => {
+    const R = Math.max(3.5, h * 0.075);
+    return [
     `M ${F([w - M - R, M])}`,
-    corner(w - M - R, M + R, 60, 30, [w - M, M + R]),
+    `A ${R} ${R} 0 0 1 ${F([w - M, M + R])}`,
     `L ${w - M} ${h - M - R}`,
-    corner(w - M - R, h - M - R, -30, -60, [w - M - R, h - M]),
+    `A ${R} ${R} 0 0 1 ${F([w - M - R, h - M])}`,
     `L ${M + R} ${h - M}`,
-    corner(M + R, h - M - R, -120, -150, [M, h - M - R]),
+    `A ${R} ${R} 0 0 1 ${F([M, h - M - R])}`,
     `L ${M} ${M + R}`,
-    corner(M + R, M + R, 150, 120, [M + R, M]),
+    `A ${R} ${R} 0 0 1 ${F([M + R, M])}`,
     'Z',
-  ].join(' ');
+    ].join(' ');
+  };
   const render = () => {
     document.querySelectorAll('.jb-button, .jb-tilvalg').forEach(el => {
       if (el.querySelector('.jb-ticket')) el.querySelector('.jb-ticket').remove();
