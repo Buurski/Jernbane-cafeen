@@ -299,120 +299,85 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-hero-actions { max-width: 42vw; }
   .s-hero-media { width: clamp(350px, 34vw, 600px); right: clamp(1.5rem, 6vw, 5.5rem); top: clamp(4.5rem, 7vw, 6.5rem); bottom: auto; aspect-ratio: 540 / 575; background: var(--linen); padding: 12px 10px 72px 10px; border-radius: 4px 4px 8px 8px; box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25); }
 }
-/* Tydelig notch-kant på fyldte, farvede knapper.
-   Kanten ligger på sit eget lag, så hjørneindhakkene ikke klippes væk. */
-.jb-button:not(.jb-button-outline) {
-  --button-fill: var(--copper);
-  --button-edge: var(--linen);
-  --button-notch: 7px;
-  --button-edge-size: 3px;
+/* Outline på originalformen. Den ydre maske er en 3px offset af den
+   eksisterende ticket-form; radiusen trækkes fra, så indhakkene ikke tømmes. */
+.jb-button:not(.jb-button-outline),
+.jb-badge,
+.figur .chip,
+.jb-tilvalg {
+  --jb-edge: 3px;
+  --jb-fill: var(--copper);
   position: relative;
   z-index: 0;
   isolation: isolate;
-  background: transparent;
+  background: transparent !important;
   border: 0;
   border-radius: 0;
-  padding: .85rem 1.5rem;
   -webkit-mask: none;
   mask: none;
 }
+.jb-button:not(.jb-button-outline) { --jb-fill: var(--copper); }
+.jb-button:not(.jb-button-outline):hover { --jb-fill: var(--copper-deep); }
+.jb-button:not(.jb-button-outline).jb-button-dark { --jb-fill: var(--ink); }
+.jb-button:not(.jb-button-outline).jb-button-dark:hover { --jb-fill: var(--forest-deep); }
+.jb-badge { --jb-fill: var(--copper); --jb-edge-color: var(--ink); }
+.figur .chip { --jb-fill: var(--linen); --jb-edge-color: var(--ink); }
+.figur .chip.dark { --jb-fill: var(--forest-deep); --jb-edge-color: var(--linen); }
+.jb-tilvalg { --jb-fill: var(--linen-2); --jb-edge-color: var(--ink); }
+.jb-button:not(.jb-button-outline) { --jb-edge-color: var(--linen); }
+.jb-header.is-light .jb-button:not(.jb-button-outline),
+[data-tone="light"] .jb-button:not(.jb-button-outline) {
+  --jb-edge-color: var(--ink);
+}
+.on-dark .jb-badge,
+.on-dark .figur .chip,
+.on-dark .jb-tilvalg { --jb-edge-color: var(--linen); }
+
 .jb-button:not(.jb-button-outline)::before,
-.jb-button:not(.jb-button-outline)::after {
+.jb-button:not(.jb-button-outline)::after,
+.jb-badge::before,
+.jb-badge::after,
+.figur .chip::before,
+.figur .chip::after,
+.jb-tilvalg::before,
+.jb-tilvalg::after {
   content: "";
   position: absolute;
   pointer-events: none;
-  background: var(--button-fill);
   -webkit-mask:
-    radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 100% / 51% 51% no-repeat;
+    radial-gradient(circle at var(--jb-mask-center) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-mask-center)) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at var(--jb-mask-center) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-mask-center)) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 100% / 51% 51% no-repeat;
   mask:
-    radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 100% / 51% 51% no-repeat;
+    radial-gradient(circle at var(--jb-mask-center) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 0 / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-mask-center)) var(--jb-mask-center), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 0 / 51% 51% no-repeat,
+    radial-gradient(circle at var(--jb-mask-center) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 0 100% / 51% 51% no-repeat,
+    radial-gradient(circle at calc(100% - var(--jb-mask-center)) calc(100% - var(--jb-mask-center)), transparent var(--jb-mask-radius), #000 calc(var(--jb-mask-radius) + .5px)) 100% 100% / 51% 51% no-repeat;
 }
-.jb-button:not(.jb-button-outline)::before {
-  --notch: calc(var(--button-notch) + var(--button-edge-size));
-  inset: calc(var(--button-edge-size) * -1);
+.jb-button:not(.jb-button-outline)::before,
+.jb-badge::before,
+.figur .chip::before,
+.jb-tilvalg::before {
+  --jb-mask-center: var(--jb-edge);
+  --jb-mask-radius: calc(var(--nr) - var(--jb-edge));
+  inset: calc(var(--jb-edge) * -1);
   z-index: -2;
-  background: var(--button-edge);
+  background: var(--jb-edge-color);
 }
-.jb-button:not(.jb-button-outline)::after {
-  --notch: var(--button-notch);
+.jb-button:not(.jb-button-outline)::after,
+.jb-badge::after,
+.figur .chip::after,
+.jb-tilvalg::after {
+  --jb-mask-center: 0px;
+  --jb-mask-radius: var(--nr);
   inset: 0;
   z-index: -1;
-}
-.jb-button:not(.jb-button-outline):hover { --button-fill: var(--copper-deep); }
-.jb-button:not(.jb-button-outline).jb-button-dark { --button-fill: var(--ink); }
-.jb-button:not(.jb-button-outline).jb-button-dark:hover { --button-fill: var(--forest-deep); }
-.jb-header.is-light .jb-button:not(.jb-button-outline),
-[data-tone="light"] .jb-button:not(.jb-button-outline) {
-  --button-edge: var(--ink);
+  background: var(--jb-fill);
 }
 @media (max-width: 980px) {
   .jb-button:not(.jb-button-outline).jb-ring-mobil { padding: .5rem .85rem; }
 }
-.jb-badge, .figur .chip, .jb-tilvalg {
-  --button-fill: var(--linen);
-  --button-edge: var(--ink);
-  --button-notch: 5px;
-  --button-edge-size: 3px;
-  border: 0;
-  position: relative;
-  z-index: 0;
-  isolation: isolate;
-  background: transparent;
-  -webkit-mask: none;
-  mask: none;
-}
-.jb-badge { --button-fill: var(--copper); }
-.jb-tilvalg { --button-fill: var(--linen-2); }
-.figur .chip.dark {
-  --button-fill: var(--forest-deep);
-  --button-edge: var(--linen);
-}
-.jb-badge::before, .jb-badge::after,
-.figur .chip::before, .figur .chip::after,
-.jb-tilvalg::before, .jb-tilvalg::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  background: var(--button-fill);
-  -webkit-mask:
-    radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 100% / 51% 51% no-repeat;
-  mask:
-    radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 0 / 51% 51% no-repeat,
-    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 0 100% / 51% 51% no-repeat,
-    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + .5px)) 100% 100% / 51% 51% no-repeat;
-}
-.jb-badge::before, .figur .chip::before, .jb-tilvalg::before {
-  --notch: calc(var(--button-notch) + var(--button-edge-size));
-  inset: calc(var(--button-edge-size) * -1);
-  z-index: -2;
-  background: var(--button-edge);
-}
-.jb-badge::after, .figur .chip::after, .jb-tilvalg::after {
-  --notch: var(--button-notch);
-  inset: 0;
-  z-index: -1;
-}
-[data-tone="light"] .jb-badge,
-[data-tone="light"] .figur .chip,
-[data-tone="light"] .jb-tilvalg {
-  --button-edge: var(--ink);
-}
-.on-dark .jb-badge,
-.on-dark .figur .chip,
-.on-dark .jb-tilvalg {
-  --button-edge: var(--linen);
-}
-
 
 /* ---------- Scroll-progress: streg under navbaren ---------- */
 .jb-progress {
