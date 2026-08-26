@@ -139,3 +139,59 @@
     button.disabled = false;
   });
 })();
+
+/* Ticket-form (runde hjørner + tick midt i hvert hjørne) på fyldte knapper og Tilvalg.
+   SVG tegnes med viewBox = knappens faktiske pixelstørrelse, så hjørnerne altid er
+   perfekte cirkler uanset størrelse. Fyld + 3px strok følger samme path => indre og
+   ydre form er præcist ens (som på logoen). */
+(() => {
+  const R = 13, T = 7, M = 2.5;
+  const pt = (cx, cy, a, r) => [cx + r * Math.cos(a * Math.PI / 180), cy - r * Math.sin(a * Math.PI / 180)];
+  const F = p => p[0].toFixed(2) + ' ' + p[1].toFixed(2);
+  // Et hjørne: r-bue -> konkav tick (sweep 0) -> r-bue. Lige kanter mellem hjørnerne.
+  const corner = (cx, cy, a0, a1, end) =>
+    `A ${R} ${R} 0 0 1 ${F(pt(cx, cy, a0, R))} A ${T} ${T} 0 0 0 ${F(pt(cx, cy, a1, R))} A ${R} ${R} 0 0 1 ${F(end)}`;
+  const ticketD = (w, h) => [
+    `M ${F([w - M - R, M])}`,
+    corner(w - M - R, M + R, 60, 30, [w - M, M + R]),
+    `L ${w - M} ${h - M - R}`,
+    corner(w - M - R, h - M - R, -30, -60, [w - M - R, h - M]),
+    `L ${M + R} ${h - M}`,
+    corner(M + R, h - M - R, -120, -150, [M, h - M - R]),
+    `L ${M} ${M + R}`,
+    corner(M + R, M + R, 150, 120, [M + R, M]),
+    'Z',
+  ].join(' ');
+  const render = () => {
+    document.querySelectorAll('.jb-button, .jb-tilvalg').forEach(el => {
+      if (el.querySelector('.jb-ticket')) el.querySelector('.jb-ticket').remove();
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const w = r.width, h = r.height;
+      const NS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', 'jb-ticket');
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      svg.setAttribute('preserveAspectRatio', 'none');
+      const d = ticketD(w, h);
+      if (!el.classList.contains('jb-button-outline')) {
+        const fill = document.createElementNS(NS, 'path');
+        fill.setAttribute('class', 'fill');
+        fill.setAttribute('d', d);
+        svg.append(fill);
+      }
+      const edge = document.createElementNS(NS, 'path');
+      edge.setAttribute('class', 'edge');
+      edge.setAttribute('d', d);
+      svg.append(edge);
+      el.prepend(svg);
+    });
+  };
+  let frame;
+  const schedule = () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(render);
+  };
+  render();
+  window.addEventListener('resize', schedule, { passive: true });
+})();
