@@ -59,7 +59,7 @@ p { margin: 0; }
 .jb-nav a:hover, .jb-nav a[aria-current="page"] { opacity: 1; }
 .jb-nav a[aria-current="page"] { border-bottom: 2px solid var(--brass); padding-bottom: 3px; }
 .jb-notch, .jb-button, .jb-badge, .figur .chip, .jb-tilvalg {
-  --nr: 5px;
+  --nr: 7px;
   -webkit-mask: radial-gradient(circle at 0 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 0 / 51% 51% no-repeat,
     radial-gradient(circle at 100% 0, transparent var(--nr), #000 calc(var(--nr) + .5px)) 100% 0 / 51% 51% no-repeat,
     radial-gradient(circle at 0 100%, transparent var(--nr), #000 calc(var(--nr) + .5px)) 0 100% / 51% 51% no-repeat,
@@ -72,9 +72,8 @@ p { margin: 0; }
 .jb-badge, .figur .chip { --nr: 5px; }
 .jb-button { display: inline-block; padding: .85rem 1.5rem; background: var(--copper); color: var(--linen) !important; font-weight: 700; text-decoration: none; opacity: 1 !important; border: 0; cursor: pointer; transition: background .2s ease, transform .2s var(--ease); }
 .jb-button:hover { background: var(--copper-deep); transform: translateY(-1px); }
-.jb-button-outline { background: transparent; border: 0; padding: .85rem 1.5rem; color: inherit !important; -webkit-mask: none; mask: none; --jb-edge-color: var(--linen); position: relative; z-index: 0; isolation: isolate; }
+.jb-button-outline { background: transparent; border: 0; padding: .85rem 1.5rem; color: inherit !important; -webkit-mask: none; mask: none; }
 .jb-button-outline:hover { background: rgba(26,37,33,.06); }
-.jb-button-outline[style*="--ink"], [data-tone="light"] .jb-button-outline, .s-copy .jb-button-outline { --jb-edge-color: var(--ink); }
 .jb-button-dark { background: var(--ink); }
 .jb-button-dark:hover { background: var(--forest-deep); }
 .jb-menu { display: none; background: none; border: 2px solid currentColor; color: inherit; padding: .5rem .9rem; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; cursor: pointer; }
@@ -299,32 +298,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
   .s-hero-actions { max-width: 42vw; }
   .s-hero-media { width: clamp(350px, 34vw, 600px); right: clamp(1.5rem, 6vw, 5.5rem); top: clamp(4.5rem, 7vw, 6.5rem); bottom: auto; aspect-ratio: 540 / 575; background: var(--linen); padding: 12px 10px 72px 10px; border-radius: 4px 4px 8px 8px; box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25); }
 }
-/* Billet-form: store runde hjørner + tick midt i hjørnet (SVG injiceres i JS med
-   knappens faktiske px-størrelse). Fyld + 3px strok følger samme path derfor er
-   indre og ydre form præcist ens. Badges og chips beholder deres originale
-   notch-form uden kant. */
-.jb-button:not(.jb-button-outline),
-.jb-tilvalg {
-  position: relative;
-  z-index: 0;
-  isolation: isolate;
-  background: transparent !important;
-  border: 0;
-  border-radius: 0;
-  -webkit-mask: none;
-  mask: none;
-}
-.jb-button:not(.jb-button-outline) { --jb-fill: var(--copper); --jb-edge-color: var(--linen); }
-.jb-button:not(.jb-button-outline):hover { --jb-fill: var(--copper-deep); }
-.jb-button:not(.jb-button-outline).jb-button-dark { --jb-fill: var(--ink); }
-.jb-button:not(.jb-button-outline).jb-button-dark:hover { --jb-fill: var(--forest-deep); }
-.s-ctaband .jb-button-dark { --jb-fill: var(--forest-deep); }
-.jb-tilvalg { --jb-fill: var(--linen-2); --jb-edge-color: var(--ink); }
-.jb-header.is-light .jb-button:not(.jb-button-outline),
-[data-tone="light"] .jb-button:not(.jb-button-outline) { --jb-edge-color: var(--ink); }
-.on-dark .jb-tilvalg { --jb-edge-color: var(--linen); }
-.jb-ticket { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; overflow: visible; }
-.jb-ticket .fill { fill: var(--jb-fill); }
+
 @media (max-width: 980px) {
   .jb-button:not(.jb-button-outline).jb-ring-mobil { padding: .5rem .85rem; }
 }
