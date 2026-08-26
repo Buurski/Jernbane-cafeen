@@ -72,7 +72,7 @@ p { margin: 0; }
 .jb-badge, .figur .chip { --nr: 5px; }
 .jb-button { display: inline-block; padding: .85rem 1.5rem; background: var(--copper); color: var(--linen) !important; font-weight: 700; text-decoration: none; opacity: 1 !important; border: 0; cursor: pointer; transition: background .2s ease, transform .2s var(--ease); }
 .jb-button:hover { background: var(--copper-deep); transform: translateY(-1px); }
-.jb-button-outline { background: transparent; border: 8px solid transparent; padding: calc(.85rem - 6px) calc(1.5rem - 6px); color: inherit !important; border-image: var(--notch-lys) 16 200 / 8px stretch; -webkit-mask: none; mask: none; }
+.jb-button-outline { background: transparent; border: 8px solid transparent; padding: calc(.85rem - 6px) calc(1.5rem - 6px); color: inherit !important; border-image: var(--notch-lys) 16 / 8px stretch; -webkit-mask: none; mask: none; }
 .jb-button-outline[style*="--ink"], [data-tone="light"] .jb-button-outline, .s-copy .jb-button-outline { border-image-source: var(--notch-ink); }
 .jb-button-outline:hover { background: rgba(26,37,33,.06); }
 .jb-button-dark { background: var(--ink); }
@@ -302,7 +302,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 .jb-button:not(.jb-button-outline) {
   border: 8px solid transparent;
   padding: calc(.85rem - 6px) calc(1.5rem - 6px);
-  border-image: var(--notch-lys) 16 200 / 8px stretch;
+  border-image: var(--notch-lys) 16 200 / 8px round;
   box-shadow: none;
 }
 .jb-header.is-light .jb-button:not(.jb-button-outline),
@@ -312,7 +312,7 @@ p.jb-ghosttal + h2 { margin-top: calc(clamp(4.5rem, 11vw, 10.5rem) * -.4); }
 }
 .jb-badge, .figur .chip, .jb-tilvalg {
   border: 3px solid transparent;
-  border-image: var(--notch-ink) 16 200 / 8px stretch;
+  border-image: var(--notch-ink) 16 200 / 8px round;
 }
 .figur .chip.dark { border-image-source: var(--notch-lys); }
 .jb-tilvalg { padding: calc(.95rem - 6px) calc(1.2rem - 6px); }
